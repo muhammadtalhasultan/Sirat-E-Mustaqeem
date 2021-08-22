@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:sirat_e_mustaqeem/src/core/error/error_code.dart';
 
 import '../../error/failures.dart';
 
@@ -12,8 +13,8 @@ Future<Either<Failure, Position>> getCurrentPosition() async {
     await Geolocator.openLocationSettings();
     return Left(
       LocalFailure(
-        message: 'Location is not enabled',
-        error: 1,
+        message: kLocationDisable['message'],
+        error: kLocationDisable['errorCode'] as int,
       ),
     );
   }
@@ -22,19 +23,14 @@ Future<Either<Failure, Position>> getCurrentPosition() async {
   final LocationPermission permission = await Geolocator.checkPermission();
   LocationPermission newPermission = LocationPermission.denied;
 
-  print('permission: $permission');
-
   if (permission == LocationPermission.denied && Platform.isAndroid) {
     newPermission = await Geolocator.requestPermission();
-
-    print('new permission: $newPermission');
 
     if (newPermission == LocationPermission.deniedForever) {
       return Left(
         LocalFailure(
-          message:
-              'Location is not enabled. Please go to setting to enable it.',
-          error: 2,
+          message: kLocationDisableForever['message'],
+          error: kLocationDisableForever['errorCode'] as int,
         ),
       );
     }
@@ -46,8 +42,8 @@ Future<Either<Failure, Position>> getCurrentPosition() async {
       Platform.isAndroid) {
     return Left(
       LocalFailure(
-        message: 'Location is not enabled.',
-        error: 1,
+        message: kLocationDisable['message'],
+        error: kLocationDisable['errorCode'] as int,
       ),
     );
   }
@@ -60,9 +56,8 @@ Future<Either<Failure, Position>> getCurrentPosition() async {
     if (newPermission == LocationPermission.deniedForever && Platform.isIOS) {
       return Left(
         LocalFailure(
-          message:
-              'Location is not enabled. Please go to setting to enable it.',
-          error: 2,
+          message: kLocationDisableForever['message'],
+          error: kLocationDisableForever['errorCode'] as int,
         ),
       );
     }
@@ -74,8 +69,8 @@ Future<Either<Failure, Position>> getCurrentPosition() async {
     await Geolocator.openLocationSettings();
     return Left(
       LocalFailure(
-        message: 'Location is not enabled. Please go to setting to enable it.',
-        error: 2,
+        message: kLocationDisableForever['message'],
+        error: kLocationDisableForever['errorCode'] as int,
       ),
     );
   }

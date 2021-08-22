@@ -56,6 +56,23 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
         foregroundColor: MaterialStateProperty.all(
           kDarkPlaceholder,
         ),
+        textStyle: MaterialStateProperty.all(
+          TextStyle(
+            fontSize: 16.sp,
+            color: kDarkPrimary,
+          ),
+        ),
+      ),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(kDarkPrimary),
+        textStyle: MaterialStateProperty.all(
+          TextStyle(
+            fontSize: 16.sp,
+            color: kDarkPrimary,
+          ),
+        ),
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -128,6 +145,31 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
         bodyText2: TextStyle(
           fontSize: 14.sp,
           color: kLightTextColor,
+        ),
+      ),
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        elevation: MaterialStateProperty.all(5),
+        foregroundColor: MaterialStateProperty.all(
+          kLightPlaceholder,
+        ),
+        textStyle: MaterialStateProperty.all(
+          TextStyle(
+            fontSize: 16.sp,
+            color: kLightPrimary,
+          ),
+        ),
+      ),
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(kLightPrimary),
+        textStyle: MaterialStateProperty.all(
+          TextStyle(
+            fontSize: 16.sp,
+            color: kLightPrimary,
+          ),
         ),
       ),
     ),

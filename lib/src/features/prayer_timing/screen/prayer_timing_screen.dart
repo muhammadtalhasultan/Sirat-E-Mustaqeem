@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 
-import '../../../core/error/failures.dart';
 import '../../../core/util/constants.dart';
 import '../../error/failure_widget.dart';
+import '../../utils/loading_widget.dart';
 import '../bloc/timing_bloc.dart';
 
 class PrayerTimingScreen extends StatelessWidget {
@@ -39,7 +37,6 @@ class _TimingScreenScaffoldState extends State<TimingScreenScaffold> {
     return Scaffold(
       appBar: AppBar(
         title: Text('prayer timing'),
-        toolbarHeight: 50.h,
       ),
       body: BlocBuilder<TimingBloc, TimingState>(
         builder: (context, state) {
@@ -48,14 +45,7 @@ class _TimingScreenScaffoldState extends State<TimingScreenScaffold> {
             reverseDuration: Duration.zero,
             switchInCurve: kAnimationCurve,
             child: (state is TimingLoading)
-                ? Center(
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 500.w),
-                      child: LottieBuilder.asset(
-                        'assets/loading.json',
-                      ),
-                    ),
-                  )
+                ? LoadingWidget()
                 : (state is TimingLoaded)
                     ? Column(
                         children: [

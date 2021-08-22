@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 
-import '../../../core/error/failures.dart';
 import '../../../core/util/constants.dart';
 import '../../error/failure_widget.dart';
+import '../../utils/loading_widget.dart';
 import '../blocs/angle_bloc/angle_bloc.dart';
 import '../blocs/qibla_bloc/qibla_bloc.dart';
 import '../widget/compass.dart';
@@ -55,14 +54,7 @@ class _QiblaScaffoldState extends State<QiblaScaffold> {
             reverseDuration: Duration.zero,
             switchInCurve: kAnimationCurve,
             child: (state is QiblaLoading)
-                ? Center(
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(maxWidth: 500.w),
-                      child: LottieBuilder.asset(
-                        'assets/loading.json',
-                      ),
-                    ),
-                  )
+                ? LoadingWidget()
                 : (state is QiblaLoaded)
                     ? SafeArea(
                         child: Container(

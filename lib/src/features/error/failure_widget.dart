@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sirat_e_mustaqeem/src/core/error/error_code.dart';
 
 import '../../core/error/failures.dart';
 import '../../core/util/controller/location_controller.dart';
@@ -19,7 +20,7 @@ class FailureWidget extends StatelessWidget {
         physics: const AlwaysScrollableScrollPhysics(),
         child: Container(
           height: 1.sh -
-              50.h -
+              kToolbarHeight -
               ScreenUtil().statusBarHeight -
               ScreenUtil().bottomBarHeight,
           width: 1.sw,
@@ -28,7 +29,8 @@ class FailureWidget extends StatelessWidget {
             children: [
               Text(failure.message),
               if (failure is LocalFailure &&
-                  (failure as LocalFailure).error == 2)
+                  (failure as LocalFailure).error ==
+                      kLocationDisableForever['errorCode'])
                 GestureDetector(
                   onTap: () async => await openAppSetting(),
                   child: Text(
