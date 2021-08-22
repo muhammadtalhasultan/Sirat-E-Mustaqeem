@@ -63,10 +63,10 @@ Future<Either<Failure, Timing>> getPrayerTiming() async {
             errorType: DioErrorType.response),
       );
     }
-  } on RemoteException {
+  } on RemoteException catch (e) {
     return Left(
       RemoteFailure(
-        message: 'Get prayer time failed.',
+        message: e.dioError.message,
         errorType: DioErrorType.response,
       ),
     );

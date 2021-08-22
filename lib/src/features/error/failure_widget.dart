@@ -27,7 +27,10 @@ class FailureWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(failure.message),
+              Text(
+                failure.message,
+                textAlign: TextAlign.center,
+              ),
               if (failure is LocalFailure &&
                   (failure as LocalFailure).error ==
                       kLocationDisableForever['errorCode'])
