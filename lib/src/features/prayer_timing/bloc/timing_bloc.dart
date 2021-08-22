@@ -2,9 +2,10 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:sirat_e_mustaqeem/src/core/error/failures.dart';
-import 'package:sirat_e_mustaqeem/src/features/prayer_timing/model/timing.dart';
-import 'package:sirat_e_mustaqeem/src/features/prayer_timing/model/timing_controller.dart';
+
+import '../../../core/error/failures.dart';
+import '../controller/timing_controller.dart';
+import '../model/timing.dart';
 
 part 'timing_event.dart';
 part 'timing_state.dart';

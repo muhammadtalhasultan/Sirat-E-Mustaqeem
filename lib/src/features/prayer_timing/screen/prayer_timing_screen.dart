@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../core/util/bloc/theme_bloc.dart';
+import '../../../core/error/failures.dart';
+import '../../../core/util/constants.dart';
+import '../../error/failure_widget.dart';
 import '../bloc/timing_bloc.dart';
 
 class PrayerTimingScreen extends StatelessWidget {
@@ -36,23 +37,16 @@ class _TimingScreenScaffoldState extends State<TimingScreenScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          BlocProvider.of<ThemeBloc>(context).add(ToggleTheme());
-        },
-      ),
       appBar: AppBar(
         title: Text('prayer timing'),
-        systemOverlayStyle: Theme.of(context).brightness == Brightness.dark
-            ? SystemUiOverlayStyle.light
-            : SystemUiOverlayStyle.dark,
+        toolbarHeight: 50.h,
       ),
       body: BlocBuilder<TimingBloc, TimingState>(
         builder: (context, state) {
           return AnimatedSwitcher(
-            duration: Duration(milliseconds: 300),
-            reverseDuration: Duration(microseconds: 0),
-            switchInCurve: Curves.easeInOut,
+            duration: kAnimationDuration,
+            reverseDuration: Duration.zero,
+            switchInCurve: kAnimationCurve,
             child: (state is TimingLoading)
                 ? Center(
                     child: ConstrainedBox(
@@ -74,7 +68,16 @@ class _TimingScreenScaffoldState extends State<TimingScreenScaffold> {
                           )
                         ],
                       )
-                    : Container(),
+                    : (state is TimingFailed)
+                        ? FailureWidget(
+                            state.failure,
+                            () {
+                              BlocProvider.of<TimingBloc>(context).add(
+                                RequestTiming(),
+                              );
+                            },
+                          )
+                        : Container(),
           );
         },
       ),

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
@@ -9,7 +7,8 @@ import '../../../core/error/failures.dart';
 import '../../../core/network/api_service.dart';
 import '../../../core/network/network_client.dart';
 import '../../../core/util/constants.dart';
-import 'timing.dart';
+import '../../../core/util/controller/location_controller.dart';
+import '../model/timing.dart';
 
 Future<Either<Failure, Timing>> getPrayerTiming() async {
   /// initiate apiservice class to perform get request to get prayer timing
@@ -20,21 +19,17 @@ Future<Either<Failure, Timing>> getPrayerTiming() async {
   final result = await getCurrentPosition();
 
   Position? position;
+  Failure? failure;
 
   /// fold the result from getCurrentPosition function either [void] or [Position] object
   result.fold(
-    (l) => null,
+    (l) => failure = l,
     (r) => position = r,
   );
 
-  /// if void is returned, location feature is not enabled. A [Failure] is returned in this case.
-  if (position == null) {
-    return Left(
-      LocalFailure(
-        message: 'Location is not enabled',
-        error: 1,
-      ),
-    );
+  /// location feature is not enabled. A [Failure] is returned in this case.
+  if (failure != null) {
+    return Left(failure!);
   }
 
   /// query parameters for get request to get praying timing from api
@@ -76,34 +71,4 @@ Future<Either<Failure, Timing>> getPrayerTiming() async {
       ),
     );
   }
-}
-
-/// Function to get current position of user
-Future<Either<void, Position>> getCurrentPosition() async {
-  if (!await Geolocator.isLocationServiceEnabled()) {
-    /// if user is not enabling the location service
-    await Geolocator.openLocationSettings();
-    return Left(null);
-  }
-
-  /// get the current permission for location service
-  final LocationPermission permission = await Geolocator.checkPermission();
-
-  if (permission == LocationPermission.denied) {
-    /// when first time using the app or allow once
-    /// prompt user to select
-    await Geolocator.requestPermission();
-  }
-  if (permission == LocationPermission.deniedForever && Platform.isIOS) {
-    /// happen in ios only when user click on deny
-    /// allow user to go to setting and enable back
-    await Geolocator.openLocationSettings();
-    return Left(null);
-  }
-
-  return Right(
-    await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.medium,
-    ),
-  );
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -12,6 +13,7 @@ void main() async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 
@@ -28,8 +30,9 @@ class MyApp extends StatelessWidget {
                 return MaterialApp(
                   title: 'Material App',
                   debugShowCheckedModeBanner: false,
+                  color: Colors.white,
                   theme: state.currentTheme,
-                  initialRoute: RouteGenerator.prayerTimingPage,
+                  initialRoute: RouteGenerator.tabScreen,
                   onGenerateRoute: RouteGenerator.generateRoute,
                 );
               },
