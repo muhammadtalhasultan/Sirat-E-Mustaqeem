@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:sirat_e_mustaqeem/src/core/error/error_code.dart';
 
+import '../../error/error_code.dart';
 import '../../error/failures.dart';
 
 /// Function to get current position of user
@@ -82,6 +82,6 @@ Future<Either<Failure, Position>> getCurrentPosition() async {
   );
 }
 
-Future<void> openAppSetting() async {
-  await Geolocator.openAppSettings();
+Future<void> openLocationSetting() async {
+  await Geolocator.openLocationSettings();
 }

@@ -9,11 +9,14 @@ final kLocationDisableForever = {
 };
 
 /// remote error
-final noInternetConnection = {
-  '(OS Error: No address associated with hostname, errno = 7)'
-};
 
-final kInternetError = {
-  'message': 'No internet connection available',
-  'errorCode': 51,
-};
+class RemoteErrorCode {
+  static final List<Map<String, Object>> remoteErrors = [
+    {
+      'rawMessage':
+          '(OS Error: No address associated with hostname, errno = 7)',
+      'message': 'No internet connection available',
+      'errorCode': 51,
+    }
+  ];
+}

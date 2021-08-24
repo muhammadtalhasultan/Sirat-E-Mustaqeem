@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
 
-import '../../../core/util/bloc/theme_bloc.dart';
-import '../../home/screen/home_screen.dart';
 import '../bloc/tab_bloc.dart';
 import '../widget/sirat_bottom_tab.dart';
 

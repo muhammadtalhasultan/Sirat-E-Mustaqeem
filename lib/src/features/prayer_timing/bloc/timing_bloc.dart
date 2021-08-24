@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../../core/error/failures.dart';
-import '../controller/timing_controller.dart';
+import '../../../core/util/controller/timing_controller.dart';
 import '../model/timing.dart';
 
 part 'timing_event.dart';

@@ -35,7 +35,7 @@ class FailureWidget extends StatelessWidget {
                   (failure as LocalFailure).error ==
                       kLocationDisableForever['errorCode'])
                 GestureDetector(
-                  onTap: () async => await openAppSetting(),
+                  onTap: () async => await openLocationSetting(),
                   child: Text(
                     'To App Setting',
                   ),
