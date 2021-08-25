@@ -59,8 +59,8 @@ class _QiblaScaffoldState extends State<QiblaScaffold> {
                                 ],
                               ),
                               Expanded(
-                                child: BlocProvider(
-                                  create: (context) => AngleBloc(),
+                                child: BlocProvider.value(
+                                  value: AngleBloc(state.direction),
                                   child: Compass(),
                                 ),
                               ),

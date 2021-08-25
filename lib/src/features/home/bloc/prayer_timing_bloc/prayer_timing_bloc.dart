@@ -26,6 +26,21 @@ class PrayerTimingBloc extends Bloc<PrayerTimingEvent, PrayerTimingState> {
       }, (r) async* {
         final controller = TimingController(r.data.timings);
 
+        if (controller.forTomorrow) {
+          var result = await getPrayerTiming(forTomorrow: true);
+
+          yield* result.fold((l) async* {
+            yield PrayerTimingState('', '');
+          }, (r) async* {
+            final controller = TimingController(r.data.timings);
+
+            yield PrayerTimingState(
+              controller.prayer,
+              controller.timing,
+            );
+          });
+        }
+
         yield PrayerTimingState(
           controller.prayer,
           controller.timing,

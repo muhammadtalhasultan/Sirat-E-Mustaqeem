@@ -18,6 +18,9 @@ class TimingController {
   /// index of the prayer timing
   int _timingCount = 0;
 
+  /// weather to look for result for tomorrow
+  bool _forTomorrow = false;
+
   /// list to store data for each prayer timing
   late final List<Map<String, String>> _timingsList;
 
@@ -49,18 +52,24 @@ class TimingController {
         _timingCount++;
       }
     }
+
+    if (_timingCount == 5) {
+      _timingCount = 0;
+      _forTomorrow = true;
+    }
   }
 
   /// if index is 5, this means today's prayer timing is finished,
   /// hence, the index is back to 0 (for the next day)
-  int get timingCount => _timingCount == 5 ? 0 : _timingCount;
+  int get timingCount => _timingCount;
+  bool get forTomorrow => _forTomorrow;
   List<Map<String, String>> get timingsList => _timingsList;
   String get prayer => _timingsList[_timingCount].entries.first.key;
   String get timing => _timingsList[_timingCount].entries.first.value;
 }
 
 /// function to call api and get prayer timings
-Future<Either<Failure, Timing>> getPrayerTiming() async {
+Future<Either<Failure, Timing>> getPrayerTiming({forTomorrow = false}) async {
   /// initiate apiservice class to perform get request to get prayer timing
   ApiService apiService =
       ApiService(networkClient: NetworkClient(PRAYER_TIMING_URL));
@@ -90,11 +99,30 @@ Future<Either<Failure, Timing>> getPrayerTiming() async {
   };
 
   /// current date for getting praying timing from api
-  String date = DateTime.now().toIso8601String();
+  int timestamp = ((DateTime.now().millisecondsSinceEpoch) / 1000).floor();
+
+  if (forTomorrow) {
+    final newDate = DateTime.now().add(
+      Duration(
+        days: 1,
+        hours: 12,
+        minutes: 55,
+      ),
+    );
+
+    timestamp = ((DateTime(
+              newDate.year,
+              newDate.month,
+              newDate.day,
+            ).millisecondsSinceEpoch) /
+            1000)
+        .floor();
+  }
 
   try {
     /// returned response from the api
-    Response timingResponse = await apiService.getPrayerTiming(date, params);
+    Response timingResponse =
+        await apiService.getPrayerTiming(timestamp, params);
 
     /// case response is ok: [Timing] class is returned for the presentation layer.
     if (timingResponse.statusCode == 200) {

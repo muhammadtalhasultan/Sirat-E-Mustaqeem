@@ -8,3 +8,5 @@ abstract class PrayerTimingEvent extends Equatable {
 }
 
 class RequestTiming extends PrayerTimingEvent {}
+
+class RequestTimingForTomorrow extends PrayerTimingEvent {}

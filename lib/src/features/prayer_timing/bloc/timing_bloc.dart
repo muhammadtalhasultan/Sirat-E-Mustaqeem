@@ -23,6 +23,17 @@ class TimingBloc extends Bloc<TimingEvent, TimingState> {
       yield* result.fold((l) async* {
         yield TimingFailed(l);
       }, (r) async* {
+        final controller = TimingController(r.data.timings);
+
+        if (controller.forTomorrow) {
+          var result = await getPrayerTiming(forTomorrow: true);
+
+          yield* result.fold((l) async* {
+            yield TimingFailed(l);
+          }, (r) async* {
+            yield TimingLoaded(r);
+          });
+        }
         yield TimingLoaded(r);
       });
     }

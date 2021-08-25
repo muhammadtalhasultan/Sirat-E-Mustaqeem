@@ -50,6 +50,7 @@ double calculateDirection(Position currentPosition) {
     sinDiffLng * cosLatEnd,
     (cosLatStart * sinLatEnd - sinLatStart * cosLatEnd * cosDiffLng),
   );
+
   final angleinDeg = (angleinRad * 180 / pi + 360) % 360;
 
   return angleinDeg;
@@ -70,7 +71,9 @@ void updateEvent(MagnetometerEvent event, BuildContext context) {
     BlocProvider.of<AngleBloc>(context).add(
       SetMagnetometerValue(events),
     );
-    count++;
+    if (count <= window) {
+      count++;
+    }
 
     if (count > window) {
       events.removeAt(0);
@@ -90,11 +93,29 @@ double getCompassAngle(List<MagnetometerEvent> events) {
       event.x,
       event.y,
     );
+
     anglesInRad.add(angleInRad);
   }
 
-  final sum = anglesInRad.reduce((current, next) => current + next);
-  angleInRad = sum / anglesInRad.length;
+  /// handle case for 180 and -180 degree
+  List<double> negRad = anglesInRad.where((element) => element < 0).toList();
 
-  return angleInRad * 180 / pi;
+  final posRad = anglesInRad.where((element) => element > 0).toList();
+
+  double sum = 0;
+
+  if (negRad.isEmpty || posRad.isEmpty) {
+    sum = anglesInRad.reduce((current, next) => current + next);
+  } else if (negRad.every((element) => element >= -1.5) ||
+      posRad.every((element) => element <= 1.5)) {
+    sum = anglesInRad.reduce((current, next) => current + next);
+  } else {
+    negRad = negRad.map((e) => e + 2 * pi).toList();
+    sum = negRad.reduce((current, next) => current + next) +
+        posRad.reduce((current, next) => current + next);
+  }
+
+  angleInRad = (sum / anglesInRad.length);
+
+  return (angleInRad * 180 / pi + 360) % 360;
 }

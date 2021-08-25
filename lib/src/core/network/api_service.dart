@@ -8,7 +8,7 @@ class ApiService {
   ApiService({required this.networkClient});
 
   Future<Response> getPrayerTiming(
-      String date, Map<String, Object> params) async {
-    return await networkClient.get('/$date', params);
+      int timeStamp, Map<String, Object> params) async {
+    return await networkClient.get('/$timeStamp', params);
   }
 }

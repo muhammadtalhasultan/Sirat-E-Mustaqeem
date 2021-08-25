@@ -11,7 +11,8 @@ part 'angle_event.dart';
 part 'angle_state.dart';
 
 class AngleBloc extends Bloc<AngleEvent, AngleState> {
-  AngleBloc() : super(AngleState(0, 0));
+  final double qiblaDirection;
+  AngleBloc(this.qiblaDirection) : super(AngleInitial(0, 0));
 
   @override
   Stream<AngleState> mapEventToState(
@@ -24,7 +25,11 @@ class AngleBloc extends Bloc<AngleEvent, AngleState> {
 
       /// further prevent noise which is less than 0.5 deg(0.008 rad)
       if (state.radian - rad > 0.008 || rad - state.radian > 0.008)
-        yield AngleState(angle, rad);
+        yield AngleLoaded(
+          angle: angle,
+          radian: rad,
+          qiblaDirection: radians(qiblaDirection),
+        );
     }
   }
 }
