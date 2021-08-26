@@ -119,3 +119,39 @@ double getCompassAngle(List<MagnetometerEvent> events) {
 
   return (angleInRad * 180 / pi + 360) % 360;
 }
+
+Future<bool> getMagnetometerAvailability() async {
+  bool isAvailble = await motionSensors.isMagnetometerAvailable();
+
+  return isAvailble;
+}
+
+String getDirectionText(int angle) {
+  if (angle > 0 && angle < 90) {
+    return 'North-East';
+  }
+  if (angle > 90 && angle < 180) {
+    return 'South-East';
+  }
+  if (angle > 180 && angle < 270) {
+    return 'South-West';
+  }
+  if (angle > 270 && angle < 360) {
+    return 'North-West';
+  }
+
+  switch (angle) {
+    case 0:
+      return 'North';
+    case 90:
+      return 'East';
+    case 180:
+      return 'South';
+    case 270:
+      return 'West';
+    case 360:
+      return 'North';
+    default:
+      return '';
+  }
+}

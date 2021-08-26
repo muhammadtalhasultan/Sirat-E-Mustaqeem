@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sirat_e_mustaqeem/src/features/qibla/controller/qibla_controller.dart';
 
 import '../../../core/util/constants.dart';
 import '../../error/failure_widget.dart';
@@ -55,8 +56,16 @@ class _QiblaScaffoldState extends State<QiblaScaffold> {
                                   SizedBox(
                                     height: 32.h,
                                   ),
+                                  Text('Qiblah direction is '),
                                   Text(
-                                    state.direction.toStringAsFixed(0),
+                                    '${state.direction.toStringAsFixed(0)}°',
+                                    style:
+                                        Theme.of(context).textTheme.headline5,
+                                  ),
+                                  Text(
+                                    getDirectionText(
+                                      state.direction.floor(),
+                                    ),
                                   ),
                                 ],
                               ),

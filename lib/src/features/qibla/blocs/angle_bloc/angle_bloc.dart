@@ -30,6 +30,8 @@ class AngleBloc extends Bloc<AngleEvent, AngleState> {
           radian: rad,
           qiblaDirection: radians(qiblaDirection),
         );
+    } else if (event is NotifyFailure) {
+      yield (AngleFailed(0, 0));
     }
   }
 }

@@ -49,6 +49,7 @@ flutter:
     - assets/images/qiblat_icon/svg/
     - assets/images/praying_time/svg/
     - assets/images/setting_icon/svg/
+    - assets/images/error/lottie_json/
     - assets/sound/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -10,3 +10,8 @@ class SetMagnetometerValue extends AngleEvent {
   @override
   List<Object> get props => [events];
 }
+
+class NotifyFailure extends AngleEvent {
+  @override
+  List<Object> get props => [events];
+}

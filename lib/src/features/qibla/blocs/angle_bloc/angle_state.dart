@@ -22,3 +22,7 @@ class AngleLoaded extends AngleState {
     required double radian,
   }) : super(angle, radian);
 }
+
+class AngleFailed extends AngleState {
+  AngleFailed(double angle, double radian) : super(angle, radian);
+}
