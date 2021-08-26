@@ -16,11 +16,11 @@ enum TimingProps {
 }
 
 Map<TimingProps, String> backgroundAsset = {
-  TimingProps.Fajr: 'assets/praying_time/svg/morning.svg',
-  TimingProps.Dhuhr: 'assets/praying_time/svg/noon.svg',
-  TimingProps.Asr: 'assets/praying_time/svg/afternoon.svg',
-  TimingProps.Maghrib: 'assets/praying_time/svg/evening.svg',
-  TimingProps.Isha: 'assets/praying_time/svg/night.svg',
+  TimingProps.Fajr: 'assets/images/praying_time/svg/morning.svg',
+  TimingProps.Dhuhr: 'assets/images/praying_time/svg/noon.svg',
+  TimingProps.Asr: 'assets/images/praying_time/svg/afternoon.svg',
+  TimingProps.Maghrib: 'assets/images/praying_time/svg/evening.svg',
+  TimingProps.Isha: 'assets/images/praying_time/svg/night.svg',
 };
 
 class SuccessWidgetController {

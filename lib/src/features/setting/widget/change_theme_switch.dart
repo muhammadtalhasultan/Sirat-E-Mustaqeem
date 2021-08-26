@@ -36,12 +36,12 @@ class ChangeThemeSwitch extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SvgPicture.asset(
-                      'assets/setting_icon/svg/sun.svg',
+                      'assets/images/setting_icon/svg/sun.svg',
                       color: Theme.of(context).textTheme.bodyText1!.color,
                       width: 20.w,
                     ),
                     SvgPicture.asset(
-                      'assets/setting_icon/svg/moon.svg',
+                      'assets/images/setting_icon/svg/moon.svg',
                       color: Theme.of(context).textTheme.bodyText1!.color,
                       width: 20.w,
                     ),
@@ -68,11 +68,11 @@ class ChangeThemeSwitch extends StatelessWidget {
                     reverseDuration: Duration.zero,
                     child: value
                         ? SvgPicture.asset(
-                            'assets/setting_icon/svg/moon_filled.svg',
+                            'assets/images/setting_icon/svg/moon_filled.svg',
                             width: 20.w,
                           )
                         : SvgPicture.asset(
-                            'assets/setting_icon/svg/sun_filled.svg',
+                            'assets/images/setting_icon/svg/sun_filled.svg',
                             width: 20.w,
                           ),
                   ),

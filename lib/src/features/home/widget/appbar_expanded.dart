@@ -23,11 +23,11 @@ class AppBarExpanded extends StatelessWidget {
                 height: 0.3.sh,
                 child: state.currentTheme.brightness == Brightness.dark
                     ? SvgPicture.asset(
-                        'assets/home_icon/svg/night_mode.svg',
+                        'assets/images/home_icon/svg/night_mode.svg',
                         fit: BoxFit.cover,
                       )
                     : SvgPicture.asset(
-                        'assets/home_icon/svg/day_mode.svg',
+                        'assets/images/home_icon/svg/day_mode.svg',
                         fit: BoxFit.cover,
                       ),
               );

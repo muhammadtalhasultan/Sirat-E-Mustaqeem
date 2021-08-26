@@ -25,7 +25,7 @@ class SiratNavigationBar extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                'assets/navigation_icon/svg/home_nfill.svg',
+                'assets/images/navigation_icon/svg/home_nfill.svg',
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
                     .unselectedItemColor,
@@ -33,7 +33,7 @@ class SiratNavigationBar extends StatelessWidget {
               ),
               label: 'Home',
               activeIcon: SvgPicture.asset(
-                'assets/navigation_icon/svg/home_nfill.svg',
+                'assets/images/navigation_icon/svg/home_nfill.svg',
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
                     .selectedItemColor,
@@ -42,7 +42,7 @@ class SiratNavigationBar extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                'assets/navigation_icon/svg/search.svg',
+                'assets/images/navigation_icon/svg/search.svg',
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
                     .unselectedItemColor,
@@ -50,7 +50,7 @@ class SiratNavigationBar extends StatelessWidget {
               ),
               label: 'Search',
               activeIcon: SvgPicture.asset(
-                'assets/navigation_icon/svg/search.svg',
+                'assets/images/navigation_icon/svg/search.svg',
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
                     .selectedItemColor,
@@ -59,7 +59,7 @@ class SiratNavigationBar extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                'assets/navigation_icon/svg/quran_nfill.svg',
+                'assets/images/navigation_icon/svg/quran_nfill.svg',
                 width: 24.sp,
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
@@ -67,7 +67,7 @@ class SiratNavigationBar extends StatelessWidget {
               ),
               label: 'Quran',
               activeIcon: SvgPicture.asset(
-                'assets/navigation_icon/svg/quran_nfill.svg',
+                'assets/images/navigation_icon/svg/quran_nfill.svg',
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
                     .selectedItemColor,
@@ -76,7 +76,7 @@ class SiratNavigationBar extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                'assets/navigation_icon/svg/bookmark_nfill.svg',
+                'assets/images/navigation_icon/svg/bookmark_nfill.svg',
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
                     .unselectedItemColor,
@@ -84,7 +84,7 @@ class SiratNavigationBar extends StatelessWidget {
               ),
               label: 'Bookmark',
               activeIcon: SvgPicture.asset(
-                'assets/navigation_icon/svg/bookmark_nfill.svg',
+                'assets/images/navigation_icon/svg/bookmark_nfill.svg',
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
                     .selectedItemColor,
@@ -93,7 +93,7 @@ class SiratNavigationBar extends StatelessWidget {
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                'assets/navigation_icon/svg/setting_nfill.svg',
+                'assets/images/navigation_icon/svg/setting_nfill.svg',
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
                     .unselectedItemColor,
@@ -101,7 +101,7 @@ class SiratNavigationBar extends StatelessWidget {
               ),
               label: 'Setting',
               activeIcon: SvgPicture.asset(
-                'assets/navigation_icon/svg/setting_nfill.svg',
+                'assets/images/navigation_icon/svg/setting_nfill.svg',
                 color: Theme.of(context)
                     .bottomNavigationBarTheme
                     .selectedItemColor,

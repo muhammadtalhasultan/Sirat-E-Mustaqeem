@@ -27,6 +27,7 @@ dependencies:
   lottie: ^1.1.0
   motion_sensors: ^0.1.0
   path_provider: ^2.0.2
+  rxdart: ^0.27.1
   shared_preferences: ^2.0.6
   shimmer: ^2.0.0
   sqflite: ^2.0.0+3
@@ -41,13 +42,14 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/core/json/
-    - assets/navigation_icon/svg/
-    - assets/home_icon/svg/
-    - assets/collection_icon/svg/
-    - assets/qiblat_icon/svg/
-    - assets/praying_time/svg/
-    - assets/setting_icon/svg/
+    - assets/images/core/json/
+    - assets/images/navigation_icon/svg/
+    - assets/images/home_icon/svg/
+    - assets/images/collection_icon/svg/
+    - assets/images/qiblat_icon/svg/
+    - assets/images/praying_time/svg/
+    - assets/images/setting_icon/svg/
+    - assets/sound/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

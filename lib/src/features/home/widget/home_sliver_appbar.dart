@@ -37,7 +37,7 @@ class HomeSliverAppbar extends StatelessWidget {
                 child: GestureDetector(
                   onTap: () {},
                   child: SvgPicture.asset(
-                    'assets/home_icon/svg/noti.svg',
+                    'assets/images/home_icon/svg/noti.svg',
                     width: 24.w,
                     color: Theme.of(context).textTheme.bodyText2!.color,
                   ),

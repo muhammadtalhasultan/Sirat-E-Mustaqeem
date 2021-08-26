@@ -1,14 +1,27 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+import 'package:rxdart/subjects.dart';
 import 'package:timezone/data/latest.dart' as tz;
 import 'package:timezone/timezone.dart' as tz;
+
+import 'receive_notification.dart';
 
 class NotificationService {
   static final NotificationService _notificationService =
       NotificationService._internal();
 
+  /// initialize flutter local notification plugin
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
+
+  /// create stream to add notification class (defined)
+  final BehaviorSubject<ReceivedNotification>
+      didReceiveLocalNotificationSubject =
+      BehaviorSubject<ReceivedNotification>();
+
+  /// create stream to add notification  (defined) ios<10+
+  final BehaviorSubject<String?> selectNotificationSubject =
+      BehaviorSubject<String?>();
 
   factory NotificationService() {
     return _notificationService;
@@ -16,14 +29,20 @@ class NotificationService {
 
   NotificationService._internal();
 
+  /// initialize this notification service
   Future<void> init() async {
+    /// use for schedule notification
     await _configureLocalTimeZone();
 
+    /// andriod local notification setting
     const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('app_icon');
+        AndroidInitializationSettings('circle_kesan');
 
     /// Note: permissions aren't requested here just to demonstrate that can be
     /// done later
+    /// ios local notification setting
+    /// [onDidRecieveLocalNotification] handler for clicking notification while in
+    /// app
     final IOSInitializationSettings initializationSettingsIOS =
         IOSInitializationSettings(
       requestAlertPermission: true,
@@ -37,21 +56,36 @@ class NotificationService {
             android: initializationSettingsAndroid,
             iOS: initializationSettingsIOS);
 
+    /// [onSelectNotification] handler for clicking notification while in
+    /// app ios<10+
     await flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
       onSelectNotification: _onSelectNotification,
     );
   }
 
+  /// add notification to the stream so other page can subscribe it
+  /// and get the notification
   Future _onDidReceiveLocalNotification(
     int id,
     String? title,
     String? body,
     String? payload,
-  ) async {}
+  ) async {
+    didReceiveLocalNotificationSubject.add(
+      ReceivedNotification(
+        id: id,
+        title: title,
+        body: body,
+        payload: payload,
+      ),
+    );
+  }
 
+  /// add notification to the stream so other page can subscribe it
+  /// and get the notification
   Future _onSelectNotification(String? payload) async {
-    //Handle notification tapped logic here
+    selectNotificationSubject.add(payload);
   }
 
   Future<void> _configureLocalTimeZone() async {
@@ -62,43 +96,33 @@ class NotificationService {
     tz.setLocalLocation(tz.getLocation(timeZoneName!));
   }
 
-//   Future<void> showNotification() async {
-//     const AndroidNotificationDetails androidPlatformChannelSpecifics =
-//         AndroidNotificationDetails(
-// String channelId,
-//   String channelName,
-//   String channelDescription, {
-//   String? icon, /// icon to display
-//   Importance importance = Importance.defaultImportance,
-//   Priority priority = Priority.defaultPriority,
+  Future<void> showPrayerNotification() async {
+    AndroidNotificationDetails androidPlatformChannelSpecifics =
+        AndroidNotificationDetails(
+      '1',
+      'Prayer Timing',
+      'Notification to tell user that it is time for Muslim prayer.',
+      importance: Importance.max,
+      //icon:
+      sound: RawResourceAndroidNotificationSound('slow_spring_board'),
+      // when:
+      ticker: 'Prayer Timing',
+      visibility: NotificationVisibility.public,
+      timeoutAfter: 10000,
+      category: 'reminder',
+    );
 
-//   AndroidNotificationSound? sound,
+    IOSNotificationDetails iosPlatformChannelSpecifics = IOSNotificationDetails(
+      sound: 'slow_spring_board.aiff',
+    );
 
-//   int? when,
+    NotificationDetails platformChannelSpecifics = NotificationDetails(
+      android: androidPlatformChannelSpecifics,
+      iOS: iosPlatformChannelSpecifics,
+    );
 
-//   String? ticker,
-//   NotificationVisibility? visibility,
-//   int? timeoutAfter,
-//   String? category,
-
-//   );
-
-//     const IOSNotificationDetails iosPlatformChannelSpecifics =
-//         IOSNotificationDetails(
-//             bool? presentAlert,
-//   bool? presentBadge,
-//   bool? presentSound,
-//   String? sound,
-//   int? badgeNumber,
-//   List<IOSNotificationAttachment>? attachments,
-//   String? subtitle,
-//   String? threadIdentifier,
-//            );
-//     const NotificationDetails platformChannelSpecifics =
-//         NotificationDetails(android: androidPlatformChannelSpecifics);
-
-//     await flutterLocalNotificationsPlugin.show(
-//         0, 'plain title', 'plain body', platformChannelSpecifics,
-//         payload: 'item x');
-//   }
+    await flutterLocalNotificationsPlugin.show(
+        0, 'plain title', 'plain body', platformChannelSpecifics,
+        payload: 'item x');
+  }
 }

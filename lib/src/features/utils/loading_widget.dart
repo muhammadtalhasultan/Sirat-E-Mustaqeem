@@ -11,7 +11,7 @@ class LoadingWidget extends StatelessWidget {
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 500.w),
         child: LottieBuilder.asset(
-          'assets/core/json/loading.json',
+          'assets/images/core/json/loading.json',
         ),
       ),
     );

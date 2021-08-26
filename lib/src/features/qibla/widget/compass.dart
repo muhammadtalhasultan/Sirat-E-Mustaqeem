@@ -50,7 +50,7 @@ class _CompassState extends State<Compass> {
               child: Stack(
                 children: [
                   SvgPicture.asset(
-                    'assets/qiblat_icon/svg/kiblat_lingkar.svg',
+                    'assets/images/qiblat_icon/svg/kiblat_lingkar.svg',
                     height: 0.5.sh,
                   ),
                   if (state is AngleLoaded)
@@ -66,7 +66,7 @@ class _CompassState extends State<Compass> {
                               height: 0.0625.sh,
                             ),
                             SvgPicture.asset(
-                              'assets/qiblat_icon/svg/kiblat_needle.svg',
+                              'assets/images/qiblat_icon/svg/kiblat_needle.svg',
                               height: 0.25.sh,
                             ),
                             SizedBox(

@@ -12,7 +12,11 @@ class CollectionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        if (collection.routeName != '') {
+          Navigator.of(context).pushNamed(collection.routeName);
+        }
+      },
       child: Column(
         children: [
           SvgPicture.asset(

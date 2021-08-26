@@ -42,7 +42,7 @@ class KiblatCard extends StatelessWidget {
                     GestureDetector(
                       onTap: () {},
                       child: SvgPicture.asset(
-                        'assets/home_icon/svg/noti.svg',
+                        'assets/images/home_icon/svg/noti.svg',
                         width: 24.w,
                         color: Theme.of(context).textTheme.bodyText2!.color,
                       ),
@@ -78,7 +78,7 @@ class KiblatCard extends StatelessWidget {
                         Navigator.of(context).pushNamed(RouteGenerator.qibla);
                       },
                       child: SvgPicture.asset(
-                        'assets/home_icon/svg/kiblat.svg',
+                        'assets/images/home_icon/svg/kiblat.svg',
                         width: 64.w,
                       ),
                     )
