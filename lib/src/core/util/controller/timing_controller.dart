@@ -105,8 +105,6 @@ Future<Either<Failure, Timing>> getPrayerTiming({forTomorrow = false}) async {
     final newDate = DateTime.now().add(
       Duration(
         days: 1,
-        hours: 12,
-        minutes: 55,
       ),
     );
 
@@ -155,4 +153,25 @@ Future<Either<Failure, Timing>> getPrayerTiming({forTomorrow = false}) async {
       ),
     );
   }
+}
+
+String convertTimeTo12HourFormat(String timing) {
+  int hour = int.parse(timing.split(':')[0]);
+  final int min = int.parse(timing.split(':')[1]);
+  String minInString = min.toString();
+  String amPm = 'AM';
+
+  if (hour >= 12) {
+    amPm = 'PM';
+  }
+
+  if (hour > 12) {
+    hour -= 12;
+  }
+
+  if (min < 10) {
+    minInString = '0$min';
+  }
+
+  return '$hour:$minInString $amPm';
 }

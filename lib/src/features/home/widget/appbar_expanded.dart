@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../../core/util/bloc/theme/theme_bloc.dart';
 import 'kiblat_card.dart';
 
 class AppBarExpanded extends StatelessWidget {
@@ -14,18 +16,22 @@ class AppBarExpanded extends StatelessWidget {
       height: 0.2.sh,
       child: Stack(
         children: [
-          SizedBox(
-            width: 1.sw,
-            height: 0.3.sh,
-            child: Theme.of(context).brightness == Brightness.dark
-                ? SvgPicture.asset(
-                    'assets/home_icon/svg/night_mode.svg',
-                    fit: BoxFit.cover,
-                  )
-                : SvgPicture.asset(
-                    'assets/home_icon/svg/day_mode.svg',
-                    fit: BoxFit.cover,
-                  ),
+          BlocBuilder<ThemeBloc, ThemeState>(
+            builder: (context, state) {
+              return SizedBox(
+                width: 1.sw,
+                height: 0.3.sh,
+                child: state.currentTheme.brightness == Brightness.dark
+                    ? SvgPicture.asset(
+                        'assets/home_icon/svg/night_mode.svg',
+                        fit: BoxFit.cover,
+                      )
+                    : SvgPicture.asset(
+                        'assets/home_icon/svg/day_mode.svg',
+                        fit: BoxFit.cover,
+                      ),
+              );
+            },
           ),
           Container(
             width: 1.sw,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/time_format/time_format_bloc.dart';
 
 import '../../../core/util/constants.dart';
 import '../../../core/util/controller/timing_controller.dart';
@@ -82,12 +84,19 @@ class SuccessWidgetController {
               ),
             ),
             Expanded(
-              child: Text(
-                timingsList[index].entries.first.value,
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline6!.copyWith(
-                      color: Colors.white,
-                    ),
+              child: BlocBuilder<TimeFormatBloc, TimeFormatState>(
+                builder: (context, state) {
+                  return Text(
+                    state.is24
+                        ? timingsList[index].entries.first.value
+                        : convertTimeTo12HourFormat(
+                            timingsList[index].entries.first.value),
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                          color: Colors.white,
+                        ),
+                  );
+                },
               ),
             )
           ],

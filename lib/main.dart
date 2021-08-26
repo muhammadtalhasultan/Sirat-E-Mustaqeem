@@ -4,12 +4,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:sirat_e_mustaqeem/src/core/notification/notification_service.dart';
 
 import 'routes/routes.dart';
-import 'src/core/util/bloc/theme_bloc.dart';
+import 'src/core/util/bloc/theme/theme_bloc.dart';
+import 'src/core/util/bloc/time_format/time_format_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService().init();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
@@ -22,22 +25,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ThemeBloc(),
-      child: ScreenUtilInit(
-          designSize: Size(414, 896),
-          builder: () {
-            return BlocBuilder<ThemeBloc, ThemeState>(
-              builder: (context, state) {
-                return MaterialApp(
-                  title: 'Material App',
-                  debugShowCheckedModeBanner: false,
-                  color: Colors.white,
-                  theme: state.currentTheme,
-                  initialRoute: RouteGenerator.tabScreen,
-                  onGenerateRoute: RouteGenerator.generateRoute,
-                );
-              },
-            );
-          }),
+      child: BlocProvider(
+        create: (context) => TimeFormatBloc(),
+        child: ScreenUtilInit(
+            designSize: Size(414, 896),
+            builder: () {
+              return BlocBuilder<ThemeBloc, ThemeState>(
+                builder: (context, state) {
+                  return MaterialApp(
+                    title: 'Material App',
+                    debugShowCheckedModeBanner: false,
+                    color: Colors.white,
+                    theme: state.currentTheme,
+                    initialRoute: RouteGenerator.tabScreen,
+                    onGenerateRoute: RouteGenerator.generateRoute,
+                  );
+                },
+              );
+            }),
+      ),
     );
   }
 }

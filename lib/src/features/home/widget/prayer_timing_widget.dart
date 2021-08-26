@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/time_format/time_format_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/controller/timing_controller.dart';
 
 import '../../../../routes/routes.dart';
 import '../../../core/util/constants.dart';
@@ -68,11 +70,17 @@ class _PrayerTimingWidgetState extends State<PrayerTimingWidget> {
                           SizedBox(
                             width: 4.w,
                           ),
-                          Text(
-                            state.timing,
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                            ),
+                          BlocBuilder<TimeFormatBloc, TimeFormatState>(
+                            builder: (context, timeFormatState) {
+                              return Text(
+                                timeFormatState.is24
+                                    ? state.timing
+                                    : convertTimeTo12HourFormat(state.timing),
+                                style: TextStyle(
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                              );
+                            },
                           ),
                         ],
                       ),

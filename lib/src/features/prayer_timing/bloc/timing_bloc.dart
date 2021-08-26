@@ -33,8 +33,9 @@ class TimingBloc extends Bloc<TimingEvent, TimingState> {
           }, (r) async* {
             yield TimingLoaded(r);
           });
+        } else {
+          yield TimingLoaded(r);
         }
-        yield TimingLoaded(r);
       });
     }
   }

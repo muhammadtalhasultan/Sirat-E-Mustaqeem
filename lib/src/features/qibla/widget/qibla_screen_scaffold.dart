@@ -28,6 +28,8 @@ class _QiblaScaffoldState extends State<QiblaScaffold> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text(
           'Qiblah Direction',

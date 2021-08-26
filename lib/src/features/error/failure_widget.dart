@@ -19,10 +19,7 @@ class FailureWidget extends StatelessWidget {
       child: SingleChildScrollView(
         physics: const AlwaysScrollableScrollPhysics(),
         child: Container(
-          height: 1.sh -
-              kToolbarHeight -
-              ScreenUtil().statusBarHeight -
-              ScreenUtil().bottomBarHeight,
+          height: 1.sh,
           width: 1.sw,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
