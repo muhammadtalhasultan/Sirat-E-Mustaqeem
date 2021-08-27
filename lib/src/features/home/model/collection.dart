@@ -15,7 +15,7 @@ List<Collection> collections = [
     '',
   ),
   Collection(
-    'assets/images/collection_icon/svg/quran.svg',
+    'assets/images/collection_icon/svg/hadees.svg',
     'Hadees',
     '',
   ),
@@ -40,7 +40,7 @@ List<Collection> collections = [
     RouteGenerator.prayerTimingPage,
   ),
   Collection(
-    'assets/images/collection_icon/svg/hajiumrah.svg',
+    'assets/images/collection_icon/svg/kiblat.svg',
     'Qabah Direction',
     RouteGenerator.qibla,
   ),

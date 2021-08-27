@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:sirat_e_mustaqeem/src/features/utils/sirat_card.dart';
 
 import '../../../core/util/constants.dart';
 import 'collection_card.dart';
@@ -12,14 +13,7 @@ class HomeSliverList extends StatelessWidget {
     return SliverList(
       delegate: SliverChildListDelegate(
         [
-          Container(
-            width: double.infinity,
-            margin: kPagePadding,
-            padding: kCardPadding,
-            decoration: BoxDecoration(
-              borderRadius: kCardBorderRadius,
-              color: Theme.of(context).colorScheme.background,
-            ),
+          SiratCard(
             child: CollectionCard(),
           ),
           Container(

@@ -21,11 +21,11 @@ class ChangeThemeSwitch extends StatelessWidget {
       child: AnimatedContainer(
         duration: kAnimationDuration,
         curve: kAnimationCurve,
-        width: 88.0.w,
+        width: 80.0.w,
         height: 40.0.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24.0.r),
-          color: !value ? kLightPlaceholder : kDarkPlaceholder,
+          color: !value ? kLightPlaceholderText : kDarkPlaceholderText,
         ),
         child: Stack(
           children: [

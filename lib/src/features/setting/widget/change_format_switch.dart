@@ -21,11 +21,11 @@ class ChangeFormatSwitch extends StatelessWidget {
       child: AnimatedContainer(
         duration: kAnimationDuration,
         curve: kAnimationCurve,
-        width: 88.0.w,
+        width: 80.0.w,
         height: 40.0.h,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24.0.r),
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.surface,
         ),
         child: Stack(
           children: [

@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:sirat_e_mustaqeem/src/features/qibla/screen/qibla_screen.dart';
 
 import '../src/core/error/exceptions.dart';
 import '../src/features/bottom_tab/screen/tab_screen.dart';
 import '../src/features/prayer_timing/screen/prayer_timing_screen.dart';
+import '../src/features/qibla/screen/qibla_screen.dart';
+import '../src/features/setting/screen/thankyou_screen.dart';
 
 class RouteGenerator {
   static const String tabScreen = '/';
   static const String prayerTimingPage = '/prayer_timing';
   static const String qibla = '/qibla';
+  static const String thankyou = '/thank_you';
 
   RouteGenerator._();
 
@@ -20,6 +22,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const PrayerTimingScreen());
       case qibla:
         return MaterialPageRoute(builder: (_) => const QiblaScreen());
+      case thankyou:
+        return MaterialPageRoute(builder: (_) => const ThankyouScreen());
       default:
         throw RouteException('Route not found');
     }
