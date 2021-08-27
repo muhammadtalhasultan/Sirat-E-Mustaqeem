@@ -30,7 +30,7 @@ class _TimingScreenScaffoldState extends State<TimingScreenScaffold> {
         backgroundColor:
             Theme.of(context).appBarTheme.backgroundColor!.withOpacity(0.3),
         elevation: 0,
-        title: Text('prayer timing'),
+        title: Text('Prayer Timing'),
       ),
       body: BlocBuilder<TimingBloc, TimingState>(
         builder: (context, state) {

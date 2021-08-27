@@ -129,9 +129,6 @@ class NotificationService {
       iOS: iosPlatformChannelSpecifics,
     );
 
-    print('i need to be called five times');
-    print(duration.inSeconds);
-
     await flutterLocalNotificationsPlugin.zonedSchedule(id, title, body,
         tz.TZDateTime.now(tz.local).add(duration), platformChannelSpecifics,
         uiLocalNotificationDateInterpretation:

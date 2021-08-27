@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sirat_e_mustaqeem/src/features/utils/sirat_card.dart';
 
-import '../../../core/util/constants.dart';
 import 'collection_card.dart';
 
 class HomeSliverList extends StatelessWidget {

@@ -60,7 +60,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
           child: state.difference == Duration.zero
               ? Container()
               : Text(
-                  '${convertDurationCountdown(state.difference)} until Azan',
+                  '${convertDurationCountdown(state.difference)} until Adhan',
                 ),
         );
       },

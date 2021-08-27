@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -93,7 +94,12 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
       elevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle.light,
       iconTheme: IconThemeData(
-        color: kDarkPlaceholderText,
+        color: kDarkTextColor,
+      ),
+      titleTextStyle: TextStyle(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.bold,
+        color: kDarkTextColor,
       ),
     ),
     progressIndicatorTheme: ProgressIndicatorThemeData(
@@ -176,6 +182,11 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
     appBarTheme: AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle.dark,
       backgroundColor: kLightPrimary,
+      titleTextStyle: TextStyle(
+        fontSize: 16.sp,
+        fontWeight: FontWeight.bold,
+        color: kLightTextColor,
+      ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
       backgroundColor: kLightBg,
