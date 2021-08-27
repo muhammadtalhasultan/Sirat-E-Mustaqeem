@@ -27,11 +27,6 @@ class _TabScreenState extends State<TabScreen> {
     return BlocProvider(
       create: (context) => TabBloc(),
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            NotificationService().showPrayerNotification();
-          },
-        ),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         extendBodyBehindAppBar: true,
         extendBody: true,

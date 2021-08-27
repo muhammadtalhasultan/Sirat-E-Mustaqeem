@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:sirat_e_mustaqeem/src/core/notification/notification_service.dart';
 
 import '../../../core/error/exceptions.dart';
 import '../../../core/error/failures.dart';
@@ -174,4 +175,50 @@ String convertTimeTo12HourFormat(String timing) {
   }
 
   return '$hour:$minInString $amPm';
+}
+
+Future<void> addToLocalNotification(
+    List<Map<String, String>> timingsList) async {
+  await NotificationService().cancelAllNotifications();
+  int i = 0;
+
+  await Future.forEach(timingsList, (Map<String, String> timing) async {
+    final timingHour = int.parse(timing.entries.first.value.split(':')[0]);
+    final timingMin = int.parse(timing.entries.first.value.split(':')[1]);
+    Duration duration = DateTime(
+      DateTime.now().year,
+      DateTime.now().month,
+      DateTime.now().day,
+      timingHour,
+      timingMin,
+    ).difference(DateTime.now());
+
+    if (DateTime.now().hour > timingHour) {
+      duration = DateTime(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day + 1,
+        timingHour,
+        timingMin,
+      ).difference(DateTime.now());
+    } else if (DateTime.now().hour == timingHour &&
+        DateTime.now().minute >= timingMin) {
+      duration = DateTime(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day + 1,
+        timingHour,
+        timingMin,
+      ).difference(DateTime.now());
+    }
+
+    await NotificationService().showPrayerNotification(
+      id: i,
+      title: timing.entries.first.key,
+      body: 'The next prayer time is now.',
+      duration: duration,
+    );
+
+    i++;
+  });
 }

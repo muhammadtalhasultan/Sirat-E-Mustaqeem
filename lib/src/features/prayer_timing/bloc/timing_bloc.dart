@@ -31,9 +31,11 @@ class TimingBloc extends Bloc<TimingEvent, TimingState> {
           yield* result.fold((l) async* {
             yield TimingFailed(l);
           }, (r) async* {
+            await addToLocalNotification(controller.timingsList);
             yield TimingLoaded(r);
           });
         } else {
+          await addToLocalNotification(controller.timingsList);
           yield TimingLoaded(r);
         }
       });

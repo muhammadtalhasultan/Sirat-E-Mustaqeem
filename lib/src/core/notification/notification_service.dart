@@ -96,7 +96,15 @@ class NotificationService {
     tz.setLocalLocation(tz.getLocation(timeZoneName!));
   }
 
-  Future<void> showPrayerNotification() async {
+  Future<void> cancelAllNotifications() async {
+    await flutterLocalNotificationsPlugin.cancelAll();
+  }
+
+  Future<void> showPrayerNotification(
+      {required int id,
+      required String title,
+      required String body,
+      required Duration duration}) async {
     AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
       '1',
@@ -121,8 +129,15 @@ class NotificationService {
       iOS: iosPlatformChannelSpecifics,
     );
 
-    await flutterLocalNotificationsPlugin.show(
-        0, 'plain title', 'plain body', platformChannelSpecifics,
-        payload: 'item x');
+    print('i need to be called five times');
+    print(duration.inSeconds);
+
+    await flutterLocalNotificationsPlugin.zonedSchedule(id, title, body,
+        tz.TZDateTime.now(tz.local).add(duration), platformChannelSpecifics,
+        uiLocalNotificationDateInterpretation:
+            UILocalNotificationDateInterpretation.absoluteTime,
+        androidAllowWhileIdle: true,
+        matchDateTimeComponents: DateTimeComponents.time,
+        payload: '');
   }
 }
