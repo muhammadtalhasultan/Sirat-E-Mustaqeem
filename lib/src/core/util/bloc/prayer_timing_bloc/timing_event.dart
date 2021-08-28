@@ -8,3 +8,7 @@ abstract class TimingEvent extends Equatable {
 }
 
 class RequestTiming extends TimingEvent {}
+
+class RequestTimingForTomorrow extends TimingEvent {}
+
+class UpdateTiming extends TimingEvent {}

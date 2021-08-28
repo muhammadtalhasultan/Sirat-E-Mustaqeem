@@ -1,25 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/constants.dart';
 import '../../error/failure_widget.dart';
 import '../../utils/loading_widget.dart';
-import '../bloc/timing_bloc.dart';
 import 'success_widget.dart';
 
-class TimingScreenScaffold extends StatefulWidget {
+class TimingScreenScaffold extends StatelessWidget {
   const TimingScreenScaffold();
-
-  @override
-  State<TimingScreenScaffold> createState() => _TimingScreenScaffoldState();
-}
-
-class _TimingScreenScaffoldState extends State<TimingScreenScaffold> {
-  @override
-  void didChangeDependencies() {
-    BlocProvider.of<TimingBloc>(context).add(RequestTiming());
-    super.didChangeDependencies();
-  }
 
   @override
   Widget build(BuildContext context) {

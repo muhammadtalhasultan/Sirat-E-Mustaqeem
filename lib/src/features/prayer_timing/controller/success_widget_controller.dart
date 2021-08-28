@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/time_format/time_format_bloc.dart';
 
+import '../../../core/util/bloc/time_format/time_format_bloc.dart';
 import '../../../core/util/constants.dart';
 import '../../../core/util/controller/timing_controller.dart';
-import '../model/timing.dart';
+import '../../../core/util/model/timing.dart';
 
 enum TimingProps {
   Fajr,

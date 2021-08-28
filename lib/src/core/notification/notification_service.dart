@@ -116,7 +116,6 @@ class NotificationService {
       // when:
       ticker: 'Prayer Timing',
       visibility: NotificationVisibility.public,
-      timeoutAfter: 10000,
       category: 'reminder',
     );
 

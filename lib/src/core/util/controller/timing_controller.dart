@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:sirat_e_mustaqeem/src/core/notification/notification_service.dart';
 
 import '../../../core/error/exceptions.dart';
 import '../../../core/error/failures.dart';
@@ -9,8 +8,9 @@ import '../../../core/network/api_service.dart';
 import '../../../core/network/network_client.dart';
 import '../../../core/util/constants.dart';
 import '../../../core/util/controller/location_controller.dart';
-import '../../../features/prayer_timing/model/timing.dart';
 import '../../error/error_code.dart';
+import '../../notification/notification_service.dart';
+import '../model/timing.dart';
 
 /// class to differentiate next prayer time
 class TimingController {
@@ -65,6 +65,7 @@ class TimingController {
   int get timingCount => _timingCount;
   bool get forTomorrow => _forTomorrow;
   List<Map<String, String>> get timingsList => _timingsList;
+  Map<String, String> get currentTiming => _timingsList[_timingCount];
   String get prayer => _timingsList[_timingCount].entries.first.key;
   String get timing => _timingsList[_timingCount].entries.first.value;
 }

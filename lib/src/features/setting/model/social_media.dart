@@ -1,5 +1,4 @@
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/controller/url_launcher_controller.dart';
+import '../../../core/util/constants.dart';
 
 class SocialMedia {
   final String imagePath;

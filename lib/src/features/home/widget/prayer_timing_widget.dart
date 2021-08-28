@@ -1,35 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/time_format/time_format_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/controller/timing_controller.dart';
 
 import '../../../../routes/routes.dart';
-import '../../../core/util/constants.dart';
+import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/controller/date_controller.dart';
-import '../bloc/prayer_timing_bloc/prayer_timing_bloc.dart';
+import '../../../core/util/controller/timing_controller.dart';
 import '../bloc/timer_bloc/timer_bloc.dart';
 import 'countdown_timer.dart';
+import 'prayers.dart';
 
-class PrayerTimingWidget extends StatefulWidget {
+class PrayerTimingWidget extends StatelessWidget {
   const PrayerTimingWidget();
-
-  @override
-  State<PrayerTimingWidget> createState() => _PrayerTimingWidgetState();
-}
-
-class _PrayerTimingWidgetState extends State<PrayerTimingWidget> {
-  bool isInit = false;
-  @override
-  void didChangeDependencies() {
-    if (!isInit) {
-      BlocProvider.of<PrayerTimingBloc>(context).add(RequestTiming());
-
-      isInit = true;
-    }
-
-    super.didChangeDependencies();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,49 +31,14 @@ class _PrayerTimingWidgetState extends State<PrayerTimingWidget> {
             'Next Prayer Timing:',
             style: Theme.of(context).textTheme.bodyText1,
           ),
-          BlocBuilder<PrayerTimingBloc, PrayerTimingState>(
+          Prayers(),
+          BlocBuilder<TimingBloc, TimingState>(
             builder: (context, state) {
-              return AnimatedSwitcher(
-                duration: kAnimationDuration,
-                reverseDuration: Duration.zero,
-                switchInCurve: kAnimationCurve,
-                child: state.timing == '' && state.prayer == ''
-                    ? Text('--')
-                    : Row(
-                        children: [
-                          Text(
-                            state.prayer,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Theme.of(context).primaryColor,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 4.w,
-                          ),
-                          BlocBuilder<TimeFormatBloc, TimeFormatState>(
-                            builder: (context, timeFormatState) {
-                              return Text(
-                                timeFormatState.is24
-                                    ? state.timing
-                                    : convertTimeTo12HourFormat(state.timing),
-                                style: TextStyle(
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
-              );
-            },
-          ),
-          BlocBuilder<PrayerTimingBloc, PrayerTimingState>(
-            builder: (context, state) {
-              if (state.timing != '') {
+              if (state is TimingLoaded) {
+                final controller = TimingController(state.timing.data.timings);
                 return BlocProvider.value(
-                  value: TimerBloc(state.timing),
-                  child: CountDownTimer(),
+                  value: TimerBloc(controller.timing),
+                  child: CountDownTimer(state.timing.data.timings),
                 );
               }
               return Container();

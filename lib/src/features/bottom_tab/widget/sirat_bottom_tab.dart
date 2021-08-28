@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../bloc/tab_bloc.dart';
+import '../bloc/tab/tab_bloc.dart';
 
 class SiratNavigationBar extends StatelessWidget {
   const SiratNavigationBar();
@@ -19,8 +19,8 @@ class SiratNavigationBar extends StatelessWidget {
           onTap: (index) => BlocProvider.of<TabBloc>(context).add(
             SetTab(index),
           ),
-          selectedFontSize: 14.sp,
-          unselectedFontSize: 14.sp,
+          selectedFontSize: Theme.of(context).textTheme.bodyText2!.fontSize!,
+          unselectedFontSize: Theme.of(context).textTheme.bodyText2!.fontSize!,
           elevation: 0,
           items: [
             BottomNavigationBarItem(

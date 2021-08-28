@@ -3,13 +3,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/constants.dart';
-import '../bloc/prayer_timing_bloc/prayer_timing_bloc.dart';
+import '../../../core/util/controller/timing_controller.dart';
+import '../../../core/util/model/timing.dart';
 import '../bloc/timer_bloc/timer_bloc.dart';
 import '../controller/home_controller.dart';
 
 class CountDownTimer extends StatefulWidget {
-  const CountDownTimer();
+  const CountDownTimer(this.timings);
+
+  final Timings timings;
 
   @override
   State<CountDownTimer> createState() => _CountDownTimerState();
@@ -17,7 +21,14 @@ class CountDownTimer extends StatefulWidget {
 
 class _CountDownTimerState extends State<CountDownTimer> {
   late final Timer timer;
+  TimingController? controller;
   bool isInit = false;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = TimingController(widget.timings);
+  }
 
   @override
   void didChangeDependencies() {
@@ -28,9 +39,13 @@ class _CountDownTimerState extends State<CountDownTimer> {
           if (BlocProvider.of<TimerBloc>(context).state is TimerLoaded &&
               BlocProvider.of<TimerBloc>(context).state.difference ==
                   Duration.zero) {
-            BlocProvider.of<PrayerTimingBloc>(context).add(RequestTiming());
+            if (controller!.timingCount == 4) {
+              BlocProvider.of<TimingBloc>(context)
+                  .add(RequestTimingForTomorrow());
+            } else {
+              BlocProvider.of<TimingBloc>(context).add(UpdateTiming());
+            }
           }
-
           BlocProvider.of<TimerBloc>(context).add(
             TimerTick(),
           );
@@ -57,7 +72,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
           duration: kAnimationDuration,
           reverseDuration: Duration.zero,
           switchInCurve: kAnimationCurve,
-          child: state.difference == Duration.zero
+          child: !(state is TimerLoaded)
               ? Container()
               : Text(
                   '${convertDurationCountdown(state.difference)} until Adhan',
