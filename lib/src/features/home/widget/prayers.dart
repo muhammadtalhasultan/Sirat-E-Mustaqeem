@@ -15,8 +15,10 @@ class Prayers extends StatelessWidget {
     return BlocBuilder<TimingBloc, TimingState>(
       builder: (context, state) {
         TimingController? controller;
+
         if (state is TimingLoaded)
           controller = TimingController(state.timing.data.timings);
+
         return AnimatedSwitcher(
           duration: kAnimationDuration,
           reverseDuration: Duration.zero,
@@ -39,8 +41,8 @@ class Prayers extends StatelessWidget {
                       builder: (context, timeFormatState) {
                         return Text(
                           timeFormatState.is24
-                              ? controller!.timing
-                              : convertTimeTo12HourFormat(controller!.timing),
+                              ? controller!.time
+                              : convertTimeTo12HourFormat(controller!.time),
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                           ),

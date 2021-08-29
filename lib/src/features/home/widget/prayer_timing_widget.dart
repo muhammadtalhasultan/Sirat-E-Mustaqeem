@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
 
 import '../../../../routes/routes.dart';
 import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
@@ -34,14 +35,21 @@ class PrayerTimingWidget extends StatelessWidget {
           Prayers(),
           BlocBuilder<TimingBloc, TimingState>(
             builder: (context, state) {
+              TimingController? controller;
               if (state is TimingLoaded) {
-                final controller = TimingController(state.timing.data.timings);
-                return BlocProvider.value(
-                  value: TimerBloc(controller.timing),
-                  child: CountDownTimer(state.timing.data.timings),
-                );
+                controller = TimingController(state.timing.data.timings);
               }
-              return Container();
+              return AnimatedSwitcher(
+                duration: kAnimationDuration,
+                reverseDuration: Duration.zero,
+                switchInCurve: kAnimationCurve,
+                child: !(state is TimingLoaded)
+                    ? Container()
+                    : BlocProvider.value(
+                        value: TimerBloc(controller!.time),
+                        child: CountDownTimer(controller),
+                      ),
+              );
             },
           )
         ],

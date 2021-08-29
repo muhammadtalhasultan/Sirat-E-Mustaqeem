@@ -6,14 +6,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/constants.dart';
 import '../../../core/util/controller/timing_controller.dart';
-import '../../../core/util/model/timing.dart';
 import '../bloc/timer_bloc/timer_bloc.dart';
 import '../controller/home_controller.dart';
 
 class CountDownTimer extends StatefulWidget {
-  const CountDownTimer(this.timings);
+  const CountDownTimer(this.controller);
 
-  final Timings timings;
+  final TimingController controller;
 
   @override
   State<CountDownTimer> createState() => _CountDownTimerState();
@@ -21,14 +20,8 @@ class CountDownTimer extends StatefulWidget {
 
 class _CountDownTimerState extends State<CountDownTimer> {
   late final Timer timer;
-  TimingController? controller;
-  bool isInit = false;
 
-  @override
-  void initState() {
-    super.initState();
-    controller = TimingController(widget.timings);
-  }
+  bool isInit = false;
 
   @override
   void didChangeDependencies() {
@@ -39,7 +32,7 @@ class _CountDownTimerState extends State<CountDownTimer> {
           if (BlocProvider.of<TimerBloc>(context).state is TimerLoaded &&
               BlocProvider.of<TimerBloc>(context).state.difference ==
                   Duration.zero) {
-            if (controller!.timingCount == 4) {
+            if (widget.controller.timingCount == 4) {
               BlocProvider.of<TimingBloc>(context)
                   .add(RequestTimingForTomorrow());
             } else {

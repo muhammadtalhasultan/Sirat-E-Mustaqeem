@@ -17,28 +17,30 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   /// get the duration difference between current time and next prayer time
   Duration getDifference() {
     /// handle case when current time is over the last prayer of the day.
+
+    int _hours = _timing[0];
     if (DateTime.now().hour > 10 && _timing[0] < 10) {
-      _timing[0] += 24;
+      _hours += 24;
     }
 
-    if (DateTime.now().hour < _timing[0]) {
+    if (DateTime.now().hour < _hours) {
       return DateTime.now().difference(
         DateTime(
           DateTime.now().year,
           DateTime.now().month,
           DateTime.now().day,
-          _timing[0],
+          _hours,
           _timing[1],
         ),
       );
-    } else if (DateTime.now().hour == _timing[0] &&
+    } else if (DateTime.now().hour == _hours &&
         DateTime.now().minute < _timing[1]) {
       return DateTime.now().difference(
         DateTime(
           DateTime.now().year,
           DateTime.now().month,
           DateTime.now().day,
-          _timing[0],
+          _hours,
           _timing[1],
         ),
       );
@@ -51,6 +53,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     TimerEvent event,
   ) async* {
     if (event is TimerTick) {
+      print('called');
       final Duration duration = getDifference();
 
       yield TimerLoaded(

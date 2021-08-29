@@ -2,22 +2,26 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:sirat_e_mustaqeem/src/core/error/failures.dart';
 
 import '../../../../core/util/controller/timing_controller.dart';
+import '../../../error/failures.dart';
 import '../../model/timing.dart';
 
 part 'timing_event.dart';
 part 'timing_state.dart';
 
 class TimingBloc extends Bloc<TimingEvent, TimingState> {
+  /// storage for data to prevent unneccessary api call
   Timing? _timing;
+
+  /// constructor
   TimingBloc() : super(TimingInitial());
 
   @override
   Stream<TimingState> mapEventToState(
     TimingEvent event,
   ) async* {
+    /// normal request of api
     if (event is RequestTiming) {
       yield TimingLoading();
 
@@ -26,8 +30,13 @@ class TimingBloc extends Bloc<TimingEvent, TimingState> {
       yield* result.fold((l) async* {
         yield TimingFailed(l);
       }, (r) async* {
+        /// checking for wheather the data is outdated.
+        /// For example request data during night result in
+        /// the data is outdated;
+        ///
         final controller = TimingController(r.data.timings);
 
+        /// if is outdated, request new data.
         if (controller.forTomorrow) {
           var result = await getPrayerTiming(forTomorrow: true);
 
@@ -37,6 +46,8 @@ class TimingBloc extends Bloc<TimingEvent, TimingState> {
             final controller = TimingController(r.data.timings);
 
             await addToLocalNotification(controller.timingsList);
+
+            _timing = r;
 
             yield TimingLoaded(r);
           });
@@ -66,6 +77,8 @@ class TimingBloc extends Bloc<TimingEvent, TimingState> {
       });
     }
 
+    /// if data is not yet outdated, we just update the data
+    /// to the new [dataCount] from [TimingController]
     if (event is UpdateTiming) {
       final Timing timing = Timing(
         code: _timing!.code,

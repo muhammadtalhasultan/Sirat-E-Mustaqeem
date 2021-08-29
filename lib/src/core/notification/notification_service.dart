@@ -6,6 +6,8 @@ import 'package:timezone/timezone.dart' as tz;
 
 import 'receive_notification.dart';
 
+/// notification class for handling notification related logics;
+///
 class NotificationService {
   static final NotificationService _notificationService =
       NotificationService._internal();
@@ -100,11 +102,14 @@ class NotificationService {
     await flutterLocalNotificationsPlugin.cancelAll();
   }
 
+  /// notification for prayer timing notification. Called when user request new
+  /// prayer timing from api
   Future<void> showPrayerNotification(
       {required int id,
       required String title,
       required String body,
       required Duration duration}) async {
+    /// android customisation notification
     AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
       '1',
@@ -119,6 +124,7 @@ class NotificationService {
       category: 'reminder',
     );
 
+    /// ios customisation notification
     IOSNotificationDetails iosPlatformChannelSpecifics = IOSNotificationDetails(
       sound: 'slow_spring_board.aiff',
     );
@@ -128,6 +134,7 @@ class NotificationService {
       iOS: iosPlatformChannelSpecifics,
     );
 
+    /// scheduled notification function
     await flutterLocalNotificationsPlugin.zonedSchedule(id, title, body,
         tz.TZDateTime.now(tz.local).add(duration), platformChannelSpecifics,
         uiLocalNotificationDateInterpretation:
