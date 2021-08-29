@@ -53,7 +53,6 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
     TimerEvent event,
   ) async* {
     if (event is TimerTick) {
-      print('called');
       final Duration duration = getDifference();
 
       yield TimerLoaded(

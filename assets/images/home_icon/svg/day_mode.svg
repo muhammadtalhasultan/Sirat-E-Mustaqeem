@@ -1,5 +1,4 @@
-<svg width="375" height="225" fill="none"
-    xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="375" height="225" fill="none">
     <defs>
         <linearGradient id="paint0_linear" x1="-298.834" y1="-14.032" x2="-298.834" y2="271.804" gradientUnits="userSpaceOnUse">
             <stop stop-color="#fff"/>
@@ -1291,7 +1290,7 @@
         <clipPath id="clip1">
             <path fill="#fff" transform="translate(-37)" d="M0 0h449v224.708H0z"/>
         </clipPath>
-        <filter id="filter0_d" x="-246.083" y="-301.945" width="703.326" height="703.172" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <!-- <filter id="filter0_d" x="-246.083" y="-301.945" width="703.326" height="703.172" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
             <feFlood flood-opacity="0" result="BackgroundImageFix"/>
             <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
             <feOffset dy="13"/>
@@ -1299,7 +1298,7 @@
             <feColorMatrix values="0 0 0 0 0.945149 0 0 0 0 1 0 0 0 0 0 0 0 0 0.506665 0"/>
             <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"/>
             <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
-        </filter>
+        </filter> -->
     </defs>
     <g clip-path="url(#clip0)">
         <path fill="#fff" d="M0 0h375v225H0z"/>
