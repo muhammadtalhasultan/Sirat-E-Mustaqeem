@@ -66,4 +66,20 @@ class NetworkClient {
     }
     return response;
   }
+
+  // for dwonload Request.
+  Future<Response> download(String url, String pathName,
+      void Function(int, int)? onReceiveProgress) async {
+    Response response;
+    try {
+      response = await _dio.download(
+        url,
+        pathName,
+        onReceiveProgress: onReceiveProgress,
+      );
+    } on DioError catch (exception) {
+      throw RemoteException(dioError: exception);
+    }
+    return response;
+  }
 }

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/constants.dart';
-import '../../error/failure_widget.dart';
+import '../../error/widget/failure_widget.dart';
 import '../../utils/loading_widget.dart';
 import 'success_widget.dart';
 

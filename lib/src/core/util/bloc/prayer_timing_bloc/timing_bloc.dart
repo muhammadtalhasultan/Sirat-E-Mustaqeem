@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
@@ -81,7 +80,6 @@ class TimingBloc extends Bloc<TimingEvent, TimingState> {
     /// if data is not yet outdated, we just update the data
     /// to the new [dataCount] from [TimingController]
     if (event is UpdateTiming) {
-      print('called');
       final Timing timing = Timing(
         code: _timing!.code,
         data: _timing!.data,

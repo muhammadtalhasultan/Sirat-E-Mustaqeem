@@ -22,8 +22,13 @@ class RemoteFailure extends Failure {
 // Represent failures from Cache.
 class LocalFailure extends Failure {
   final int error;
+  final String? extraInfo;
 
-  LocalFailure({required message, required this.error}) : super(message);
+  LocalFailure({
+    required message,
+    required this.error,
+    this.extraInfo,
+  }) : super(message);
 
   @override
   List<Object> get props => [error];

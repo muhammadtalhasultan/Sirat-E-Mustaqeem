@@ -4,6 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/allah_names/allah_name_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/database/database_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/dua/dua_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/quran/quran_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/surah/surah_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/tasbih/tasbih_bloc.dart';
 
 import 'routes/routes.dart';
 import 'src/core/notification/notification_service.dart';
@@ -28,29 +34,52 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => ThemeBloc(),
-      child: BlocProvider(
-        create: (context) => TimeFormatBloc(),
-        child: BlocProvider(
-          create: (context) => TimingBloc(),
-          child: ScreenUtilInit(
-              designSize: Size(414, 896),
-              builder: () {
-                return BlocBuilder<ThemeBloc, ThemeState>(
-                  builder: (context, state) {
-                    return MaterialApp(
-                      title: 'Material App',
-                      debugShowCheckedModeBanner: false,
-                      color: Colors.white,
-                      theme: state.currentTheme,
-                      initialRoute: RouteGenerator.tabScreen,
-                      onGenerateRoute: RouteGenerator.generateRoute,
-                    );
-                  },
-                );
-              }),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ThemeBloc(),
         ),
+        BlocProvider(
+          create: (context) => TimeFormatBloc(),
+        ),
+        BlocProvider(
+          create: (context) => TimingBloc(),
+        ),
+        BlocProvider(
+          create: (context) => AllahNameBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DuaBloc(),
+        ),
+        BlocProvider(
+          create: (context) => QuranBloc(),
+        ),
+        BlocProvider(
+          create: (context) => SurahBloc(),
+        ),
+        BlocProvider(
+          create: (context) => TasbihBloc(),
+        ),
+        BlocProvider(
+          create: (context) => DatabaseBloc(),
+        ),
+      ],
+      child: ScreenUtilInit(
+        designSize: Size(414, 896),
+        builder: () {
+          return BlocBuilder<ThemeBloc, ThemeState>(
+            builder: (context, state) {
+              return MaterialApp(
+                title: 'Material App',
+                debugShowCheckedModeBanner: false,
+                color: Colors.white,
+                theme: state.currentTheme,
+                initialRoute: RouteGenerator.splash,
+                onGenerateRoute: RouteGenerator.generateRoute,
+              );
+            },
+          );
+        },
       ),
     );
   }

@@ -8,7 +8,11 @@ class RemoteException implements Exception {
 }
 
 // Represent exceptions from Cache.
-class LocalException implements Exception {}
+class LocalException implements Exception {
+  String error;
+
+  LocalException(this.error);
+}
 
 class RouteException implements Exception {
   final String message;

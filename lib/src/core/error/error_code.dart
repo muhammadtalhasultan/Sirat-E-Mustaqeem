@@ -7,6 +7,10 @@ final kLocationDisableForever = {
   'message': 'Location is not enabled. Please go to setting to enable it.',
   'errorCode': 2,
 };
+final kReadDatabaseFailed = {
+  'message': 'Read database failed. Try again later.',
+  'errorCode': 3,
+};
 
 /// remote error
 

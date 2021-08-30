@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/util/constants.dart';
-import '../../error/failure_widget.dart';
+import '../../error/widget/failure_widget.dart';
 import '../../utils/loading_widget.dart';
 import '../blocs/angle_bloc/angle_bloc.dart';
 import '../blocs/qibla_bloc/qibla_bloc.dart';
