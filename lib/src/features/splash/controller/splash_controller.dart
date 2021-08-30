@@ -7,7 +7,6 @@ import '../../../core/util/bloc/database/database_bloc.dart';
 
 Future<void> checkDatabaseAvailability(BuildContext context) async {
   bool databaseExist = await DatabaseService().checkIfDatabaseExist();
-  print('checking');
 
   if (databaseExist) {
     BlocProvider.of<DatabaseBloc>(context).add(InitDatabase(context));

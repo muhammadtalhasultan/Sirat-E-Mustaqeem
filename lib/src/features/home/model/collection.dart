@@ -32,7 +32,7 @@ List<Collection> collections = [
   Collection(
     'assets/images/collection_icon/svg/quran.svg',
     '5 Pillars Of Islam',
-    '',
+    RouteGenerator.allahName,
   ),
   Collection(
     'assets/images/collection_icon/svg/prayer_time.svg',

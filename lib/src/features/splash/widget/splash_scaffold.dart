@@ -10,14 +10,7 @@ class SplashScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<DatabaseBloc, DatabaseState>(
-      listenWhen: (previous, current) {
-        print(previous);
-        print(current);
-        return true;
-      },
       listener: (context, state) {
-        print(state);
-
         if (state is DatabaseLoaded) {
           Navigator.of(context).pushReplacementNamed(RouteGenerator.tabScreen);
         } else if (state is DatabaseFailed) {

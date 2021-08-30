@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../src/core/error/exceptions.dart';
+import '../src/features/allah_name/screen/allah_name_screen.dart';
 import '../src/features/bottom_tab/screen/tab_screen.dart';
 import '../src/features/download/screen/download_screen.dart';
 import '../src/features/error/screen/database_error_screen.dart';
@@ -17,6 +18,7 @@ class RouteGenerator {
   static const String thankyou = '/thank_you';
   static const String download = '/download';
   static const String databaseError = '/database_error';
+  static const String allahName = '/allah_name';
 
   RouteGenerator._();
 
@@ -36,6 +38,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const DownloadScreen());
       case databaseError:
         return MaterialPageRoute(builder: (_) => const DatabaseErrorScreen());
+      case allahName:
+        return MaterialPageRoute(builder: (_) => const AllahNameScreen());
       default:
         throw RouteException('Route not found');
     }
