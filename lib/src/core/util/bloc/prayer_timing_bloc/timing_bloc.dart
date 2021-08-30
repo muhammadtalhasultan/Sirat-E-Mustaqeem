@@ -80,13 +80,15 @@ class TimingBloc extends Bloc<TimingEvent, TimingState> {
     /// if data is not yet outdated, we just update the data
     /// to the new [dataCount] from [TimingController]
     if (event is UpdateTiming) {
-      final Timing timing = Timing(
-        code: _timing!.code,
-        data: _timing!.data,
-        status: _timing!.status,
-      );
+      if (_timing != null) {
+        final Timing timing = Timing(
+          code: _timing!.code,
+          data: _timing!.data,
+          status: _timing!.status,
+        );
 
-      yield TimingLoaded(timing);
+        yield TimingLoaded(timing);
+      }
     }
   }
 }

@@ -5,22 +5,24 @@ final kLocationDisable = {
 };
 final kLocationDisableForever = {
   'message': 'Location is not enabled. Please go to setting to enable it.',
-  'errorCode': 2,
+  'errorCode': 1,
 };
 final kReadDatabaseFailed = {
   'message': 'Read database failed. Try again later.',
-  'errorCode': 3,
+  'errorCode': 2,
 };
 
 /// remote error
 
 class RemoteErrorCode {
+  static const INTERNET_ERROR_CODE = 51;
+
   static final List<Map<String, Object>> remoteErrors = [
     {
       'rawMessage':
           '(OS Error: No address associated with hostname, errno = 7)',
       'message': 'No internet connection available',
-      'errorCode': 51,
+      'errorCode': INTERNET_ERROR_CODE,
     }
   ];
 }

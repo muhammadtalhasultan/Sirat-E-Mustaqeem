@@ -80,13 +80,15 @@ class _QiblaScaffoldState extends State<QiblaScaffold> {
                         ),
                       )
                     : (state is QiblaFailed)
-                        ? FailureWidget(
-                            state.failure,
-                            () {
-                              BlocProvider.of<QiblaBloc>(context).add(
-                                RequestQiblahDirection(),
-                              );
-                            },
+                        ? SafeArea(
+                            child: FailureWidget(
+                              state.failure,
+                              () {
+                                BlocProvider.of<QiblaBloc>(context).add(
+                                  RequestQiblahDirection(),
+                                );
+                              },
+                            ),
                           )
                         : Container(),
           );

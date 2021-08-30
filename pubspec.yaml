@@ -46,6 +46,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/core/json/
+    - assets/images/error/lottie_json/
     - assets/images/navigation_icon/svg/
     - assets/images/home_icon/svg/
     - assets/images/home_icon/lottie_json/

@@ -19,6 +19,15 @@ class SplashScaffold extends StatelessWidget {
         }
       },
       child: Scaffold(
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        extendBodyBehindAppBar: true,
+        extendBody: true,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          toolbarHeight: 0,
+          systemOverlayStyle: Theme.of(context).appBarTheme.systemOverlayStyle,
+        ),
         body: Center(
           child: Text(
             'Splash Screen',

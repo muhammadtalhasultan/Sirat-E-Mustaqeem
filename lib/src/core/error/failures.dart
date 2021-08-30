@@ -12,8 +12,10 @@ abstract class Failure extends Equatable {
 // Represent failures from Server/Remote data source.
 class RemoteFailure extends Failure {
   final DioErrorType errorType;
+  int? errorCode;
 
-  RemoteFailure({required message, required this.errorType}) : super(message);
+  RemoteFailure({errorCode, required message, required this.errorType})
+      : super(message);
 
   @override
   List<Object> get props => [errorType];

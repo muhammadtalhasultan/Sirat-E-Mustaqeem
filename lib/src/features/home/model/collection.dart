@@ -31,7 +31,7 @@ List<Collection> collections = [
   ),
   Collection(
     'assets/images/collection_icon/svg/quran.svg',
-    '5 Pillars Of Islam',
+    '99 Names of Allah',
     RouteGenerator.allahName,
   ),
   Collection(

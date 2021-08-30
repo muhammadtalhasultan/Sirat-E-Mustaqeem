@@ -54,13 +54,19 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(0),
+        minimumSize: MaterialStateProperty.all(
+          Size(double.infinity, 56.h),
+        ),
+        shape: MaterialStateProperty.all(
+          const StadiumBorder(),
+        ),
         foregroundColor: MaterialStateProperty.all(
-          kDarkPlaceholder,
+          kDarkTextColor,
         ),
         textStyle: MaterialStateProperty.all(
           TextStyle(
             fontSize: 16.sp,
-            color: kDarkPrimary,
+            color: kDarkTextColor,
           ),
         ),
       ),
@@ -157,13 +163,19 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
         elevation: MaterialStateProperty.all(5),
+        minimumSize: MaterialStateProperty.all(
+          Size(double.infinity, 56.h),
+        ),
+        shape: MaterialStateProperty.all(
+          const StadiumBorder(),
+        ),
         foregroundColor: MaterialStateProperty.all(
-          kLightPlaceholder,
+          kDarkTextColor,
         ),
         textStyle: MaterialStateProperty.all(
           TextStyle(
             fontSize: 16.sp,
-            color: kLightPrimary,
+            color: kDarkTextColor,
           ),
         ),
       ),

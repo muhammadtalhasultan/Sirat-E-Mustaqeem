@@ -32,13 +32,15 @@ class TimingScreenScaffold extends StatelessWidget {
                 : (state is TimingLoaded)
                     ? SuccessWidget(state.timing)
                     : (state is TimingFailed)
-                        ? FailureWidget(
-                            state.failure,
-                            () {
-                              BlocProvider.of<TimingBloc>(context).add(
-                                RequestTiming(),
-                              );
-                            },
+                        ? SafeArea(
+                            child: FailureWidget(
+                              state.failure,
+                              () {
+                                BlocProvider.of<TimingBloc>(context).add(
+                                  RequestTiming(),
+                                );
+                              },
+                            ),
                           )
                         : Container(),
           );

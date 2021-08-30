@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/error/failures.dart';
 
 import '../../error/widget/failure_widget.dart';
-import '../bloc/percent/percent_bloc.dart';
 import '../download/download_bloc.dart';
+import 'download_widget.dart';
+import 'success_widget.dart';
 
 class DownloadScaffold extends StatefulWidget {
   const DownloadScaffold();
@@ -30,23 +32,21 @@ class _DownloadScaffoldState extends State<DownloadScaffold> {
         child: BlocBuilder<DownloadBloc, DownloadState>(
           builder: (context, state) {
             if (state is DownloadDone) {
-              return Center(
-                child: Text(
-                    'All set! You are ready to use \'Sirate Mustaqueem\'! Welcome aboard!'),
-              );
+              return SuccessWidget();
             }
             if (state is DownloadFailed) {
-              return FailureWidget(state.failure, () {});
-            }
-            return Center(
-              child: BlocBuilder<PercentBloc, PercentState>(
-                builder: (context, state) {
-                  return Text(
-                    state.percent.toString(),
-                  );
+              return FailureWidget(
+                state.failure,
+                () {
+                  if (state.failure is RemoteFailure) {
+                    BlocProvider.of<DownloadBloc>(context).add(
+                      DownloadDatabase(context),
+                    );
+                  }
                 },
-              ),
-            );
+              );
+            }
+            return DownloadWidget();
           },
         ),
       ),
