@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/surah.dart';
+
+import '../../model/surah.dart';
 
 part 'surah_event.dart';
 part 'surah_state.dart';

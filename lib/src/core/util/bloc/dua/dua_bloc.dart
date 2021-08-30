@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/dua.dart';
+
+import '../../model/dua.dart';
 
 part 'dua_event.dart';
 part 'dua_state.dart';

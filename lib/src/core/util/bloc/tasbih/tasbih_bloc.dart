@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/tasbih.dart';
+
+import '../../model/tasbih.dart';
 
 part 'tasbih_event.dart';
 part 'tasbih_state.dart';

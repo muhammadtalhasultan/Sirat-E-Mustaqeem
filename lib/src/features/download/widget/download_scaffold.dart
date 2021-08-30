@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/error/failures.dart';
-import 'package:sirat_e_mustaqeem/src/features/error/widget/failure_widget.dart';
 
+import '../../error/widget/failure_widget.dart';
 import '../bloc/percent/percent_bloc.dart';
 import '../download/download_bloc.dart';
 

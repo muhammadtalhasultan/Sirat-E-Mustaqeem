@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/database/database_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/error/widget/failure_widget.dart';
+
+import '../../../core/util/bloc/database/database_bloc.dart';
+import '../widget/failure_widget.dart';
 
 class DatabaseErrorScreen extends StatelessWidget {
   const DatabaseErrorScreen();
