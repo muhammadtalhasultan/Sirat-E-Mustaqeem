@@ -46,7 +46,9 @@ class _DownloadScaffoldState extends State<DownloadScaffold> {
                 },
               );
             }
-            return DownloadWidget();
+            if (state is DownloadLoading) return DownloadWidget();
+
+            return Container();
           },
         ),
       ),

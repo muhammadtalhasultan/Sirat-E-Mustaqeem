@@ -18,6 +18,8 @@ class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
     DownloadEvent event,
   ) async* {
     if (event is DownloadDatabase) {
+      yield DownloadLoading();
+
       var result = await DatabaseService().downloadDatabase(event.context);
 
       yield* result.fold((l) async* {

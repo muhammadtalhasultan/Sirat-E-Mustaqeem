@@ -33,7 +33,6 @@ class _TabScreenState extends State<TabScreen> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    print(state);
     if (Platform.isAndroid)
       Future.delayed(Duration(milliseconds: 500), () {
         if (state == AppLifecycleState.resumed) {

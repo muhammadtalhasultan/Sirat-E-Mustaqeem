@@ -5,6 +5,8 @@ import '../src/features/allah_name/screen/allah_name_screen.dart';
 import '../src/features/bottom_tab/screen/tab_screen.dart';
 import '../src/features/download/screen/download_screen.dart';
 import '../src/features/error/screen/database_error_screen.dart';
+import '../src/features/permission/screen/location_permission_screen.dart';
+import '../src/features/permission/screen/notification_permission_screen.dart';
 import '../src/features/prayer_timing/screen/prayer_timing_screen.dart';
 import '../src/features/qibla/screen/qibla_screen.dart';
 import '../src/features/setting/screen/thankyou_screen.dart';
@@ -19,6 +21,8 @@ class RouteGenerator {
   static const String download = '/download';
   static const String databaseError = '/database_error';
   static const String allahName = '/allah_name';
+  static const String locationPermission = '/location_permission';
+  static const String notificationPermission = '/notification_permission';
 
   RouteGenerator._();
 
@@ -40,6 +44,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const DatabaseErrorScreen());
       case allahName:
         return MaterialPageRoute(builder: (_) => const AllahNameScreen());
+      case locationPermission:
+        return MaterialPageRoute(
+            builder: (_) => const LocationPermissionScreen());
+      case notificationPermission:
+        return MaterialPageRoute(
+            builder: (_) => const NotificationPermissionScreen());
       default:
         throw RouteException('Route not found');
     }

@@ -10,7 +10,7 @@ import '../../error/failures.dart';
 Future<Either<Failure, Position>> getCurrentPosition() async {
   if (!await Geolocator.isLocationServiceEnabled()) {
     /// if user is not enabling the location service
-    await Geolocator.openLocationSettings();
+    // await Geolocator.openLocationSettings();
     return Left(
       LocalFailure(
         message: kLocationDisable['message'],
@@ -66,7 +66,7 @@ Future<Either<Failure, Position>> getCurrentPosition() async {
   if (permission == LocationPermission.deniedForever && Platform.isIOS) {
     /// happen in ios only when user click on deny
     /// allow user to go to setting and enable back
-    await Geolocator.openLocationSettings();
+    // await Geolocator.openLocationSettings();
     return Left(
       LocalFailure(
         message: kLocationDisableForever['message'],

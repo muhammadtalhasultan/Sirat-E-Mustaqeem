@@ -10,12 +10,8 @@ class DownloadInitial extends DownloadState {
 }
 
 class DownloadLoading extends DownloadState {
-  final double percent;
-
-  DownloadLoading(this.percent);
-
   @override
-  List<Object> get props => [percent];
+  List<Object> get props => [];
 }
 
 class DownloadDone extends DownloadState {

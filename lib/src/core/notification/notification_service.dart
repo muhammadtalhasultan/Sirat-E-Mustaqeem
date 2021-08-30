@@ -47,9 +47,9 @@ class NotificationService {
     /// app
     final IOSInitializationSettings initializationSettingsIOS =
         IOSInitializationSettings(
-      requestAlertPermission: true,
-      requestBadgePermission: true,
-      requestSoundPermission: true,
+      requestAlertPermission: false,
+      requestBadgePermission: false,
+      requestSoundPermission: false,
       onDidReceiveLocalNotification: _onDidReceiveLocalNotification,
     );
 

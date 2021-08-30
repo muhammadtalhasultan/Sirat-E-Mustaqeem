@@ -7,10 +7,13 @@ import 'local_failure_content.dart';
 import 'remote_failure_content.dart';
 
 class FailureWidget extends StatelessWidget {
-  const FailureWidget(this.failure, this.refreshFunction);
+  const FailureWidget(this.failure, this.refreshFunction,
+      {this.withAppbar = false});
 
   final Failure failure;
   final void Function() refreshFunction;
+  final bool withAppbar;
+
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
@@ -23,7 +26,7 @@ class FailureWidget extends StatelessWidget {
           height: 1.sh -
               ScreenUtil().bottomBarHeight -
               ScreenUtil().statusBarHeight -
-              50,
+              (withAppbar ? 50 : 0),
           padding: kPagePadding,
           width: 1.sw,
           child: Column(

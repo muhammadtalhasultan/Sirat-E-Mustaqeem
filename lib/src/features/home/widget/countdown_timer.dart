@@ -32,12 +32,10 @@ class _CountDownTimerState extends State<CountDownTimer> {
           if (BlocProvider.of<TimerBloc>(context).state is TimerLoaded &&
               BlocProvider.of<TimerBloc>(context).state.difference ==
                   Duration.zero) {
-            print('in if block');
             if (widget.controller.timingCount == 4) {
               BlocProvider.of<TimingBloc>(context)
                   .add(RequestTimingForTomorrow());
             } else {
-              print('update timing');
               BlocProvider.of<TimingBloc>(context).add(UpdateTiming());
             }
           }

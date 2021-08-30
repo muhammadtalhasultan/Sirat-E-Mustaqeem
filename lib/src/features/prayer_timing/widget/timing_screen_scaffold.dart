@@ -40,6 +40,7 @@ class TimingScreenScaffold extends StatelessWidget {
                                   RequestTiming(),
                                 );
                               },
+                              withAppbar: true,
                             ),
                           )
                         : Container(),

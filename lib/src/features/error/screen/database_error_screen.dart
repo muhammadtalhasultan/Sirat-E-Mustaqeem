@@ -13,7 +13,12 @@ class DatabaseErrorScreen extends StatelessWidget {
       builder: (context, state) {
         if (state is DatabaseFailed)
           return Scaffold(
-            body: FailureWidget(state.failure, () {}),
+            body: SafeArea(
+              child: FailureWidget(
+                state.failure,
+                () {},
+              ),
+            ),
           );
         return Scaffold();
       },

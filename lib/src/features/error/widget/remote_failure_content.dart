@@ -20,8 +20,10 @@ class RemoteFailureContent extends StatelessWidget {
             constraints: BoxConstraints(
               maxWidth: 500.w,
             ),
-            child: LottieBuilder.asset(
-              'assets/images/error/lottie_json/no_internet.json',
+            child: ClipOval(
+              child: LottieBuilder.asset(
+                'assets/images/error/lottie_json/no_internet.json',
+              ),
             ),
           ),
           SizedBox(

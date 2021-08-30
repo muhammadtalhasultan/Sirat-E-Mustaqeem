@@ -46,7 +46,7 @@ class SuccessWidget extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context)
-                    .pushReplacementNamed(RouteGenerator.tabScreen);
+                    .pushReplacementNamed(RouteGenerator.locationPermission);
               },
               child: Text(
                 'Next',

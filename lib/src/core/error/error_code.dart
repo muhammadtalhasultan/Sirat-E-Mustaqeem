@@ -16,13 +16,20 @@ final kReadDatabaseFailed = {
 
 class RemoteErrorCode {
   static const INTERNET_ERROR_CODE = 51;
+  static const CONNECTION_INTERUPTED_ERROR_CODE = 52;
 
   static final List<Map<String, Object>> remoteErrors = [
     {
       'rawMessage':
           '(OS Error: No address associated with hostname, errno = 7)',
-      'message': 'No internet connection available',
+      'message':
+          'No internet connection available. Please pconnect to the internet.',
       'errorCode': INTERNET_ERROR_CODE,
+    },
+    {
+      'rawMessage': 'Connection closed while receiving data',
+      'message': 'Connection interupted. Please reconnect to the internet.',
+      'errorCode': CONNECTION_INTERUPTED_ERROR_CODE,
     }
   ];
 }

@@ -88,6 +88,7 @@ class _QiblaScaffoldState extends State<QiblaScaffold> {
                                   RequestQiblahDirection(),
                                 );
                               },
+                              withAppbar: true,
                             ),
                           )
                         : Container(),

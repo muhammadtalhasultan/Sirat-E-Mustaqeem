@@ -92,12 +92,16 @@ class DatabaseService {
     } on RemoteException catch (e) {
       String errorMessage = e.dioError.message;
       int? errorCode;
+
       for (final error in RemoteErrorCode.remoteErrors) {
         if (e.dioError.message.contains(error['rawMessage'].toString())) {
           errorMessage = error['message'].toString();
           errorCode = error['errorCode'] as int;
         }
       }
+
+      print(errorMessage);
+
       return Left(
         RemoteFailure(
           message: errorMessage,

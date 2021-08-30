@@ -7,11 +7,13 @@ class LoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ConstrainedBox(
-        constraints: BoxConstraints(maxWidth: 500.w),
-        child: LottieBuilder.asset(
-          'assets/images/core/json/loading.json',
+    return SafeArea(
+      child: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(maxWidth: 500.w),
+          child: LottieBuilder.asset(
+            'assets/images/core/json/loading.json',
+          ),
         ),
       ),
     );
