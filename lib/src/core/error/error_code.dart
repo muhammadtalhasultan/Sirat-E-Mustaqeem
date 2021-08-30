@@ -27,6 +27,13 @@ class RemoteErrorCode {
       'errorCode': INTERNET_ERROR_CODE,
     },
     {
+      'rawMessage':
+          '(OS Error: No address associated with hostname, errno = 8)',
+      'message':
+          'No internet connection available. Please pconnect to the internet.',
+      'errorCode': INTERNET_ERROR_CODE,
+    },
+    {
       'rawMessage': 'Connection closed while receiving data',
       'message': 'Connection interupted. Please reconnect to the internet.',
       'errorCode': CONNECTION_INTERUPTED_ERROR_CODE,

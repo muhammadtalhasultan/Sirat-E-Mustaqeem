@@ -16,9 +16,8 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
     textTheme: GoogleFonts.openSansTextTheme(
       TextTheme().copyWith(
         headline1: TextStyle(
-          fontSize: 32.sp,
+          fontSize: 64.sp,
           color: kDarkTextColor,
-          fontWeight: FontWeight.bold,
         ),
         headline2: TextStyle(
           fontSize: 32.sp,
@@ -125,9 +124,8 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
     textTheme: GoogleFonts.openSansTextTheme(
       TextTheme().copyWith(
         headline1: TextStyle(
-          fontSize: 32.sp,
+          fontSize: 64.sp,
           color: kLightTextColor,
-          fontWeight: FontWeight.bold,
         ),
         headline2: TextStyle(
           fontSize: 32.sp,
