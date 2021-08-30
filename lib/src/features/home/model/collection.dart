@@ -1,4 +1,4 @@
-import 'package:sirat_e_mustaqeem/routes/routes.dart';
+import '../../../../routes/routes.dart';
 
 class Collection {
   final String assetName;

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/controller/url_launcher_controller.dart';
-import 'package:sirat_e_mustaqeem/src/features/setting/model/social_media.dart';
+
+import '../../../core/util/controller/url_launcher_controller.dart';
+import '../model/social_media.dart';
 
 class SocialMediaButton extends StatelessWidget {
   const SocialMediaButton(

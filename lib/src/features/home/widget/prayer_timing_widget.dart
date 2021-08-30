@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
 
 import '../../../../routes/routes.dart';
 import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
+import '../../../core/util/constants.dart';
 import '../../../core/util/controller/date_controller.dart';
 import '../../../core/util/controller/timing_controller.dart';
 import '../bloc/timer_bloc/timer_bloc.dart';

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/setting/model/social_media.dart';
-import 'package:sirat_e_mustaqeem/src/features/setting/widget/social_media_button.dart';
-import 'package:sirat_e_mustaqeem/src/features/utils/sirat_card.dart';
+
+import '../../utils/sirat_card.dart';
+import '../model/social_media.dart';
+import 'social_media_button.dart';
 
 class SocialMediaCard extends StatelessWidget {
   const SocialMediaCard();

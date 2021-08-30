@@ -1,8 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/controller/notification_controller.dart';
-
 import '../bloc/tab/tab_bloc.dart';
 import '../widget/tab_scaffold.dart';
 
@@ -13,12 +15,36 @@ class TabScreen extends StatefulWidget {
   State<TabScreen> createState() => _TabScreenState();
 }
 
-class _TabScreenState extends State<TabScreen> {
+class _TabScreenState extends State<TabScreen> with WidgetsBindingObserver {
   @override
   void initState() {
     configureDidReceiveLocalNotificationSubject(context);
     configureSelectNotificationSubject(context);
+    WidgetsBinding.instance!.addObserver(this);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance!.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (Platform.isAndroid)
+      Future.delayed(Duration(milliseconds: 500), () {
+        if (state == AppLifecycleState.resumed) {
+          BlocProvider.of<TimingBloc>(context).add(UpdateTiming());
+        }
+      });
+    else if (Platform.isIOS) {
+      if (state == AppLifecycleState.resumed) {
+        BlocProvider.of<TimingBloc>(context).add(UpdateTiming());
+      }
+    }
+
+    super.didChangeAppLifecycleState(state);
   }
 
   @override

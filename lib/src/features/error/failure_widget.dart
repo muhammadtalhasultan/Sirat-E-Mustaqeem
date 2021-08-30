@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/core/error/error_code.dart';
 
+import '../../core/error/error_code.dart';
 import '../../core/error/failures.dart';
 import '../../core/util/controller/location_controller.dart';
 

@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
+import '../../../core/util/constants.dart';
 
 class RandomImageCard extends StatelessWidget {
   const RandomImageCard({Key? key}) : super(key: key);

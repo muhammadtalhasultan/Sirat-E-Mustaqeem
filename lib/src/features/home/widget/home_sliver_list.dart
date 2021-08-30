@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/home/widget/ayat_card.dart';
-import 'package:sirat_e_mustaqeem/src/features/home/widget/hadees_card.dart';
-import 'package:sirat_e_mustaqeem/src/features/home/widget/random_image_card.dart';
-import 'package:sirat_e_mustaqeem/src/features/utils/sirat_card.dart';
 
+import 'ayat_card.dart';
 import 'collection_card.dart';
+import 'hadees_card.dart';
+import 'random_image_card.dart';
 
 class HomeSliverList extends StatelessWidget {
   const HomeSliverList();

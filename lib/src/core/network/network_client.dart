@@ -7,8 +7,8 @@ class NetworkClient {
 
   NetworkClient(String baseUrl) {
     BaseOptions baseOptions = BaseOptions(
-        receiveTimeout: 4500,
-        connectTimeout: 4500,
+        receiveTimeout: 30000,
+        connectTimeout: 30000,
         baseUrl: baseUrl,
         maxRedirects: 2);
     _dio = Dio(baseOptions);

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/utils/loading_widget.dart';
 
 import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/constants.dart';
+import '../../utils/loading_widget.dart';
 import '../bloc/tab/tab_bloc.dart';
 import 'sirat_bottom_tab.dart';
 

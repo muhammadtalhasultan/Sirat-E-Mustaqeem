@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/setting/model/contributor.dart';
-import 'package:sirat_e_mustaqeem/src/features/utils/sirat_card.dart';
+
+import '../../utils/sirat_card.dart';
+import '../model/contributor.dart';
 
 class ThankyouScreen extends StatelessWidget {
   const ThankyouScreen();

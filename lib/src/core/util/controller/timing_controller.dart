@@ -101,11 +101,7 @@ Future<Either<Failure, Timing>> getPrayerTiming({forTomorrow = false}) async {
   };
 
   /// current date for getting praying timing from api
-  int timestamp = ((DateTime.now()
-              .add(Duration(hours: 14, minutes: 19))
-              .millisecondsSinceEpoch) /
-          1000)
-      .floor();
+  int timestamp = ((DateTime.now().millisecondsSinceEpoch) / 1000).floor();
 
   if (forTomorrow) {
     final newDate = DateTime.now().add(

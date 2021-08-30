@@ -17,8 +17,8 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
   /// get the duration difference between current time and next prayer time
   Duration getDifference() {
     /// handle case when current time is over the last prayer of the day.
-
     int _hours = _timing[0];
+
     if (DateTime.now().hour > 10 && _timing[0] < 10) {
       _hours += 24;
     }
@@ -45,6 +45,7 @@ class TimerBloc extends Bloc<TimerEvent, TimerState> {
         ),
       );
     }
+
     return Duration.zero;
   }
 

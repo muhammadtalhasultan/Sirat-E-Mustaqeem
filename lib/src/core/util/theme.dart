@@ -185,7 +185,7 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
       titleTextStyle: TextStyle(
         fontSize: 16.sp,
         fontWeight: FontWeight.bold,
-        color: kLightTextColor,
+        color: kDarkTextColor,
       ),
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(

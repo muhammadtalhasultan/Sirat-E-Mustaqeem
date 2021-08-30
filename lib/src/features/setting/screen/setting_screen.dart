@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/setting/widget/social_media_card.dart';
 
 import '../widget/general_card.dart';
+import '../widget/social_media_card.dart';
 import '../widget/user_preference_card.dart';
 
 class SettingScreen extends StatelessWidget {

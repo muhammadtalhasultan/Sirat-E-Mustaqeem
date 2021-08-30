@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/qibla/controller/qibla_controller.dart';
 
 import '../../../core/util/constants.dart';
 import '../../error/failure_widget.dart';
 import '../../utils/loading_widget.dart';
 import '../blocs/angle_bloc/angle_bloc.dart';
 import '../blocs/qibla_bloc/qibla_bloc.dart';
+import '../controller/qibla_controller.dart';
 import 'compass.dart';
 
 class QiblaScaffold extends StatefulWidget {

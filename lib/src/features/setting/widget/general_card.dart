@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/setting/model/general_option.dart';
-import 'package:sirat_e_mustaqeem/src/features/setting/widget/general_option_card.dart';
-import 'package:sirat_e_mustaqeem/src/features/utils/sirat_card.dart';
+
+import '../../utils/sirat_card.dart';
+import '../model/general_option.dart';
+import 'general_option_card.dart';
 
 class GeneralCard extends StatelessWidget {
   const GeneralCard();
