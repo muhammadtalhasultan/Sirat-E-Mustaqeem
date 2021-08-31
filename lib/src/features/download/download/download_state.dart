@@ -15,8 +15,11 @@ class DownloadLoading extends DownloadState {
 }
 
 class DownloadDone extends DownloadState {
+  final Database db;
+  const DownloadDone(this.db);
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [db];
 }
 
 class DownloadFailed extends DownloadState {

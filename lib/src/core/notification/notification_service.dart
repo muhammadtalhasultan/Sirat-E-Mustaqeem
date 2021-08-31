@@ -67,7 +67,7 @@ class NotificationService {
 
     final available =
         await flutterLocalNotificationsPlugin.pendingNotificationRequests();
-    print(available[0].title);
+    //print(available[0].title);
   }
 
   /// add notification to the stream so other page can subscribe it

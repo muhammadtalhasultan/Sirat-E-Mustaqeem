@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sirat_e_mustaqeem/src/core/error/failures.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/database/database_bloc.dart';
 
 import '../../error/widget/failure_widget.dart';
 import '../download/download_bloc.dart';
@@ -29,7 +30,16 @@ class _DownloadScaffoldState extends State<DownloadScaffold> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocBuilder<DownloadBloc, DownloadState>(
+        child: BlocConsumer<DownloadBloc, DownloadState>(
+          listener: (context, state) {
+            if (state is DownloadDone) {
+              BlocProvider.of<DatabaseBloc>(context).add(
+                AddDatabase(
+                  state.db,
+                ),
+              );
+            }
+          },
           builder: (context, state) {
             if (state is DownloadDone) {
               return SuccessWidget();

@@ -19,5 +19,10 @@ class TasbihBloc extends Bloc<TasbihEvent, TasbihState> {
       state.tasbihs.initializeData(event.datas);
       yield TasbihState(state.tasbihs);
     }
+    if (event is UpdateTasbih) {
+      final newTasbihs = Tasbihs();
+      newTasbihs.initializeData(event.datas);
+      yield TasbihState(newTasbihs);
+    }
   }
 }

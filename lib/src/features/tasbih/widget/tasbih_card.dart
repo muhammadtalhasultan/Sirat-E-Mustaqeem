@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../../core/util/model/tasbih.dart';
-import '../bloc/selected_tasbih_bloc.dart';
-import '../screen/selected_tasbih_screen.dart';
-import '../../utils/sirat_card.dart';
 
-class TasbihCard extends StatelessWidget {
+import '../../../core/util/constants.dart';
+import '../../../core/util/model/tasbih.dart';
+import '../../utils/sirat_card.dart';
+import '../bloc/selected_tasbih/selected_tasbih_bloc.dart';
+import '../controller/tasbih_controller.dart';
+import '../screen/selected_tasbih_screen.dart';
+import 'bottom_selection.dart';
+
+class TasbihCard extends StatefulWidget {
   const TasbihCard(
     this.tasbih,
     this.index,
@@ -17,13 +21,35 @@ class TasbihCard extends StatelessWidget {
   final int index;
 
   @override
+  State<TasbihCard> createState() => _TasbihCardState();
+}
+
+class _TasbihCardState extends State<TasbihCard> {
+  late final TextEditingController nameController;
+  late final TextEditingController counterController;
+
+  @override
+  void initState() {
+    nameController = TextEditingController();
+    counterController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    counterController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => BlocProvider(
-              create: (context) => SelectedTasbihBloc(tasbih),
+              create: (context) => SelectedTasbihBloc(widget.tasbih),
               child: SelectedTasbihScreen(),
             ),
           ),
@@ -48,7 +74,7 @@ class TasbihCard extends StatelessWidget {
               ),
               child: FittedBox(
                 child: Text(
-                  index.toString(),
+                  widget.index.toString(),
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
@@ -61,7 +87,7 @@ class TasbihCard extends StatelessWidget {
             ),
             Expanded(
               child: Text(
-                tasbih.name,
+                widget.tasbih.name,
               ),
             ),
             SizedBox(
@@ -71,7 +97,7 @@ class TasbihCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  tasbih.counter.toString(),
+                  widget.tasbih.counter.toString(),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColor,
@@ -89,9 +115,13 @@ class TasbihCard extends StatelessWidget {
               width: 16.w,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () async {
+                await toggleTasbihFavorite(context, widget.tasbih);
+              },
               child: SvgPicture.asset(
-                'assets/images/tasbih_icon/svg/favorite.svg',
+                widget.tasbih.favorite == 0
+                    ? 'assets/images/tasbih_icon/svg/favorite.svg'
+                    : 'assets/images/tasbih_icon/svg/favorite_filled.svg',
                 color: Theme.of(context).primaryColor,
                 width: 20.w,
               ),
@@ -100,7 +130,17 @@ class TasbihCard extends StatelessWidget {
               width: 8.w,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () async {
+                await showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: kBottomSheetBorderRadius,
+                    ),
+                    builder: (context) {
+                      return BottomSelection(widget.tasbih);
+                    });
+              },
               child: SvgPicture.asset(
                 'assets/images/tasbih_icon/svg/more.svg',
                 color: Theme.of(context).primaryColor,

@@ -12,3 +12,12 @@ class InitDatabase extends DatabaseEvent {
   @override
   List<Object> get props => [context];
 }
+
+class AddDatabase extends DatabaseEvent {
+  final Database db;
+
+  AddDatabase(this.db);
+
+  @override
+  List<Object> get props => [db];
+}

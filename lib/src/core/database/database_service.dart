@@ -4,6 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/model/tasbih.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../features/download/bloc/percent/percent_bloc.dart';
@@ -22,16 +23,17 @@ class DatabaseService {
     return await File(pathName).exists();
   }
 
-  Future<Either<LocalFailure, void>> initService(BuildContext context) async {
+  Future<Either<LocalFailure, Database>> initService(
+      BuildContext context) async {
     try {
       final databasesPath = await getDatabasesPath();
       final pathName = '$databasesPath/$DATABASE_FILE';
 
-      final db = await openDatabase(pathName);
+      final Database db = await openDatabase(pathName);
 
       await DatabaseTable.cachedDataFromDb(db, context);
 
-      return Right(null);
+      return Right(db);
     } on LocalException catch (e) {
       return Left(
         LocalFailure(
@@ -51,7 +53,8 @@ class DatabaseService {
     }
   }
 
-  Future<Either<Failure, void>> downloadDatabase(BuildContext context) async {
+  Future<Either<Failure, Database>> downloadDatabase(
+      BuildContext context) async {
     final databasesPath = await getDatabasesPath();
     final pathName = '$databasesPath/$DATABASE_FILE';
 
@@ -73,16 +76,17 @@ class DatabaseService {
         var result = await initService(context);
 
         LocalFailure? localFailure;
+        Database? database;
 
         result.fold(
           (l) => localFailure = l,
-          (r) => Right(null),
+          (r) => database = r,
         );
 
         if (localFailure != null) {
           return Left(localFailure!);
         }
-        return Right(null);
+        return Right(database!);
       } else {
         return Left(
           RemoteFailure(
@@ -110,5 +114,80 @@ class DatabaseService {
         ),
       );
     }
+  }
+
+  Future<List<Map<String, Object?>>> toggleTasbihFavorite(
+      Database db, Tasbih tasbih) async {
+    List<Map> selectedTasbih =
+        await db.rawQuery('SELECT * FROM tasbih WHERE id = ?', [tasbih.id]);
+
+    if (selectedTasbih[0]['favorite'] == 0) {
+      await db.rawUpdate(
+        'UPDATE tasbih SET favorite = ? WHERE id = ?',
+        [1, tasbih.id],
+      );
+    } else {
+      await db.rawUpdate(
+        'UPDATE tasbih SET favorite = ? WHERE id = ?',
+        [0, tasbih.id],
+      );
+    }
+
+    List<Map<String, Object?>> tasbihs = await db.query('tasbih');
+
+    return tasbihs;
+  }
+
+  Future<List<Map<String, Object?>>> createTasbih(
+      Database db, Map<String, Object> details) async {
+    final count = Sqflite.firstIntValue(
+        await db.rawQuery('SELECT id FROM tasbih ORDER BY id DESC LIMIT 1'));
+
+    if (details.containsKey('name') && details.containsKey('counter')) {
+      await db.rawInsert(
+          'INSERT INTO tasbih(id, name,counter, favorite) VALUES(?, ?, ?, ?)', [
+        (count! + 1),
+        details['name'].toString(),
+        details['counter'] as int,
+        0
+      ]);
+    }
+
+    List<Map<String, Object?>> tasbihs = await db.query('tasbih');
+
+    return tasbihs;
+  }
+
+  Future<List<Map<String, Object?>>> editTasbih(
+      Database db, Tasbih tasbih, Map<String, Object> details) async {
+    if (details.containsKey('name') && details.containsKey('counter')) {
+      await db.rawUpdate(
+        'UPDATE tasbih SET name = ?, counter = ? WHERE id = ?',
+        [details['name'].toString(), details['counter'] as int, tasbih.id],
+      );
+    } else if (details.containsKey('name')) {
+      await db.rawUpdate(
+        'UPDATE tasbih SET name = ? WHERE id = ?',
+        [details['name'].toString(), tasbih.id],
+      );
+    } else if (details.containsKey('counter')) {
+      await db.rawUpdate(
+        'UPDATE tasbih SET counter = ? WHERE id = ?',
+        [details['counter'] as int, tasbih.id],
+      );
+    }
+
+    List<Map<String, Object?>> tasbihs = await db.query('tasbih');
+
+    return tasbihs;
+  }
+
+  Future<List<Map<String, Object?>>> deleteTasbih(
+      Database db, Tasbih tasbih) async {
+    await db.rawDelete('DELETE FROM tasbih WHERE id = ?', [tasbih.id]);
+
+    List<Map<String, Object?>> tasbihs = await db.query('tasbih');
+
+    return tasbihs;
   }
 }

@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
-import 'package:sirat_e_mustaqeem/src/features/tasbih/bloc/selected_tasbih_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/tasbih/widget/circle_progress.dart';
+
+import '../../../core/util/constants.dart';
+import '../bloc/selected_tasbih/selected_tasbih_bloc.dart';
+import '../widget/circle_progress.dart';
 
 class SelectedTasbihScreen extends StatelessWidget {
   const SelectedTasbihScreen();
@@ -14,11 +15,16 @@ class SelectedTasbihScreen extends StatelessWidget {
     return BlocBuilder<SelectedTasbihBloc, SelectedTasbihState>(
       builder: (context, state) {
         return Scaffold(
-          appBar: AppBar(),
+          appBar: AppBar(
+            title: Text('Tasbih'),
+          ),
           body: SafeArea(
             child: Center(
               child: Column(
                 children: [
+                  SizedBox(
+                    height: 32.h,
+                  ),
                   Padding(
                     padding: kPagePadding,
                     child: Text(
@@ -106,7 +112,7 @@ class SelectedTasbihScreen extends StatelessWidget {
                     },
                     child: SvgPicture.asset(
                       'assets/images/tasbih_icon/svg/restart.svg',
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: kDarkTextColor,
                     ),
                   ),
                 ],

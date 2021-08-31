@@ -13,6 +13,7 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
     primaryColor: kDarkPrimary,
     scaffoldBackgroundColor: kDarkBg,
     backgroundColor: kDarkPlaceholder,
+    errorColor: kDarkError,
     textTheme: GoogleFonts.openSansTextTheme(
       TextTheme().copyWith(
         headline1: TextStyle(
@@ -121,6 +122,7 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
     primaryColor: kLightPrimary,
     scaffoldBackgroundColor: kLightBg,
     backgroundColor: kLightPlaceholder,
+    errorColor: kLightError,
     textTheme: GoogleFonts.openSansTextTheme(
       TextTheme().copyWith(
         headline1: TextStyle(

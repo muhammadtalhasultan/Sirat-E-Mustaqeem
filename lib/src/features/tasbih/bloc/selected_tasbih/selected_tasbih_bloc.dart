@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import '../../../core/util/model/tasbih.dart';
+import '../../../../core/util/model/tasbih.dart';
 
 part 'selected_tasbih_event.dart';
 part 'selected_tasbih_state.dart';
