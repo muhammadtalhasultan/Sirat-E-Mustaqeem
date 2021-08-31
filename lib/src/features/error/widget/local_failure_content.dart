@@ -36,13 +36,12 @@ class LocalFailureContent extends StatelessWidget {
           SizedBox(
             height: 8.h,
           ),
-          if (failure.message == kLocationDisableForever['message'])
-            GestureDetector(
-              onTap: () async => await openLocationSetting(),
-              child: Text(
-                'To App Setting',
-              ),
+          GestureDetector(
+            onTap: () async => await openLocationSetting(),
+            child: Text(
+              'To App Setting',
             ),
+          ),
           if (failure.extraInfo != null)
             Column(
               children: [
