@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/allah_name.dart';
-import 'package:sirat_e_mustaqeem/src/features/allah_name/bloc/name_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/allah_name/screen/name_screen.dart';
+
+import '../../../core/util/model/allah_name.dart';
+import '../bloc/name_bloc.dart';
+import '../screen/name_screen.dart';
 
 class NameCard extends StatelessWidget {
   const NameCard(this.name);

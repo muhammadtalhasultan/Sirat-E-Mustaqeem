@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
-import 'package:sirat_e_mustaqeem/src/features/allah_name/widget/name_card.dart';
 
 import '../../../core/util/bloc/allah_names/allah_name_bloc.dart';
+import '../../../core/util/constants.dart';
+import '../widget/name_card.dart';
 
 class AllahNameScreen extends StatelessWidget {
   const AllahNameScreen();

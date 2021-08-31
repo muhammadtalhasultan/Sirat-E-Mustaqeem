@@ -27,7 +27,7 @@ List<Collection> collections = [
   Collection(
     'assets/images/collection_icon/svg/tasbih.svg',
     'Tasbih',
-    '',
+    RouteGenerator.tasbih,
   ),
   Collection(
     'assets/images/collection_icon/svg/quran.svg',
