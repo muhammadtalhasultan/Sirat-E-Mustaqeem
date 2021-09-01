@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sirat_e_mustaqeem/src/features/dua/screen/dua_screen.dart';
+import 'package:sirat_e_mustaqeem/src/features/quran/screen/quran_screen.dart';
 
 import '../src/core/error/exceptions.dart';
 import '../src/features/allah_name/screen/allah_name_screen.dart';
@@ -25,6 +26,7 @@ class RouteGenerator {
   static const String allahName = '/allah_name';
   static const String tasbih = '/tasbih';
   static const String dua = '/dua';
+  static const String quran = '/quran';
   static const String locationPermission = '/location_permission';
   static const String notificationPermission = '/notification_permission';
 
@@ -52,6 +54,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const TasbihScreen());
       case dua:
         return MaterialPageRoute(builder: (_) => const DuaScreen());
+      case quran:
+        return MaterialPageRoute(builder: (_) => const QuranScreen());
       case locationPermission:
         return MaterialPageRoute(
             builder: (_) => const LocationPermissionScreen());

@@ -12,7 +12,7 @@ List<Collection> collections = [
   Collection(
     'assets/images/collection_icon/svg/quran.svg',
     'Quran',
-    '',
+    RouteGenerator.quran,
   ),
   Collection(
     'assets/images/collection_icon/svg/hadees.svg',

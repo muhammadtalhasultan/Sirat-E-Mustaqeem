@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/juz/juz_bloc.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../error/exceptions.dart';
@@ -18,25 +19,35 @@ class DatabaseTable {
       BlocProvider.of<AllahNameBloc>(context).add(
         FetchAllahName(allahNames),
       );
+
       List<Map<String, Object?>> duas = await db.query('dua');
 
       BlocProvider.of<DuaBloc>(context).add(
         FetchDua(duas),
       );
+
       List<Map<String, Object?>> qurans = await db.query('quran');
 
       BlocProvider.of<QuranBloc>(context).add(
         FetchQuran(qurans),
       );
+
       List<Map<String, Object?>> surahs = await db.query('surah');
 
       BlocProvider.of<SurahBloc>(context).add(
         FetchSurah(surahs),
       );
+
       List<Map<String, Object?>> tasbihs = await db.query('tasbih');
 
       BlocProvider.of<TasbihBloc>(context).add(
         FetchTasbih(tasbihs),
+      );
+
+      List<Map<String, Object?>> juzs = await db.query('juz');
+
+      BlocProvider.of<JuzBloc>(context).add(
+        FetchJuz(juzs),
       );
     } catch (e) {
       throw LocalException(e.toString());

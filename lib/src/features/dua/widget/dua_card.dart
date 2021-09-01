@@ -42,7 +42,7 @@ class DuaCard extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
-                    .copyWith(fontFamily: 'uthman'),
+                    .copyWith(fontFamily: 'jameel'),
               ),
               SizedBox(
                 width: 4.w,

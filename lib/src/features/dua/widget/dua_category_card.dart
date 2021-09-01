@@ -63,7 +63,7 @@ class DuaCategoryCard extends StatelessWidget {
                     surah.key,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.headline6!.copyWith(
-                          fontFamily: 'uthman',
+                          fontFamily: 'jameel',
                           fontWeight: FontWeight.bold,
                         ),
                   ),
