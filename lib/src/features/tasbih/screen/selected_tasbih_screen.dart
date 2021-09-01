@@ -29,7 +29,10 @@ class SelectedTasbihScreen extends StatelessWidget {
                     padding: kPagePadding,
                     child: Text(
                       state.tasbih.name,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6!
+                          .copyWith(fontFamily: 'uthman'),
                       textAlign: TextAlign.center,
                     ),
                   ),

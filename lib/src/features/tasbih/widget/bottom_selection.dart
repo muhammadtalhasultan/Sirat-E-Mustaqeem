@@ -101,7 +101,7 @@ class _BottomSelectionState extends State<BottomSelection> {
             ),
           ),
           SizedBox(
-            height: 16.h,
+            height: 32.h,
           ),
           GestureDetector(
             onTap: () async {
@@ -123,7 +123,7 @@ class _BottomSelectionState extends State<BottomSelection> {
             ),
           ),
           SizedBox(
-            height: 16.h,
+            height: 32.h,
           ),
           GestureDetector(
             onTap: () async {

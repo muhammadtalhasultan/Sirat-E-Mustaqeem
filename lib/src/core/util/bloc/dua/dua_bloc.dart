@@ -24,5 +24,10 @@ class DuaBloc extends Bloc<DuaEvent, DuaState> {
       state.duas.initializeData(event.datas);
       yield DuaState(state.duas);
     }
+    if (event is UpdateDua) {
+      final newDuas = Duas();
+      newDuas.initializeData(event.datas);
+      yield DuaState(newDuas);
+    }
   }
 }

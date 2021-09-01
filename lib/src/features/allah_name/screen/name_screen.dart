@@ -37,6 +37,7 @@ class NameScreen extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline1!.copyWith(
                           color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.bold,
+                          fontFamily: 'uthman',
                         ),
                     textAlign: TextAlign.center,
                   ),
@@ -55,6 +56,7 @@ class NameScreen extends StatelessWidget {
                     state.name.urduMeaning,
                     style: Theme.of(context).textTheme.headline5!.copyWith(
                           color: Theme.of(context).primaryColor,
+                          fontFamily: 'jameel',
                         ),
                     textAlign: TextAlign.center,
                   ),

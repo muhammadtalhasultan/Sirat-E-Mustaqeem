@@ -24,46 +24,51 @@ class NameCard extends StatelessWidget {
           ),
         );
       },
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.h),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        name.english,
-                        style: Theme.of(context).textTheme.headline6!.copyWith(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold,
-                            ),
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Text(
-                        name.englishMeaning,
-                        style: Theme.of(context).textTheme.bodyText1,
-                      ),
-                    ],
+      child: Container(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 8.h),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          name.english,
+                          style:
+                              Theme.of(context).textTheme.headline6!.copyWith(
+                                    color: Theme.of(context).primaryColor,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        ),
+                        SizedBox(
+                          height: 4.h,
+                        ),
+                        Text(
+                          name.englishMeaning,
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                Text(
-                  name.arabic,
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
-              ],
+                  Text(
+                    name.arabic,
+                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'uthman',
+                        ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Divider(),
-        ],
+            Divider(),
+          ],
+        ),
       ),
     );
   }

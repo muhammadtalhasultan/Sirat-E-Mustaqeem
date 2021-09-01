@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/database/database_service.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/database/database_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/tasbih/tasbih_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/tasbih.dart';
+
+import '../../../core/database/database_service.dart';
+import '../../../core/util/bloc/database/database_bloc.dart';
+import '../../../core/util/bloc/tasbih/tasbih_bloc.dart';
+import '../../../core/util/model/tasbih.dart';
 
 Future<void> toggleTasbihFavorite(BuildContext context, Tasbih tasbih) async {
   final data = await DatabaseService()

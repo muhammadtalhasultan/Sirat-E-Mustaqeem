@@ -15,3 +15,12 @@ class FetchDua extends DuaEvent {
   @override
   List<Object> get props => [datas];
 }
+
+class UpdateDua extends DuaEvent {
+  final List<Map<String, Object?>> datas;
+
+  const UpdateDua(this.datas);
+
+  @override
+  List<Object> get props => [datas];
+}

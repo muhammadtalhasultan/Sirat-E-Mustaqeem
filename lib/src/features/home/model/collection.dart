@@ -21,8 +21,8 @@ List<Collection> collections = [
   ),
   Collection(
     'assets/images/collection_icon/svg/duas.svg',
-    'Doas',
-    '',
+    'Dua',
+    RouteGenerator.dua,
   ),
   Collection(
     'assets/images/collection_icon/svg/tasbih.svg',
@@ -30,7 +30,7 @@ List<Collection> collections = [
     RouteGenerator.tasbih,
   ),
   Collection(
-    'assets/images/collection_icon/svg/quran.svg',
+    'assets/images/collection_icon/svg/allah.svg',
     '99 Names of Allah',
     RouteGenerator.allahName,
   ),

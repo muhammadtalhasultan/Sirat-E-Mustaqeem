@@ -88,6 +88,10 @@ class _TasbihCardState extends State<TasbihCard> {
             Expanded(
               child: Text(
                 widget.tasbih.name,
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6!
+                    .copyWith(fontFamily: 'uthman'),
               ),
             ),
             SizedBox(
