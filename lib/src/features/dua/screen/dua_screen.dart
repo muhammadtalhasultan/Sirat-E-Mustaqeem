@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/dua/dua_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/dua/bloc/dropdown/dropdown_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/dua/widget/dua_card.dart';
-import 'package:sirat_e_mustaqeem/src/features/dua/widget/dua_category_card.dart';
+
+import '../../../core/util/bloc/dua/dua_bloc.dart';
+import '../bloc/dropdown/dropdown_bloc.dart';
+import '../widget/dua_category_card.dart';
 
 class DuaScreen extends StatelessWidget {
   const DuaScreen();

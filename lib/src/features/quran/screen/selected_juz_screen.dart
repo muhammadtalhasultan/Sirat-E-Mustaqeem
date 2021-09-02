@@ -6,18 +6,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../../core/util/bloc/quran/quran_bloc.dart';
 import '../../../core/util/constants.dart';
 import '../../bottom_tab/bloc/tab/tab_bloc.dart';
-import '../bloc/selected_surah/selected_surah_bloc.dart';
+import '../bloc/selected_juz/selected_juz_bloc.dart';
 import '../cubit/quran_cubit.dart' as qc;
+import '../widget/juz_scroll_selection.dart';
 import '../widget/quran_card.dart';
-import '../widget/surah_scroll_selection.dart';
 
-class SelectedSurahScreen extends StatelessWidget {
-  const SelectedSurahScreen();
+class SelectedJuzScreen extends StatelessWidget {
+  const SelectedJuzScreen();
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SelectedSurahBloc, SelectedSurahState>(
-      builder: (context, currentSurahState) {
+    return BlocBuilder<SelectedJuzBloc, SelectedJuzState>(
+      builder: (context, currentJuzState) {
         return BlocBuilder<QuranBloc, QuranState>(
           builder: (context, quranState) {
             return Scaffold(
@@ -35,7 +35,7 @@ class SelectedSurahScreen extends StatelessWidget {
                           .state
                           .fromNav) Navigator.of(context).pop();
                       Navigator.of(context).pop();
-                      BlocProvider.of<TabBloc>(context).add(SetTab(3));
+                      BlocProvider.of<TabBloc>(context).add(SetTab(4));
                     },
                     child: Padding(
                       padding: EdgeInsets.symmetric(
@@ -74,54 +74,30 @@ class SelectedSurahScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 32.w),
-                              child: Text(
-                                currentSurahState.surah.nameEn,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline3!
-                                    .copyWith(
-                                      fontWeight: FontWeight.bold,
-                                      color: kDarkTextColor,
-                                    ),
-                              ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 32.w),
+                      child: Text(
+                        currentJuzState.juz.englishName,
+                        style: Theme.of(context).textTheme.headline3!.copyWith(
+                              fontWeight: FontWeight.bold,
+                              color: kDarkTextColor,
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 32.w),
-                              child: Text(
-                                '${currentSurahState.surah.place} - ${currentSurahState.surah.ayats} ayat',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headline6!
-                                    .copyWith(color: kDarkTextColor),
-                              ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 32.w),
+                      child: Text(
+                        currentJuzState.juz.arabicName,
+                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                              color: kDarkTextColor,
+                              fontFamily: 'uthman',
                             ),
-                          ],
-                        ),
-                        Spacer(),
-                        Padding(
-                          padding: EdgeInsets.only(right: 16.w),
-                          child: Text(
-                            currentSurahState.surah.nameAr,
-                            style:
-                                Theme.of(context).textTheme.headline2!.copyWith(
-                                      color: kDarkTextColor,
-                                      fontFamily: 'uthman',
-                                    ),
-                          ),
-                        )
-                      ],
+                      ),
                     ),
                     SizedBox(
                       height: 8.h,
                     ),
-                    SurahScrollSelection(),
+                    JuzScrollSelection(),
                     SizedBox(
                       height: 16.h,
                     ),
@@ -133,12 +109,12 @@ class SelectedSurahScreen extends StatelessWidget {
                         ),
                         child: ListView.builder(
                             itemCount: quranState.qurans
-                                .getQuransBySurah(currentSurahState.surah.id)
+                                .getQuransByJuz(currentJuzState.juz.id)
                                 .length,
                             itemBuilder: (context, index) {
                               return QuranCard(
-                                quranState.qurans.getQuransBySurah(
-                                    currentSurahState.surah.id)[index],
+                                quranState.qurans.getQuransByJuz(
+                                    currentJuzState.juz.id)[index],
                               );
                             }),
                       ),

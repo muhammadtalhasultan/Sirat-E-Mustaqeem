@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
-import 'package:sirat_e_mustaqeem/src/features/quran/bloc/tab/tab_bloc.dart';
+
+import '../../../core/util/constants.dart';
+import '../bloc/tab/tab_bloc.dart';
 
 class QuranTab extends StatelessWidget {
   const QuranTab();
@@ -23,8 +24,18 @@ class QuranTab extends StatelessWidget {
             children: [
               GestureDetector(
                 onTap: () {
-                  if (!state.firstTab)
-                    BlocProvider.of<TabBloc>(context).add(ToggleTab());
+                  if (!state.firstTab) {
+                    BlocProvider.of<TabBloc>(context)
+                        .state
+                        .controller
+                        .animateToPage(
+                          0,
+                          duration: kAnimationDuration,
+                          curve: kAnimationCurve,
+                        );
+
+                    BlocProvider.of<TabBloc>(context).add(ToggleTab(false));
+                  }
                 },
                 child: AnimatedContainer(
                   duration: kAnimationDuration,
@@ -41,7 +52,12 @@ class QuranTab extends StatelessWidget {
                               width: 2.sp,
                             ),
                           )
-                        : Border(),
+                        : Border(
+                            bottom: BorderSide(
+                              color: Colors.transparent,
+                              width: 2.sp,
+                            ),
+                          ),
                   ),
                   child: Text(
                     'Surah',
@@ -53,8 +69,17 @@ class QuranTab extends StatelessWidget {
               ),
               GestureDetector(
                 onTap: () {
-                  if (state.firstTab)
-                    BlocProvider.of<TabBloc>(context).add(ToggleTab());
+                  if (state.firstTab) {
+                    BlocProvider.of<TabBloc>(context)
+                        .state
+                        .controller
+                        .animateToPage(
+                          1,
+                          duration: kAnimationDuration,
+                          curve: kAnimationCurve,
+                        );
+                    BlocProvider.of<TabBloc>(context).add(ToggleTab(true));
+                  }
                 },
                 child: AnimatedContainer(
                   duration: kAnimationDuration,
@@ -71,7 +96,12 @@ class QuranTab extends StatelessWidget {
                               width: 2.sp,
                             ),
                           )
-                        : Border(),
+                        : Border(
+                            bottom: BorderSide(
+                              color: Colors.transparent,
+                              width: 2.sp,
+                            ),
+                          ),
                   ),
                   child: Text(
                     'Juz',

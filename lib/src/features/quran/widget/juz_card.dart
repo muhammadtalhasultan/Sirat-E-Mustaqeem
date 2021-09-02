@@ -5,14 +5,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sirat_e_mustaqeem/src/features/quran/cubit/quran_cubit.dart';
 
 import '../../../core/util/constants.dart';
-import '../../../core/util/model/surah.dart';
-import '../bloc/selected_surah/selected_surah_bloc.dart';
-import '../screen/selected_surah_screen.dart';
+import '../../../core/util/model/juz.dart';
+import '../bloc/selected_juz/selected_juz_bloc.dart';
+import '../screen/selected_juz_screen.dart';
 
-class SurahCard extends StatelessWidget {
-  const SurahCard(this.surahs, this.index);
+class JuzCard extends StatelessWidget {
+  const JuzCard(this.juzs, this.index);
 
-  final Surahs surahs;
+  final Juzs juzs;
   final int index;
 
   @override
@@ -24,10 +24,10 @@ class SurahCard extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => BlocProvider(
-              create: (context) => SelectedSurahBloc(surahs, index),
+              create: (context) => SelectedJuzBloc(juzs, index),
               child: BlocProvider(
                 create: (context) => QuranCubit(fromNav),
-                child: SelectedSurahScreen(),
+                child: SelectedJuzScreen(),
               ),
             ),
           ),
@@ -76,37 +76,23 @@ class SurahCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: Row(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            surahs.surahs[index].nameEn,
-                            style:
-                                Theme.of(context).textTheme.bodyText2!.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                          ),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                          Text(
-                            '${surahs.surahs[index].place} - ${surahs.surahs[index].ayats} ayat',
-                            style: Theme.of(context).textTheme.bodyText1,
-                          )
-                        ],
-                      ),
-                    ),
                     Text(
-                      surahs.surahs[index].nameAr,
-                      style: Theme.of(context).textTheme.headline6!.copyWith(
-                            fontFamily: 'uthman',
+                      juzs.juzs[index].englishName,
+                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                            fontWeight: FontWeight.bold,
                           ),
                     ),
                     SizedBox(
-                      width: 16.w,
+                      height: 2.h,
+                    ),
+                    Text(
+                      juzs.juzs[index].arabicName,
+                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                            fontFamily: 'uthman',
+                          ),
                     )
                   ],
                 ),

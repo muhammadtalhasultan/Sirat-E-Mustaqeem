@@ -28,6 +28,10 @@ class DatabaseTable {
 
       List<Map<String, Object?>> qurans = await db.query('quran');
 
+      if (!qurans[0].containsKey('favorite')) {
+        await db.execute('ALTER TABLE quran ADD COLUMN favorite INT DEFAULT 0');
+      }
+
       BlocProvider.of<QuranBloc>(context).add(
         FetchQuran(qurans),
       );

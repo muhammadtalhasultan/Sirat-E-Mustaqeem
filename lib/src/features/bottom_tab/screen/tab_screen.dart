@@ -51,9 +51,6 @@ class _TabScreenState extends State<TabScreen> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TabBloc(),
-      child: TabScaffold(),
-    );
+    return TabScaffold();
   }
 }

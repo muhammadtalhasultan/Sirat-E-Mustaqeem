@@ -12,3 +12,12 @@ class FetchQuran extends QuranEvent {
   @override
   List<Object> get props => [datas];
 }
+
+class UpdateQuran extends QuranEvent {
+  final List<Map<String, Object?>> datas;
+
+  const UpdateQuran(this.datas);
+
+  @override
+  List<Object> get props => [datas];
+}

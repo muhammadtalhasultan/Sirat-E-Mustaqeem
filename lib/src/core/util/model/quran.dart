@@ -11,6 +11,7 @@ class Quran {
   final int ayatVisible;
   final int surahId;
   final String withoutAerab;
+  final int favorite;
 
   Quran({
     required this.ayatId,
@@ -25,6 +26,7 @@ class Quran {
     required this.ayatVisible,
     required this.surahId,
     required this.withoutAerab,
+    required this.favorite,
   });
 }
 
@@ -47,9 +49,18 @@ class Qurans {
           ayatVisible: data['ayatVisible'] as int,
           surahId: data['surahId'] as int,
           withoutAerab: data['withoutAerab'].toString(),
+          favorite: data['favorite'] as int,
         ),
       );
     }
+  }
+
+  List<Quran> getQuransBySurah(int surahId) {
+    return _qurans.where((Quran quran) => quran.surahId == surahId).toList();
+  }
+
+  List<Quran> getQuransByJuz(int id) {
+    return _qurans.where((Quran quran) => quran.paraId == id).toList();
   }
 
   List<Quran> get qurans => _qurans;

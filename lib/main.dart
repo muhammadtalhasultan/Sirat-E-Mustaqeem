@@ -17,6 +17,7 @@ import 'src/core/util/bloc/surah/surah_bloc.dart';
 import 'src/core/util/bloc/tasbih/tasbih_bloc.dart';
 import 'src/core/util/bloc/theme/theme_bloc.dart';
 import 'src/core/util/bloc/time_format/time_format_bloc.dart';
+import 'src/features/bottom_tab/bloc/tab/tab_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,6 +67,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => DatabaseBloc(),
+        ),
+        BlocProvider(
+          create: (context) => TabBloc(),
         ),
       ],
       child: ScreenUtilInit(

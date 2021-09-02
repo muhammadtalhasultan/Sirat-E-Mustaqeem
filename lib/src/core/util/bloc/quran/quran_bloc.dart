@@ -19,5 +19,10 @@ class QuranBloc extends Bloc<QuranEvent, QuranState> {
       state.qurans.initializeData(event.datas);
       yield QuranState(state.qurans);
     }
+    if (event is UpdateQuran) {
+      final newQurans = Qurans();
+      newQurans.initializeData(event.datas);
+      yield QuranState(newQurans);
+    }
   }
 }

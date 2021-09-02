@@ -1,18 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/features/quran/cubit/quran_cubit.dart';
 
 import '../bloc/tab/tab_bloc.dart';
 import '../widget/quran_scaffold.dart';
 
-class QuranScreen extends StatelessWidget {
-  const QuranScreen();
+class QuranScreen extends StatefulWidget {
+  const QuranScreen({this.fromNav = false});
+
+  final bool fromNav;
+
+  @override
+  State<QuranScreen> createState() => _QuranScreenState();
+}
+
+class _QuranScreenState extends State<QuranScreen> {
+  late final PageController controller;
+
+  @override
+  void initState() {
+    controller = PageController(initialPage: 0);
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => TabBloc(),
-      child: QuranScaffold(),
+      create: (context) => TabBloc(controller),
+      child: BlocProvider(
+        create: (context) => QuranCubit(widget.fromNav),
+        child: QuranScaffold(),
+      ),
     );
   }
 }

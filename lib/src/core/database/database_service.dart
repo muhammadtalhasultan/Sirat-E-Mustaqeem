@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sirat_e_mustaqeem/src/core/util/model/dua.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/model/quran.dart';
 import 'package:sirat_e_mustaqeem/src/core/util/model/tasbih.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -212,5 +213,27 @@ class DatabaseService {
     List<Map<String, Object?>> duas = await db.query('dua');
 
     return duas;
+  }
+
+  Future<List<Map<String, Object?>>> toggleQuranFavorite(
+      Database db, Quran quran) async {
+    List<Map> selectedQuran = await db
+        .rawQuery('SELECT * FROM quran WHERE ayatId = ?', [quran.ayatId]);
+
+    if (selectedQuran[0]['favorite'] == 0) {
+      await db.rawUpdate(
+        'UPDATE quran SET favorite = ? WHERE ayatId = ?',
+        [1, quran.ayatId],
+      );
+    } else {
+      await db.rawUpdate(
+        'UPDATE quran SET favorite = ? WHERE ayatId = ?',
+        [0, quran.ayatId],
+      );
+    }
+
+    List<Map<String, Object?>> qurans = await db.query('quran');
+
+    return qurans;
   }
 }
