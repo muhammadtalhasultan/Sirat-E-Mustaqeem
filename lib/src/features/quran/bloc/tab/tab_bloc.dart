@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
 
 part 'tab_event.dart';
 part 'tab_state.dart';

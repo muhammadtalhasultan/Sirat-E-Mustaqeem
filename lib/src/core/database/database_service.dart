@@ -4,9 +4,6 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/dua.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/quran.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/tasbih.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../../features/download/bloc/percent/percent_bloc.dart';
@@ -15,6 +12,9 @@ import '../error/exceptions.dart';
 import '../error/failures.dart';
 import '../network/network_client.dart';
 import '../util/constants.dart';
+import '../util/model/dua.dart';
+import '../util/model/quran.dart';
+import '../util/model/tasbih.dart';
 import 'database_table.dart';
 
 class DatabaseService {

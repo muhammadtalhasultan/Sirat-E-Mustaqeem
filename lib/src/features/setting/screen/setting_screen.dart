@@ -14,7 +14,7 @@ class SettingScreen extends StatelessWidget {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.only(bottom: 48.h),
+          padding: EdgeInsets.only(bottom: 16.h),
           child: Column(
             children: [
               SizedBox(

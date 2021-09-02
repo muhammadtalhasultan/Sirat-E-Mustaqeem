@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:sirat_e_mustaqeem/src/features/dua/screen/dua_screen.dart';
-import 'package:sirat_e_mustaqeem/src/features/quran/screen/quran_screen.dart';
 
 import '../src/core/error/exceptions.dart';
 import '../src/features/allah_name/screen/allah_name_screen.dart';
 import '../src/features/bottom_tab/screen/tab_screen.dart';
 import '../src/features/download/screen/download_screen.dart';
+import '../src/features/dua/screen/dua_screen.dart';
 import '../src/features/error/screen/database_error_screen.dart';
 import '../src/features/permission/screen/location_permission_screen.dart';
 import '../src/features/permission/screen/notification_permission_screen.dart';
 import '../src/features/prayer_timing/screen/prayer_timing_screen.dart';
 import '../src/features/qibla/screen/qibla_screen.dart';
+import '../src/features/quran/screen/quran_screen.dart';
 import '../src/features/setting/screen/thankyou_screen.dart';
 import '../src/features/splash/screen/splash_screen.dart';
 import '../src/features/tasbih/screen/tasbih_screen.dart';

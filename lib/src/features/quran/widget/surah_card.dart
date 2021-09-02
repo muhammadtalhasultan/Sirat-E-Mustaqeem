@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/quran/cubit/quran_cubit.dart';
 
 import '../../../core/util/constants.dart';
 import '../../../core/util/model/surah.dart';
 import '../bloc/selected_surah/selected_surah_bloc.dart';
+import '../cubit/quran_cubit.dart';
 import '../screen/selected_surah_screen.dart';
 
 class SurahCard extends StatelessWidget {

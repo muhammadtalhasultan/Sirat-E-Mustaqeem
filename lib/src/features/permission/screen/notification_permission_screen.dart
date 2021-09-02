@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
 
 import '../../../../routes/routes.dart';
+import '../../../core/util/constants.dart';
 
 class NotificationPermissionScreen extends StatelessWidget {
   const NotificationPermissionScreen();

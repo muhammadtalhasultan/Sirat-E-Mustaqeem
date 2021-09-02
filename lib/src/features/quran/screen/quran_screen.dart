@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/quran/cubit/quran_cubit.dart';
 
 import '../bloc/tab/tab_bloc.dart';
+import '../cubit/quran_cubit.dart';
 import '../widget/quran_scaffold.dart';
 
 class QuranScreen extends StatefulWidget {

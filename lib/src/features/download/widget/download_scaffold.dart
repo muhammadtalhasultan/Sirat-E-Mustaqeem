@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/error/failures.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/database/database_bloc.dart';
 
+import '../../../core/error/failures.dart';
+import '../../../core/util/bloc/database/database_bloc.dart';
 import '../../error/widget/failure_widget.dart';
 import '../download/download_bloc.dart';
 import 'download_widget.dart';

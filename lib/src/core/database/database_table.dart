@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/juz/juz_bloc.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../error/exceptions.dart';
 import '../util/bloc/allah_names/allah_name_bloc.dart';
 import '../util/bloc/dua/dua_bloc.dart';
+import '../util/bloc/juz/juz_bloc.dart';
 import '../util/bloc/quran/quran_bloc.dart';
 import '../util/bloc/surah/surah_bloc.dart';
 import '../util/bloc/tasbih/tasbih_bloc.dart';
@@ -30,6 +30,7 @@ class DatabaseTable {
 
       if (!qurans[0].containsKey('favorite')) {
         await db.execute('ALTER TABLE quran ADD COLUMN favorite INT DEFAULT 0');
+        qurans = await db.query('quran');
       }
 
       BlocProvider.of<QuranBloc>(context).add(

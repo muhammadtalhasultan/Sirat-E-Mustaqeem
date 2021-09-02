@@ -3,13 +3,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sirat_e_mustaqeem/src/features/quran/cubit/quran_cubit.dart';
-import '../../bottom_tab/bloc/tab/tab_bloc.dart' as btb;
 
 import '../../../core/util/bloc/juz/juz_bloc.dart';
 import '../../../core/util/bloc/surah/surah_bloc.dart';
-import '../../../core/util/constants.dart';
+import '../../bottom_tab/bloc/tab/tab_bloc.dart' as btb;
 import '../bloc/tab/tab_bloc.dart' as qtb;
+import '../cubit/quran_cubit.dart';
 import 'juz_card.dart';
 import 'quran_tab.dart';
 import 'surah_card.dart';
@@ -21,8 +20,10 @@ class QuranScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Quran',
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        elevation: 0,
+        iconTheme: IconThemeData(
+          color: Theme.of(context).textTheme.bodyText2!.color,
         ),
         actions: [
           GestureDetector(
@@ -38,7 +39,7 @@ class QuranScaffold extends StatelessWidget {
               child: SvgPicture.asset(
                 'assets/images/navigation_icon/svg/bookmark_nfill.svg',
                 width: 24.w,
-                color: kDarkTextColor,
+                color: Theme.of(context).textTheme.bodyText2!.color,
               ),
             ),
           ),
@@ -55,7 +56,7 @@ class QuranScaffold extends StatelessWidget {
               child: SvgPicture.asset(
                 'assets/images/navigation_icon/svg/search.svg',
                 width: 24.w,
-                color: kDarkTextColor,
+                color: Theme.of(context).textTheme.bodyText2!.color,
               ),
             ),
           )

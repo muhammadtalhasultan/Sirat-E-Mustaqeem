@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/quran/cubit/quran_cubit.dart';
 
 import '../../../core/util/constants.dart';
 import '../../../core/util/model/juz.dart';
 import '../bloc/selected_juz/selected_juz_bloc.dart';
+import '../cubit/quran_cubit.dart';
 import '../screen/selected_juz_screen.dart';
 
 class JuzCard extends StatelessWidget {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sirat_e_mustaqeem/src/features/tasbih/widget/detail_dialog.dart';
 
 import '../../../core/util/constants.dart';
 import '../../../core/util/model/tasbih.dart';
 import '../controller/tasbih_controller.dart';
+import 'detail_dialog.dart';
 
 class BottomSelection extends StatefulWidget {
   const BottomSelection(this.tasbih);

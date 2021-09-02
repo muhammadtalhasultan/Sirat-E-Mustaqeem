@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
-import 'package:sirat_e_mustaqeem/src/features/allah_name/bloc/name_bloc.dart';
+
+import '../../../core/util/constants.dart';
+import '../bloc/name_bloc.dart';
 
 class NameScreen extends StatelessWidget {
   const NameScreen({Key? key}) : super(key: key);

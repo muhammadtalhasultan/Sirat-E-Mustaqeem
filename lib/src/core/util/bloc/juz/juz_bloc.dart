@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/juz.dart';
+
+import '../../model/juz.dart';
 
 part 'juz_event.dart';
 part 'juz_state.dart';

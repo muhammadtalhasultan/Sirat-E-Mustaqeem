@@ -25,9 +25,6 @@ class SelectedSurahScreen extends StatelessWidget {
               appBar: AppBar(
                 backgroundColor: Theme.of(context).primaryColor,
                 elevation: 0,
-                title: Text(
-                  'Quran',
-                ),
                 actions: [
                   GestureDetector(
                     onTap: () {
