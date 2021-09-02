@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/tasbih/tasbih_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/features/bookmark/bloc/category_bloc.dart';
 
 import '../../../core/util/constants.dart';
 import '../../../core/util/model/tasbih.dart';
@@ -14,11 +16,13 @@ import 'bottom_selection.dart';
 class TasbihCard extends StatefulWidget {
   const TasbihCard(
     this.tasbih,
-    this.index,
-  );
+    this.index, {
+    this.bookmarkScreen = false,
+  });
 
   final Tasbih tasbih;
   final int index;
+  final bool bookmarkScreen;
 
   @override
   State<TasbihCard> createState() => _TasbihCardState();
@@ -121,6 +125,17 @@ class _TasbihCardState extends State<TasbihCard> {
             GestureDetector(
               onTap: () async {
                 await toggleTasbihFavorite(context, widget.tasbih);
+
+                if (widget.bookmarkScreen) {
+                  await Future.delayed(Duration.zero);
+
+                  BlocProvider.of<CategoryBloc>(context).add(
+                    UpdateFavoriteItem(
+                      tasbihs:
+                          BlocProvider.of<TasbihBloc>(context).state.tasbihs,
+                    ),
+                  );
+                }
               },
               child: SvgPicture.asset(
                 widget.tasbih.favorite == 0

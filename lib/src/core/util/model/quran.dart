@@ -63,5 +63,8 @@ class Qurans {
     return _qurans.where((Quran quran) => quran.paraId == id).toList();
   }
 
+  List<Quran> get getFavoritesQuran =>
+      _qurans.where((Quran quran) => quran.favorite == 1).toList();
+
   List<Quran> get qurans => _qurans;
 }

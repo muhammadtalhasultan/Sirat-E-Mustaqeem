@@ -29,4 +29,7 @@ class Tasbihs {
   }
 
   List<Tasbih> get tasbihs => _tasbihs;
+
+  List<Tasbih> get getFavoritesTasbih =>
+      _tasbihs.where((Tasbih tasbih) => tasbih.favorite == 1).toList();
 }

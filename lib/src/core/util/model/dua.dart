@@ -51,4 +51,7 @@ class Duas {
   Map<String, List<Dua>> get categorizedDuas => _categorizedDuas;
   List<MapEntry<String, List<Dua>>> get categorizedDuasList =>
       _categorizedDuas.entries.toList();
+
+  List<Dua> get getFavoritesDua =>
+      _duas.where((Dua dua) => dua.favorite == 1).toList();
 }

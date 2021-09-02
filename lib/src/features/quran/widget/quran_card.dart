@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/quran/quran_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/features/bookmark/bloc/category_bloc.dart';
 
 import '../../../core/util/constants.dart';
 import '../../../core/util/model/quran.dart';
 import '../controller/quran_controller.dart';
 
 class QuranCard extends StatelessWidget {
-  const QuranCard(
-    this.quran,
-  );
+  const QuranCard(this.quran, {this.bookmarkScreen = false});
 
   final Quran quran;
+  final bool bookmarkScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,16 @@ class QuranCard extends StatelessWidget {
           GestureDetector(
             onTap: () async {
               await toggleQuranFavorite(context, quran);
+
+              if (bookmarkScreen) {
+                await Future.delayed(Duration.zero);
+
+                BlocProvider.of<CategoryBloc>(context).add(
+                  UpdateFavoriteItem(
+                    qurans: BlocProvider.of<QuranBloc>(context).state.qurans,
+                  ),
+                );
+              }
             },
             child: SvgPicture.asset(
               quran.favorite == 0
@@ -69,13 +81,6 @@ class QuranCard extends StatelessWidget {
                   ),
                   SizedBox(
                     height: 8.h,
-                  ),
-                  Text(
-                    '${quran.withoutAerab}',
-                    textAlign: TextAlign.end,
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
-                          fontFamily: 'jameel',
-                        ),
                   ),
                 ],
               ),
