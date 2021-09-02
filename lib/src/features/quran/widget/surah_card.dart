@@ -7,7 +7,7 @@ import '../../../core/util/constants.dart';
 import '../../../core/util/model/surah.dart';
 import '../bloc/selected_surah/selected_surah_bloc.dart';
 import '../cubit/quran_cubit.dart';
-import '../screen/selected_surah_screen.dart';
+import '../screen/selected_quran_screen.dart';
 
 class SurahCard extends StatelessWidget {
   const SurahCard(this.surahs, this.index);
@@ -27,7 +27,7 @@ class SurahCard extends StatelessWidget {
               create: (context) => SelectedSurahBloc(surahs, index),
               child: BlocProvider(
                 create: (context) => QuranCubit(fromNav),
-                child: SelectedSurahScreen(),
+                child: SelectedQuranScreen(surah: true),
               ),
             ),
           ),
@@ -102,7 +102,7 @@ class SurahCard extends StatelessWidget {
                     Text(
                       surahs.surahs[index].nameAr,
                       style: Theme.of(context).textTheme.headline6!.copyWith(
-                            fontFamily: 'uthman',
+                            fontFamily: 'Uthman',
                           ),
                     ),
                     SizedBox(

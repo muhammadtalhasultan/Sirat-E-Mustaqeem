@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/features/quran/bloc/quran_theme/quran_theme_bloc.dart';
 
 import '../bloc/tab/tab_bloc.dart';
 import '../cubit/quran_cubit.dart';
@@ -33,12 +34,16 @@ class _QuranScreenState extends State<QuranScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => TabBloc(controller),
-      child: BlocProvider(
-        create: (context) => QuranCubit(widget.fromNav),
-        child: QuranScaffold(),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => TabBloc(controller),
+        ),
+        BlocProvider(
+          create: (context) => QuranCubit(widget.fromNav),
+        ),
+      ],
+      child: QuranScaffold(),
     );
   }
 }

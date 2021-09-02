@@ -34,7 +34,7 @@ class DuaCard extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline6!
-                .copyWith(fontFamily: 'uthman'),
+                .copyWith(fontFamily: 'Uthman'),
           ),
           Divider(
             height: 32.h,
@@ -46,7 +46,7 @@ class DuaCard extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
-                    .copyWith(fontFamily: 'jameel'),
+                    .copyWith(fontFamily: 'Jameel'),
               ),
               SizedBox(
                 width: 4.w,

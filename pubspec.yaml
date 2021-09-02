@@ -54,6 +54,7 @@ flutter:
     - assets/images/permission/lottie_json/
     - assets/images/tasbih_icon/svg/
     - assets/images/dua_icon/svg/
+    - assets/images/quran_icon/svg/
     - assets/sound/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -66,12 +67,12 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: uthman
+    - family: Uthman
       fonts:
         - asset: assets/fonts/Uthman-Taha-Naskh-Regular.otf
         - asset: assets/fonts/Uthman-Taha-Naskh-Bold.otf
           weight: 700
-    - family: jameel
+    - family: Jameel
       fonts:
         - asset: assets/fonts/jameel.ttf
 

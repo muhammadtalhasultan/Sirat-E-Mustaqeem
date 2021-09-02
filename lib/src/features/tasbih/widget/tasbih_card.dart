@@ -95,7 +95,7 @@ class _TasbihCardState extends State<TasbihCard> {
                 style: Theme.of(context)
                     .textTheme
                     .headline6!
-                    .copyWith(fontFamily: 'uthman'),
+                    .copyWith(fontFamily: 'Uthman'),
               ),
             ),
             SizedBox(

@@ -60,7 +60,7 @@ class NameCard extends StatelessWidget {
                     style: Theme.of(context).textTheme.headline6!.copyWith(
                           color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.bold,
-                          fontFamily: 'uthman',
+                          fontFamily: 'Uthman',
                         ),
                   ),
                 ],

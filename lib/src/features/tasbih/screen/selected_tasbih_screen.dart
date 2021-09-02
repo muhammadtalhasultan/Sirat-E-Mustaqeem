@@ -32,7 +32,7 @@ class SelectedTasbihScreen extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .headline6!
-                          .copyWith(fontFamily: 'uthman'),
+                          .copyWith(fontFamily: 'Uthman'),
                       textAlign: TextAlign.center,
                     ),
                   ),

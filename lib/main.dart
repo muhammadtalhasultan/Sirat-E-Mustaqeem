@@ -18,6 +18,7 @@ import 'src/core/util/bloc/tasbih/tasbih_bloc.dart';
 import 'src/core/util/bloc/theme/theme_bloc.dart';
 import 'src/core/util/bloc/time_format/time_format_bloc.dart';
 import 'src/features/bottom_tab/bloc/tab/tab_bloc.dart';
+import 'src/features/quran/bloc/quran_theme/quran_theme_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,6 +44,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => TimeFormatBloc(),
+        ),
+        BlocProvider(
+          create: (context) => QuranThemeBloc(),
         ),
         BlocProvider(
           create: (context) => TimingBloc(),
