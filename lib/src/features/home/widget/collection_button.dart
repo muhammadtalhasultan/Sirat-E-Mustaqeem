@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sirat_e_mustaqeem/src/features/utils/coming_soon_dialog.dart';
 
 import '../model/collection.dart';
 
@@ -13,6 +14,13 @@ class CollectionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        if (collection.routeName == 'Coming Soon') {
+          showDialog(
+            context: context,
+            builder: (context) => ComingSoonDialog(),
+          );
+          return;
+        }
         if (collection.routeName != '') {
           Navigator.of(context).pushNamed(collection.routeName);
         }

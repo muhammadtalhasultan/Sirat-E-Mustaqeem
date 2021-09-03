@@ -55,6 +55,7 @@ flutter:
     - assets/images/tasbih_icon/svg/
     - assets/images/dua_icon/svg/
     - assets/images/quran_icon/svg/
+    - assets/images/image_of_the_day/
     - assets/sound/
 
   # An image asset can refer to one or more resolution-specific "variants", see

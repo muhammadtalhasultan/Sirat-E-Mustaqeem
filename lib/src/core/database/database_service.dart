@@ -55,6 +55,19 @@ class DatabaseService {
     }
   }
 
+  Future<List<Map<String, Object?>>> splitQuranQuery(Database db) async {
+    final List<Map<String, Object?>> finalQurans = [];
+
+    for (int i = 1; i <= 4; i++) {
+      List<Map<String, Object?>> qurans = await db.rawQuery(
+        'SELECT * FROM quran WHERE ayatId <= ${i * 2000} AND ayatId > ${(i - 1) * 2000}',
+      );
+      finalQurans.addAll(qurans);
+    }
+
+    return finalQurans;
+  }
+
   Future<Either<Failure, Database>> downloadDatabase(
       BuildContext context) async {
     final databasesPath = await getDatabasesPath();
@@ -220,9 +233,9 @@ class DatabaseService {
     List<Map> selectedQuran = await db
         .rawQuery('SELECT * FROM quran WHERE ayatId = ?', [quran.ayatId]);
 
-    if (selectedQuran[0]['favorite'] == 0) {
+    if (selectedQuran[0]['favourite'] == 0) {
       await db.rawUpdate(
-        'UPDATE quran SET favorite = ? WHERE ayatId = ?',
+        'UPDATE quran SET favourite = ? WHERE ayatId = ?',
         [1, quran.ayatId],
       );
     } else {
@@ -232,7 +245,8 @@ class DatabaseService {
       );
     }
 
-    List<Map<String, Object?>> qurans = await db.query('quran');
+    List<Map<String, Object?>> qurans =
+        await DatabaseService().splitQuranQuery(db);
 
     return qurans;
   }

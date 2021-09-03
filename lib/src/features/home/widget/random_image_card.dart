@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import 'package:sirat_e_mustaqeem/src/features/home/model/image.dart';
 
 import '../../../core/util/constants.dart';
 
@@ -27,30 +28,9 @@ class RandomImageCard extends StatelessWidget {
               width: double.infinity,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16.r),
-                child: CachedNetworkImage(
-                  imageUrl:
-                      'https://theistanbulinsider.com/wp-content/uploads/2020/03/blue-mosque-aerial.jpg',
+                child: Image.asset(
+                  ImageOfTheDay.selectedImagePath,
                   fit: BoxFit.cover,
-                  fadeOutDuration: Duration.zero,
-                  fadeInCurve: kAnimationCurve,
-                  fadeInDuration: kAnimationDuration,
-                  placeholder: (_, __) => Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        LottieBuilder.asset(
-                          'assets/images/home_icon/lottie_json/ein_mubarak.json',
-                          width: 240.w,
-                        ),
-                        Text(
-                          'Loading Image of the Day',
-                        ),
-                      ],
-                    ),
-                  ),
-                  errorWidget: (_, __, error) => Text(
-                    'Unable to load image at this time. $error',
-                  ),
                 ),
               ),
             ),
@@ -84,3 +64,31 @@ class RandomImageCard extends StatelessWidget {
     );
   }
 }
+
+/// network image
+// CachedNetworkImage(
+//                   imageUrl:
+//                       'https://theistanbulinsider.com/wp-content/uploads/2020/03/blue-mosque-aerial.jpg',
+//                   fit: BoxFit.cover,
+//                   fadeOutDuration: Duration.zero,
+//                   fadeInCurve: kAnimationCurve,
+//                   fadeInDuration: kAnimationDuration,
+//                   placeholder: (_, __) => Center(
+//                     child: Column(
+//                       mainAxisSize: MainAxisSize.min,
+//                       children: [
+//                         LottieBuilder.asset(
+//                           'assets/images/home_icon/lottie_json/ein_mubarak.json',
+//                           width: 240.w,
+//                         ),
+//                         Text(
+//                           'Loading Image of the Day',
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                   errorWidget: (_, __, error) => Text(
+//                     'Unable to load image at this time. $error',
+//                   ),
+//                 ),
+           

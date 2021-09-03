@@ -29,7 +29,7 @@ class AyatCard extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    '123',
+                    'رَبِّ اشْرَحْ لِي صَدْرِي وَيَسِّرْ لِي أَمْرِي وَاحْلُلْ عُقْدَةً مِنْ لِسَانِي يَفْقَهُوا قَوْلِي',
                     style: Theme.of(context).textTheme.headline5!.copyWith(
                           fontFamily: 'Uthman',
                         ),
@@ -39,10 +39,8 @@ class AyatCard extends StatelessWidget {
                     height: 4.h,
                   ),
                   Text(
-                    '123',
-                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                          fontFamily: 'Jameel',
-                        ),
+                    '“My Lord, expand for me my breast [with assurance] and ease for me my task and untie the knot from my tongue that they may understand my speech.”',
+                    style: Theme.of(context).textTheme.bodyText2!.copyWith(),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(
@@ -51,7 +49,7 @@ class AyatCard extends StatelessWidget {
                   BlocBuilder<SurahBloc, SurahState>(
                     builder: (context, surahState) {
                       return Text(
-                        '123',
+                        'Surah Taha, Verse 25-28',
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               fontStyle: FontStyle.italic,

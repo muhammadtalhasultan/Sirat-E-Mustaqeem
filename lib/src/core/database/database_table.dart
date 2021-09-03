@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/database/database_service.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../error/exceptions.dart';
@@ -26,10 +27,11 @@ class DatabaseTable {
         FetchDua(duas),
       );
 
-      List<Map<String, Object?>> qurans = await db.query('quran');
+      final List<Map<String, Object?>> finalQurans =
+          await DatabaseService().splitQuranQuery(db);
 
       BlocProvider.of<QuranBloc>(context).add(
-        FetchQuran(qurans),
+        FetchQuran(finalQurans),
       );
 
       List<Map<String, Object?>> surahs = await db.query('surah');
