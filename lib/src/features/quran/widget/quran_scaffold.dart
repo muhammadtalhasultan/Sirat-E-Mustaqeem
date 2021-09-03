@@ -67,7 +67,7 @@ class QuranScaffold extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 16.h,
+              height: 8.h,
             ),
             Padding(
               padding: EdgeInsets.only(left: 32.w),

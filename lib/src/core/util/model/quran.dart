@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Quran {
   final int ayatId;
   final int ayatNumber;
@@ -67,4 +69,6 @@ class Qurans {
       _qurans.where((Quran quran) => quran.favorite == 1).toList();
 
   List<Quran> get qurans => _qurans;
+
+  Quran get quranOfTheDay => _qurans[Random().nextInt(_qurans.length)];
 }

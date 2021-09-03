@@ -46,24 +46,24 @@ class KiblatCard extends StatelessWidget {
                 ],
               ),
               Divider(),
-              GestureDetector(
-                onTap: () {},
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Current Location',
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Change Location',
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              Divider(),
+              // GestureDetector(
+              //   onTap: () {},
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //     children: [
+              //       Text(
+              //         'Current Location',
+              //       ),
+              //       TextButton(
+              //         onPressed: () {},
+              //         child: Text(
+              //           'Change Location',
+              //         ),
+              //       )
+              //     ],
+              //   ),
+              // ),
+              // Divider(),
               Row(
                 children: [
                   Expanded(
