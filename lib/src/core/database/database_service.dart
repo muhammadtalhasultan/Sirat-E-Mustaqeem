@@ -227,7 +227,7 @@ class DatabaseService {
       );
     } else {
       await db.rawUpdate(
-        'UPDATE quran SET favorite = ? WHERE ayatId = ?',
+        'UPDATE quran SET favourite = ? WHERE ayatId = ?',
         [0, quran.ayatId],
       );
     }

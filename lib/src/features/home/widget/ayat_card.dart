@@ -13,7 +13,6 @@ class AyatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<QuranBloc, QuranState>(
       builder: (context, state) {
-        final quran = state.qurans.quranOfTheDay;
         return SiratCard(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -30,7 +29,7 @@ class AyatCard extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    quran.arabicText,
+                    '123',
                     style: Theme.of(context).textTheme.headline5!.copyWith(
                           fontFamily: 'Uthman',
                         ),
@@ -40,7 +39,7 @@ class AyatCard extends StatelessWidget {
                     height: 4.h,
                   ),
                   Text(
-                    quran.urduTranslation,
+                    '123',
                     style: Theme.of(context).textTheme.bodyText2!.copyWith(
                           fontFamily: 'Jameel',
                         ),
@@ -51,11 +50,8 @@ class AyatCard extends StatelessWidget {
                   ),
                   BlocBuilder<SurahBloc, SurahState>(
                     builder: (context, surahState) {
-                      final surah = surahState.surahs.surahs.firstWhere(
-                        (surah) => surah.id == quran.surahId,
-                      );
                       return Text(
-                        '${surah.id} ${surah.nameEn}, Verse ${quran.ayatNumber}',
+                        '123',
                         textAlign: TextAlign.center,
                         style: Theme.of(context).textTheme.bodyText1!.copyWith(
                               fontStyle: FontStyle.italic,
