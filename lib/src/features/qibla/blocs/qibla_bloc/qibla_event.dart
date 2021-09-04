@@ -2,9 +2,13 @@ part of 'qibla_bloc.dart';
 
 abstract class QiblaEvent extends Equatable {
   const QiblaEvent();
-
-  @override
-  List<Object> get props => [];
 }
 
-class RequestQiblahDirection extends QiblaEvent {}
+class RequestQiblahDirection extends QiblaEvent {
+  final LocationState locationState;
+
+  const RequestQiblahDirection(this.locationState);
+
+  @override
+  List<Object> get props => [locationState];
+}

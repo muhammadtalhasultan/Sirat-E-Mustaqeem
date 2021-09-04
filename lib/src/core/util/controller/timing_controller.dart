@@ -1,13 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:geolocator/geolocator.dart';
 
 import '../../../core/error/exceptions.dart';
 import '../../../core/error/failures.dart';
 import '../../../core/network/api_service.dart';
 import '../../../core/network/network_client.dart';
 import '../../../core/util/constants.dart';
-import '../../../core/util/controller/location_controller.dart';
 import '../../error/error_code.dart';
 import '../../notification/notification_service.dart';
 import '../model/timing.dart';
@@ -71,32 +69,17 @@ class TimingController {
 }
 
 /// function to call api and get prayer timings
-Future<Either<Failure, Timing>> getPrayerTiming({forTomorrow = false}) async {
+Future<Either<Failure, Timing>> getPrayerTiming(
+    double latitude, double longitude,
+    {forTomorrow = false}) async {
   /// initiate apiservice class to perform get request to get prayer timing
   ApiService apiService =
       ApiService(networkClient: NetworkClient(PRAYER_TIMING_URL));
 
-  /// get user current position through this function
-  final result = await getCurrentPosition();
-
-  Position? position;
-  Failure? failure;
-
-  /// fold the result from getCurrentPosition function either [void] or [Position] object
-  result.fold(
-    (l) => failure = l,
-    (r) => position = r,
-  );
-
-  /// location feature is not enabled. A [Failure] is returned in this case.
-  if (failure != null) {
-    return Left(failure!);
-  }
-
   /// query parameters for get request to get praying timing from api
   Map<String, Object> params = {
-    'latitude': position!.latitude,
-    'longitude': position!.longitude,
+    'latitude': latitude,
+    'longitude': longitude,
     'method': 4,
   };
 

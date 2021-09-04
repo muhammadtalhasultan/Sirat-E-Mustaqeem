@@ -128,7 +128,7 @@ class QuranThemeBloc extends HydratedBloc<QuranThemeEvent, QuranThemeState> {
   @override
   QuranThemeState? fromJson(Map<String, dynamic> json) {
     try {
-      QuranThemeState(
+      return QuranThemeState(
         showTranslation: json['showTranslation'] as bool,
         translationMode: json['translationMode'].toString(),
         withArabs: json['withArabs'] as bool,

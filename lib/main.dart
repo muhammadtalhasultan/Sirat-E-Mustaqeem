@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/notification/notification_bloc.dart';
 
 import 'routes/routes.dart';
 import 'src/core/notification/notification_service.dart';
@@ -12,6 +11,8 @@ import 'src/core/util/bloc/allah_names/allah_name_bloc.dart';
 import 'src/core/util/bloc/database/database_bloc.dart';
 import 'src/core/util/bloc/dua/dua_bloc.dart';
 import 'src/core/util/bloc/juz/juz_bloc.dart';
+import 'src/core/util/bloc/location/location_bloc.dart';
+import 'src/core/util/bloc/notification/notification_bloc.dart';
 import 'src/core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import 'src/core/util/bloc/quran/quran_bloc.dart';
 import 'src/core/util/bloc/surah/surah_bloc.dart';
@@ -78,6 +79,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => TabBloc(),
+        ),
+        BlocProvider(
+          create: (context) => LocationBloc(),
         ),
       ],
       child: ScreenUtilInit(

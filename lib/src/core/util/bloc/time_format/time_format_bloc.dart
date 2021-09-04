@@ -25,7 +25,7 @@ class TimeFormatBloc extends HydratedBloc<TimeFormatEvent, TimeFormatState> {
   TimeFormatState? fromJson(Map<String, dynamic> json) {
     try {
       if (json['is24'] as bool) {
-        TimeFormatState(true);
+        return TimeFormatState(true);
       }
       return TimeFormatState(false);
     } catch (e) {

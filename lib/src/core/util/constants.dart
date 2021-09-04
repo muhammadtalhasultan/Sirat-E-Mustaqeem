@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const String PRAYER_TIMING_URL = 'http://api.aladhan.com/v1/timings/';
+const String REVERSE_GEOCODING_URL =
+    'https://maps.googleapis.com/maps/api/geocode/';
+const String GOOGLE_API_KEY = 'AIzaSyDbRBlzlV4yVSQcJjQkyTJISVO3oavyct0';
 
 const String DATABASE_FILE = 'siratemustaqeem-db.db';
 const String DATABASE_URL =

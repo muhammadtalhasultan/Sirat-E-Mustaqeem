@@ -65,7 +65,7 @@ class NotificationService {
       onSelectNotification: _onSelectNotification,
     );
 
-    await checkNotification();
+    //   await checkNotification();
   }
 
   /// add notification to the stream so other page can subscribe it

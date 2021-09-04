@@ -18,7 +18,6 @@ import 'dart:math' show sin, cos, atan2, pi;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:motion_sensors/motion_sensors.dart';
 import 'package:vector_math/vector_math.dart' show radians;
 
@@ -32,9 +31,9 @@ import '../blocs/angle_bloc/angle_bloc.dart';
 final kaabaLat = radians(21.4224779);
 final kaabaLng = radians(39.8251832);
 
-double calculateDirection(Position currentPosition) {
-  final userLat = radians(currentPosition.latitude);
-  final userLng = radians(currentPosition.longitude);
+double calculateDirection(double latitude, double longitude) {
+  final userLat = radians(latitude);
+  final userLng = radians(longitude);
 
   // final userLat = radians(5.4395021);
   // final userLng = radians(100.4287595);

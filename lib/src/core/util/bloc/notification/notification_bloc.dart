@@ -62,7 +62,6 @@ class NotificationBloc
       }
       return NotificationState(status);
     } catch (e) {
-      print(e);
       return null;
     }
   }
@@ -91,7 +90,6 @@ class NotificationBloc
         'status': value,
       };
     } catch (e) {
-      print(e);
       return null;
     }
   }

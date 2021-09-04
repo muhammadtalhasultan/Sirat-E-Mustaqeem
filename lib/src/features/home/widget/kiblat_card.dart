@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sirat_e_mustaqeem/src/features/utils/coming_soon_dialog.dart';
 
 import '../../../../routes/routes.dart';
 import '../../../core/util/constants.dart';
@@ -46,24 +47,28 @@ class KiblatCard extends StatelessWidget {
                 ],
               ),
               Divider(),
-              // GestureDetector(
-              //   onTap: () {},
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //     children: [
-              //       Text(
-              //         'Current Location',
-              //       ),
-              //       TextButton(
-              //         onPressed: () {},
-              //         child: Text(
-              //           'Change Location',
-              //         ),
-              //       )
-              //     ],
-              //   ),
-              // ),
-              // Divider(),
+              GestureDetector(
+                onTap: () {},
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Current Location',
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) => ComingSoonDialog());
+                      },
+                      child: Text(
+                        'Change Location',
+                      ),
+                    )
+                  ],
+                ),
+              ),
+              Divider(),
               Row(
                 children: [
                   Expanded(

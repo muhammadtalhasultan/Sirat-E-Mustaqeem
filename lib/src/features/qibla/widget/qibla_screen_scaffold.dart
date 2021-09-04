@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/util/bloc/location/location_bloc.dart';
 import '../../../core/util/constants.dart';
 import '../../error/widget/failure_widget.dart';
 import '../../utils/loading_widget.dart';
@@ -21,7 +22,9 @@ class _QiblaScaffoldState extends State<QiblaScaffold> {
   @override
   void didChangeDependencies() {
     BlocProvider.of<QiblaBloc>(context).add(
-      RequestQiblahDirection(),
+      RequestQiblahDirection(
+        BlocProvider.of<LocationBloc>(context).state,
+      ),
     );
     super.didChangeDependencies();
   }
@@ -84,8 +87,8 @@ class _QiblaScaffoldState extends State<QiblaScaffold> {
                             child: FailureWidget(
                               state.failure,
                               () {
-                                BlocProvider.of<QiblaBloc>(context).add(
-                                  RequestQiblahDirection(),
+                                BlocProvider.of<LocationBloc>(context).add(
+                                  InitLocation(),
                                 );
                               },
                               withAppbar: true,
