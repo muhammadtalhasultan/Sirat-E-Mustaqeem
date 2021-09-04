@@ -35,9 +35,9 @@ class LocationBloc extends HydratedBloc<LocationEvent, LocationState> {
         yield* result.fold((l) async* {
           yield LocationFailed(state.latitude, state.longitude, l);
         }, (r) async* {
-          final address = await getAddress(r.latitude, r.longitude);
-          address.fold(
-              (l) => null, (r) => print(r.results[0].formattedAddress));
+          // final address = await getAddress(r.latitude, r.longitude);
+          // address.fold(
+          //     (l) => null, (r) => print(r.results[0].formattedAddress));
 
           yield LocationSuccess(r.latitude, r.longitude);
         });

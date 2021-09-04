@@ -3,14 +3,14 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:sirat_e_mustaqeem/src/core/error/exceptions.dart';
-import 'package:sirat_e_mustaqeem/src/core/network/api_service.dart';
-import 'package:sirat_e_mustaqeem/src/core/network/network_client.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/model/location.dart';
 
 import '../../error/error_code.dart';
+import '../../error/exceptions.dart';
 import '../../error/failures.dart';
+import '../../network/api_service.dart';
+import '../../network/network_client.dart';
+import '../constants.dart';
+import '../model/geocoding.dart';
 
 /// Function to get current position of user
 Future<Either<LocalFailure, Position>> getCurrentPosition() async {

@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/location/location_bloc.dart';
 
 import '../../../../core/error/failures.dart';
+import '../../../../core/util/bloc/location/location_bloc.dart';
 import '../../controller/qibla_controller.dart';
 
 part 'qibla_event.dart';
