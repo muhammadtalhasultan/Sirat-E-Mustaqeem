@@ -41,11 +41,6 @@ class _TabScaffoldState extends State<TabScaffold> {
           );
         }
         return Scaffold(
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {
-              BlocProvider.of<LocationBloc>(context).add(SetLocation(0, 0));
-            },
-          ),
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           extendBodyBehindAppBar: true,
           extendBody: true,
