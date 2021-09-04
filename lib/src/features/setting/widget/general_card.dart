@@ -17,7 +17,7 @@ class GeneralCard extends StatelessWidget {
             size: 64.w,
           ),
           Text(
-            'SiratE Mustaqeem',
+            'Sirate Mustaqeem',
             style: Theme.of(context).textTheme.headline5,
           ),
           SizedBox(

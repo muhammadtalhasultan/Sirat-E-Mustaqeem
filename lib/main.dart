@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/notification/notification_bloc.dart';
 
 import 'routes/routes.dart';
 import 'src/core/notification/notification_service.dart';
@@ -44,6 +45,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => TimeFormatBloc(),
+        ),
+        BlocProvider(
+          create: (context) => NotificationBloc(),
         ),
         BlocProvider(
           create: (context) => QuranThemeBloc(),

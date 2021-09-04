@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/util/bloc/database/database_bloc.dart';
 import '../controller/splash_controller.dart';
 import '../widget/splash_scaffold.dart';
 

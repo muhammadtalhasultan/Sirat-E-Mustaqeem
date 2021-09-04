@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/notification/notification_bloc.dart';
 
 import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/constants.dart';
@@ -33,8 +34,8 @@ class _CountDownTimerState extends State<CountDownTimer> {
               BlocProvider.of<TimerBloc>(context).state.difference ==
                   Duration.zero) {
             if (widget.controller.timingCount == 4) {
-              BlocProvider.of<TimingBloc>(context)
-                  .add(RequestTimingForTomorrow());
+              BlocProvider.of<TimingBloc>(context).add(RequestTimingForTomorrow(
+                  BlocProvider.of<NotificationBloc>(context).state.status));
             } else {
               BlocProvider.of<TimingBloc>(context).add(UpdateTiming());
             }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/quran/bloc/quran_theme/quran_theme_bloc.dart';
 
 import '../bloc/tab/tab_bloc.dart';
 import '../cubit/quran_cubit.dart';

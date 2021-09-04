@@ -65,9 +65,7 @@ class NotificationService {
       onSelectNotification: _onSelectNotification,
     );
 
-    final available =
-        await flutterLocalNotificationsPlugin.pendingNotificationRequests();
-    //print(available[0].title);
+    await checkNotification();
   }
 
   /// add notification to the stream so other page can subscribe it
@@ -146,5 +144,11 @@ class NotificationService {
         androidAllowWhileIdle: true,
         matchDateTimeComponents: DateTimeComponents.time,
         payload: '');
+  }
+
+  Future<void> checkNotification() async {
+    final available =
+        await flutterLocalNotificationsPlugin.pendingNotificationRequests();
+    print(available.length);
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/notification/notification_bloc.dart';
 
 import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/constants.dart';
@@ -37,7 +38,10 @@ class TimingScreenScaffold extends StatelessWidget {
                               state.failure,
                               () {
                                 BlocProvider.of<TimingBloc>(context).add(
-                                  RequestTiming(),
+                                  RequestTiming(
+                                      BlocProvider.of<NotificationBloc>(context)
+                                          .state
+                                          .status),
                                 );
                               },
                               withAppbar: true,

@@ -181,9 +181,9 @@ String convertTimeTo12HourFormat(String timing) {
   return '$hour:$minInString $amPm';
 }
 
-Future<void> addToLocalNotification(
+Future<List<Map<String, Object>>> loadLocalNotification(
     List<Map<String, String>> timingsList) async {
-  await NotificationService().cancelAllNotifications();
+  final List<Map<String, Object>> notificationList = [];
   int i = 0;
 
   await Future.forEach(timingsList, (Map<String, String> timing) async {
@@ -216,13 +216,28 @@ Future<void> addToLocalNotification(
       ).difference(DateTime.now());
     }
 
-    await NotificationService().showPrayerNotification(
-      id: i,
-      title: timing.entries.first.key,
-      body: 'The next prayer time is now.',
-      duration: duration,
-    );
+    notificationList.add({
+      'id': i,
+      'title': timing.entries.first.key,
+      'body': 'The next prayer time is now.',
+      'duration': duration,
+    });
 
     i++;
+  });
+  return notificationList;
+}
+
+Future<void> addToLocalNotification(
+    List<Map<String, Object>> notifications) async {
+  await NotificationService().cancelAllNotifications();
+
+  await Future.forEach(notifications, (Map<String, Object> notification) async {
+    await NotificationService().showPrayerNotification(
+      id: notification['id'] as int,
+      title: notification['title'].toString(),
+      body: notification['body'].toString(),
+      duration: notification['duration'] as Duration,
+    );
   });
 }

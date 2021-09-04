@@ -1,11 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-import 'package:sirat_e_mustaqeem/src/features/home/model/image.dart';
 
 import '../../../core/util/constants.dart';
+import '../model/image.dart';
 
 class RandomImageCard extends StatelessWidget {
   const RandomImageCard({Key? key}) : super(key: key);

@@ -1,10 +1,9 @@
 part of 'notification_bloc.dart';
 
-abstract class NotificationState extends Equatable {
-  const NotificationState();
-  
-  @override
-  List<Object> get props => [];
-}
+class NotificationState extends Equatable {
+  final PermissionStatus status;
+  const NotificationState(this.status);
 
-class NotificationInitial extends NotificationState {}
+  @override
+  List<Object> get props => [status];
+}

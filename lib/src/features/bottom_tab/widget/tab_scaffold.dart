@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sirat_e_mustaqeem/src/core/notification/notification_service.dart';
 
+import '../../../core/util/bloc/notification/notification_bloc.dart';
 import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/constants.dart';
 import '../../utils/loading_widget.dart';
@@ -17,7 +19,8 @@ class TabScaffold extends StatefulWidget {
 class _TabScaffoldState extends State<TabScaffold> {
   @override
   void didChangeDependencies() {
-    BlocProvider.of<TimingBloc>(context).add(RequestTiming());
+    BlocProvider.of<TimingBloc>(context).add(
+        RequestTiming(BlocProvider.of<NotificationBloc>(context).state.status));
     super.didChangeDependencies();
   }
 
@@ -32,6 +35,9 @@ class _TabScaffoldState extends State<TabScaffold> {
           );
         }
         return Scaffold(
+          floatingActionButton: FloatingActionButton(onPressed: () async {
+            await NotificationService().checkNotification();
+          }),
           backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           extendBodyBehindAppBar: true,
           extendBody: true,

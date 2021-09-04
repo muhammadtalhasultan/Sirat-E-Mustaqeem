@@ -2,6 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:sirat_e_mustaqeem/src/core/util/bloc/notification/notification_bloc.dart';
 
 import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
 import '../../../core/util/controller/notification_controller.dart';
@@ -15,7 +17,6 @@ class TabScreen extends StatefulWidget {
 }
 
 class _TabScreenState extends State<TabScreen> with WidgetsBindingObserver {
-  bool isInit = false;
   @override
   void initState() {
     configureDidReceiveLocalNotificationSubject(context);
@@ -40,7 +41,19 @@ class _TabScreenState extends State<TabScreen> with WidgetsBindingObserver {
       });
     else if (Platform.isIOS) {
       if (state == AppLifecycleState.resumed) {
+        BlocProvider.of<NotificationBloc>(context).add(UpdateNotification());
+
         BlocProvider.of<TimingBloc>(context).add(UpdateTiming());
+
+        /// wait for updateNotification to finish
+        Future.delayed(Duration(milliseconds: 500), () {
+          if (BlocProvider.of<NotificationBloc>(context).state.status ==
+              PermissionStatus.granted) {
+            BlocProvider.of<TimingBloc>(context).add(PushNotification());
+          } else {
+            BlocProvider.of<TimingBloc>(context).add(CancelNotification());
+          }
+        });
       }
     }
 

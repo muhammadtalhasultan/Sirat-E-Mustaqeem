@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:permission_handler/permission_handler.dart';
 
+import '../../../core/util/bloc/notification/notification_bloc.dart';
 import '../../../core/util/bloc/theme/theme_bloc.dart';
 import '../../../core/util/bloc/time_format/time_format_bloc.dart';
 import '../../utils/sirat_card.dart';
+import '../controller/setting_controller.dart';
 import 'change_format_switch.dart';
+import 'change_notification_switch.dart';
 import 'change_theme_switch.dart';
 
 class UserPreferenceCard extends StatelessWidget {
@@ -31,7 +35,7 @@ class UserPreferenceCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Change Theme',
+                'Theme',
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -55,7 +59,7 @@ class UserPreferenceCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Change Time Format',
+                'Time Format',
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2!
@@ -69,6 +73,28 @@ class UserPreferenceCard extends StatelessWidget {
                         BlocProvider.of<TimeFormatBloc>(context).add(
                           ToggleFormat(),
                         );
+                      });
+                },
+              ),
+            ],
+          ),
+          Divider(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Notification',
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText2!
+                    .copyWith(color: Theme.of(context).primaryColor),
+              ),
+              BlocBuilder<NotificationBloc, NotificationState>(
+                builder: (context, state) {
+                  return ChangeNotificationSwitch(
+                      value: state.status == PermissionStatus.granted,
+                      onChanged: (_) {
+                        notificationSwitchOnToggle(state, context);
                       });
                 },
               ),
