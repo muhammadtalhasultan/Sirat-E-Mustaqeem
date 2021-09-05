@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/database/database_service.dart';
 import 'package:sqflite/sqflite.dart';
 
 import '../error/exceptions.dart';
@@ -10,6 +9,7 @@ import '../util/bloc/juz/juz_bloc.dart';
 import '../util/bloc/quran/quran_bloc.dart';
 import '../util/bloc/surah/surah_bloc.dart';
 import '../util/bloc/tasbih/tasbih_bloc.dart';
+import 'database_service.dart';
 
 class DatabaseTable {
   static Future<void> cachedDataFromDb(

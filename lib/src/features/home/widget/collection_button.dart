@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sirat_e_mustaqeem/src/features/utils/coming_soon_dialog.dart';
 
+import '../../utils/coming_soon_dialog.dart';
 import '../model/collection.dart';
 
 class CollectionButton extends StatelessWidget {

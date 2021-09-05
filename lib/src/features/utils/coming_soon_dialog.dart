@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
+
+import '../../core/util/constants.dart';
 
 class ComingSoonDialog extends StatelessWidget {
   const ComingSoonDialog();

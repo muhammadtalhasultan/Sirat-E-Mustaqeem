@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/tasbih/tasbih_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/bookmark/bloc/category_bloc.dart';
 
+import '../../../core/util/bloc/tasbih/tasbih_bloc.dart';
 import '../../../core/util/constants.dart';
 import '../../../core/util/model/tasbih.dart';
+import '../../bookmark/bloc/category_bloc.dart';
 import '../../utils/sirat_card.dart';
 import '../bloc/selected_tasbih/selected_tasbih_bloc.dart';
 import '../controller/tasbih_controller.dart';

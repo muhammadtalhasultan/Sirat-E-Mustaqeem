@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sirat_e_mustaqeem/src/features/utils/coming_soon_dialog.dart';
 
 import '../../../../routes/routes.dart';
 import '../../../core/util/constants.dart';
+import '../../utils/coming_soon_dialog.dart';
 import 'prayer_timing_widget.dart';
 
 class KiblatCard extends StatelessWidget {
@@ -33,7 +33,7 @@ class KiblatCard extends StatelessWidget {
               Row(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.circular(8.r),
+                    borderRadius: kAppIconBorderRadius,
                     child: SvgPicture.asset(
                       'assets/images/core/svg/app_logo.svg',
                       width: 32.w,

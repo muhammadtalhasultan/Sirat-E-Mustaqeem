@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/dua/dua_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/bookmark/bloc/category_bloc.dart';
 
+import '../../../core/util/bloc/dua/dua_bloc.dart';
 import '../../../core/util/model/dua.dart';
+import '../../bookmark/bloc/category_bloc.dart';
 import '../../utils/sirat_card.dart';
 import '../controller/dua_controller.dart';
 

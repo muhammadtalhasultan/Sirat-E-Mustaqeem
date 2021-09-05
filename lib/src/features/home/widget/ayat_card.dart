@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/surah/surah_bloc.dart';
 
 import '../../../core/util/bloc/quran/quran_bloc.dart';
+import '../../../core/util/bloc/surah/surah_bloc.dart';
 import '../../utils/sirat_card.dart';
 
 class AyatCard extends StatelessWidget {

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
 
+import '../../../core/util/constants.dart';
 import '../../utils/loading_widget.dart';
 import '../bloc/category_bloc.dart';
 import 'success_widget.dart';

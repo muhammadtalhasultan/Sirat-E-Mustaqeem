@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/notification/notification_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/setting/widget/notification_disabled_dialog.dart';
+
+import '../../../core/util/bloc/notification/notification_bloc.dart';
+import '../../../core/util/bloc/prayer_timing_bloc/timing_bloc.dart';
+import '../widget/notification_disabled_dialog.dart';
 
 void notificationSwitchOnToggle(NotificationState state, BuildContext context) {
   if (state.status == PermissionStatus.permanentlyDenied) {

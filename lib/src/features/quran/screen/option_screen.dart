@@ -3,9 +3,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/constants.dart';
-import 'package:sirat_e_mustaqeem/src/features/quran/bloc/quran_theme/quran_theme_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/utils/custom_switch.dart';
+
+import '../../../core/util/constants.dart';
+import '../../utils/custom_switch.dart';
+import '../bloc/quran_theme/quran_theme_bloc.dart';
 
 class OptionScreen extends StatelessWidget {
   const OptionScreen();

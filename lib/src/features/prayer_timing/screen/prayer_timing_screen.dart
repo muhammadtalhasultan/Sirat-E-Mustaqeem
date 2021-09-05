@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/bloc/location/location_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/features/utils/loading_widget.dart';
 
+import '../../../core/util/bloc/location/location_bloc.dart';
+import '../../utils/loading_widget.dart';
 import '../widget/timing_screen_scaffold.dart';
 
 class PrayerTimingScreen extends StatelessWidget {

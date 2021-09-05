@@ -55,6 +55,10 @@ BorderRadiusGeometry kCardBorderRadius = BorderRadius.circular(
   16.r,
 );
 
+BorderRadius kAppIconBorderRadius = BorderRadius.circular(
+  8.r,
+);
+
 BorderRadiusGeometry kBottomSheetBorderRadius = BorderRadius.only(
   topLeft: Radius.circular(16.r),
   topRight: Radius.circular(16.r),

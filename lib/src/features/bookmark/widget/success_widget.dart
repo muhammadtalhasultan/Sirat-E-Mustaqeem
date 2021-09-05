@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sirat_e_mustaqeem/src/features/bookmark/bloc/category_bloc.dart';
 
 import '../../../core/util/constants.dart';
 import '../../dua/widget/dua_card.dart';
 import '../../quran/widget/quran_card.dart';
 import '../../tasbih/widget/tasbih_card.dart';
+import '../bloc/category_bloc.dart';
 import 'category_title.dart';
 
 class SuccessWidget extends StatelessWidget {

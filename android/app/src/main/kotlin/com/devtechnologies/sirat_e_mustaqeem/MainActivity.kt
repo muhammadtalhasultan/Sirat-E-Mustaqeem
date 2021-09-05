@@ -1,4 +1,4 @@
-package com.devtechnologies.sirat_e_mustaqeem
+package com.devtechnologies.siratemustaqeem
 
 import io.flutter.embedding.android.FlutterActivity
 

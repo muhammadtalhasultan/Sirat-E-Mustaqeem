@@ -3,11 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'package:sirat_e_mustaqeem/src/features/quran/widget/juz_content.dart';
-
 import '../../../core/util/constants.dart';
 import '../../bottom_tab/bloc/tab/tab_bloc.dart';
 import '../cubit/quran_cubit.dart' as qc;
+import '../widget/juz_content.dart';
 import '../widget/surah_content.dart';
 import 'option_screen.dart';
 

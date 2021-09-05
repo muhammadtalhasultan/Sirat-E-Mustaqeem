@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:sirat_e_mustaqeem/src/core/notification/notification_service.dart';
+
+import '../../../notification/notification_service.dart';
 
 part 'notification_event.dart';
 part 'notification_state.dart';

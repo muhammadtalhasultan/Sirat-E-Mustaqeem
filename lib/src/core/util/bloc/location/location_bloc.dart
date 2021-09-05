@@ -2,8 +2,9 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/error/failures.dart';
-import 'package:sirat_e_mustaqeem/src/core/util/controller/location_controller.dart';
+
+import '../../../error/failures.dart';
+import '../../controller/location_controller.dart';
 
 part 'location_event.dart';
 part 'location_state.dart';
