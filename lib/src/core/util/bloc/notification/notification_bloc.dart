@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:equatable/equatable.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -11,18 +12,25 @@ part 'notification_state.dart';
 
 class NotificationBloc
     extends HydratedBloc<NotificationEvent, NotificationState> {
-  NotificationBloc() : super(NotificationState(PermissionStatus.denied));
+  NotificationBloc()
+      : super(
+          NotificationState(
+            Platform.isIOS ? PermissionStatus.denied : PermissionStatus.granted,
+          ),
+        );
 
   @override
   Stream<NotificationState> mapEventToState(
     NotificationEvent event,
   ) async* {
     if (event is UpdateNotification) {
-      final permission = await Permission.notification.status;
-      if (permission.isGranted && state.status.isRestricted) {
-        yield NotificationState(PermissionStatus.restricted);
-      } else {
-        yield NotificationState(permission);
+      if (Platform.isIOS) {
+        final permission = await Permission.notification.status;
+        if (permission.isGranted && state.status.isRestricted) {
+          yield NotificationState(PermissionStatus.restricted);
+        } else {
+          yield NotificationState(permission);
+        }
       }
     }
     if (event is ToggleNotification) {
