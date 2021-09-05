@@ -7,7 +7,8 @@ class NetworkClient {
 
   NetworkClient(String baseUrl) {
     BaseOptions baseOptions = BaseOptions(
-        receiveTimeout: 30000,
+        receiveTimeout:
+            0, // db file size 15,665,152 byte minimum 5kbps 3133seconds
         connectTimeout: 30000,
         baseUrl: baseUrl,
         maxRedirects: 2);
