@@ -19,7 +19,6 @@ class TabScaffold extends StatefulWidget {
 class _TabScaffoldState extends State<TabScaffold> {
   @override
   void didChangeDependencies() {
-    print('from tab scaffold');
     BlocProvider.of<TimingBloc>(context).add(
       RequestTiming(
         BlocProvider.of<NotificationBloc>(context).state.status,

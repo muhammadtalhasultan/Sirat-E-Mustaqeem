@@ -31,10 +31,22 @@ class KiblatCard extends StatelessWidget {
           child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Sirat',
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8.r),
+                    child: SvgPicture.asset(
+                      'assets/images/core/svg/app_logo.svg',
+                      width: 32.w,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8.w,
+                  ),
+                  Expanded(
+                    child: Text(
+                      'Sirate Mustaqeem',
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
                   ),
                   GestureDetector(
                     onTap: () {},

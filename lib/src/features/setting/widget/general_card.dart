@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../utils/sirat_card.dart';
 import '../model/general_option.dart';
@@ -13,8 +14,14 @@ class GeneralCard extends StatelessWidget {
     return SiratCard(
       child: Column(
         children: [
-          FlutterLogo(
-            size: 64.w,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(
+              8.r,
+            ),
+            child: SvgPicture.asset(
+              'assets/images/core/svg/app_logo.svg',
+              width: 64.w,
+            ),
           ),
           Text(
             'Sirate Mustaqeem',

@@ -42,6 +42,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/core/json/
+    - assets/images/core/svg/
     - assets/images/error/lottie_json/
     - assets/images/navigation_icon/svg/
     - assets/images/home_icon/svg/
@@ -58,15 +59,6 @@ flutter:
     - assets/images/image_of_the_day/
     - assets/sound/
 
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware.
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/assets-and-images/#from-packages
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
   fonts:
     - family: Uthman
       fonts:
@@ -76,6 +68,3 @@ flutter:
     - family: Jameel
       fonts:
         - asset: assets/fonts/jameel.ttf
-
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/custom-fonts/#from-packages

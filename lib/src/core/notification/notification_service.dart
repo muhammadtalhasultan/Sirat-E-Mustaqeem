@@ -38,7 +38,7 @@ class NotificationService {
 
     /// andriod local notification setting
     const AndroidInitializationSettings initializationSettingsAndroid =
-        AndroidInitializationSettings('circle_kesan');
+        AndroidInitializationSettings('ic_launcher');
 
     /// Note: permissions aren't requested here just to demonstrate that can be
     /// done later
