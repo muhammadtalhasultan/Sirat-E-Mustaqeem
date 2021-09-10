@@ -54,7 +54,7 @@ class AppBarExpanded extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  'Assalamu’alaikum, sahabat',
+                  'Assalamu alaikum',
                   style: Theme.of(context).textTheme.headline6!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),

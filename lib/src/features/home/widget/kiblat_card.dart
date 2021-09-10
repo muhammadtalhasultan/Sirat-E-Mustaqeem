@@ -45,7 +45,7 @@ class KiblatCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       'Sirate Mustaqeem',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.headline5,
                     ),
                   ),
                   GestureDetector(

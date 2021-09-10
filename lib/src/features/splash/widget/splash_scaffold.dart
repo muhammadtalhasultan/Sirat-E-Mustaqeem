@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -32,14 +31,29 @@ class SplashScaffold extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           toolbarHeight: 0,
-          systemOverlayStyle: SystemUiOverlayStyle.dark,
+          systemOverlayStyle: Theme.of(context).appBarTheme.systemOverlayStyle,
         ),
-        body: SizedBox(
-          height: 1.sh,
-          width: 1.sw,
-          child: SvgPicture.asset(
-            'assets/images/core/svg/splash.svg',
-            fit: BoxFit.cover,
+        body: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ClipRRect(
+                borderRadius: kAppIconBorderRadius,
+                child: SvgPicture.asset(
+                  'assets/images/core/svg/app_logo.svg',
+                  width: 128.w,
+                ),
+              ),
+              SizedBox(
+                height: 16.h,
+              ),
+              Text(
+                'Brought to you by Dev Technologies',
+                style: GoogleFonts.kaushanScript(
+                  fontSize: 16.sp,
+                ),
+              )
+            ],
           ),
         ),
       ),
