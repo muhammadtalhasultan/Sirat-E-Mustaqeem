@@ -28,11 +28,6 @@ void main() async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: await getApplicationDocumentsDirectory(),
   );
-  await SystemChrome.setPreferredOrientations(
-    [
-      DeviceOrientation.portraitUp,
-    ],
-  );
   runApp(MyApp());
 }
 
@@ -84,23 +79,33 @@ class MyApp extends StatelessWidget {
           create: (context) => LocationBloc(),
         ),
       ],
-      child: ScreenUtilInit(
-        designSize: Size(414, 896),
-        builder: () {
-          return BlocBuilder<ThemeBloc, ThemeState>(
-            builder: (context, state) {
-              return MaterialApp(
-                title: 'Sirate Mustaqeem',
-                debugShowCheckedModeBanner: false,
-                color: Colors.white,
-                theme: state.currentTheme,
-                initialRoute: RouteGenerator.splash,
-                onGenerateRoute: RouteGenerator.generateRoute,
+      child: FutureBuilder<void>(
+          future: SystemChrome.setPreferredOrientations(
+            [
+              DeviceOrientation.portraitUp,
+            ],
+          ),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done)
+              return ScreenUtilInit(
+                designSize: Size(414, 896),
+                builder: () {
+                  return BlocBuilder<ThemeBloc, ThemeState>(
+                    builder: (context, state) {
+                      return MaterialApp(
+                        title: 'Sirate Mustaqeem',
+                        debugShowCheckedModeBanner: false,
+                        color: Colors.white,
+                        theme: state.currentTheme,
+                        initialRoute: RouteGenerator.splash,
+                        onGenerateRoute: RouteGenerator.generateRoute,
+                      );
+                    },
+                  );
+                },
               );
-            },
-          );
-        },
-      ),
+            return MaterialApp();
+          }),
     );
   }
 }
