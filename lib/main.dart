@@ -104,7 +104,12 @@ class MyApp extends StatelessWidget {
                   );
                 },
               );
-            return MaterialApp();
+            return MaterialApp(
+              title: 'Sirate Mustaqeem',
+              debugShowCheckedModeBanner: false,
+              color: Colors.white,
+              home: Container(),
+            );
           }),
     );
   }
