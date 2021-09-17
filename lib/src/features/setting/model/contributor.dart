@@ -6,21 +6,11 @@ class Contributor {
 class Contributors {
   static List<Contributor> contributors = [
     Contributor('Muhammad Talha Sultan'),
-    Contributor('Cheam Jing En '),
+    Contributor('Cheam Jing En'),
     Contributor('Noman Shoaib'),
-    Contributor(''),
-    Contributor(''),
-    Contributor(''),
-    Contributor(''),
-    Contributor(''),
     Contributor('Flutter Developer'),
     Contributor('Flutter Developer'),
     Contributor('Graphic Designer'),
-    Contributor(''),
-    Contributor(''),
-    Contributor(''),
-    Contributor(''),
-    Contributor(''),
   ];
 
   static int get firstColumnCount {
