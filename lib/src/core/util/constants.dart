@@ -2,21 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const String PRAYER_TIMING_URL = 'http://api.aladhan.com/v1/timings/';
-const String REVERSE_GEOCODING_URL =
-    'https://maps.googleapis.com/maps/api/geocode/';
-const String GOOGLE_API_KEY = 'AIzaSyDbRBlzlV4yVSQcJjQkyTJISVO3oavyct0';
 
 const String DATABASE_FILE = 'siratemustaqeem-db.db';
 const String DATABASE_URL =
     'https://raw.githubusercontent.com/muhammadtalhasultan/Sirat-e-Mustaqeem-Master/';
 
-const String PLAY_STORE_URL = 'https://flutter.dev/';
-const WEBSITE_URL = 'https://flutter.dev/';
-const EMAIL_URL = 'https://flutter.dev/';
-const MEDIUM_URL = 'https://flutter.dev/';
+const String PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.devtechnologies.siratemustaqeem';
+const WEBSITE_URL = 'https://talhasultan.dev/';
+const EMAIL_URL = 'mailto:talhasultan.dev@gmail.com?subject=Sirate%20Mustaqeem%20Query';
+const MEDIUM_URL = 'https://medium.com/@muhammadtalhasultan';
 const YOUTUBE_URL = 'https://www.youtube.com/channel/UC-cBM3nBHd5t6BKKznR3GNg';
 const FACEBOOK_URL = 'https://www.facebook.com/groups/218761196363628';
-const INSTA_URL = 'https://flutter.dev/';
+const INSTA_URL = 'https://www.instagram.com/talhasultandev/';
 
 const Color kLightPrimary = Color(0xFF5AD383);
 const Color kLightAccent = Color(0xFF48AB8C);
