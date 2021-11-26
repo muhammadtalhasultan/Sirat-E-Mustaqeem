@@ -44,10 +44,6 @@ class LocationBloc extends HydratedBloc<LocationEvent, LocationState> {
         });
       }
     }
-    if (event is SetLocation) {
-      final address = await getAddress(state.latitude, state.longitude);
-      address.fold((l) => null, (r) => print(r.results[0].formattedAddress));
-    }
   }
 
   @override

@@ -1,16 +1,11 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
+
 import 'package:geolocator/geolocator.dart';
 
 import '../../error/error_code.dart';
-import '../../error/exceptions.dart';
 import '../../error/failures.dart';
-import '../../network/api_service.dart';
-import '../../network/network_client.dart';
-import '../constants.dart';
-import '../model/geocoding.dart';
 
 /// Function to get current position of user
 Future<Either<LocalFailure, Position>> getCurrentPosition() async {
@@ -92,56 +87,56 @@ Future<void> openLocationSetting() async {
   await Geolocator.openLocationSettings();
 }
 
-Future<Either<Failure, Geocoding>> getAddress(
-  double latitude,
-  double longitude,
-) async {
-  /// initiate apiservice class to perform get request to get address
-  ApiService apiService =
-      ApiService(networkClient: NetworkClient(REVERSE_GEOCODING_URL));
+// Future<Either<Failure, Geocoding>> getAddress(
+//   double latitude,
+//   double longitude,
+// ) async {
+//   // / initiate apiservice class to perform get request to get address
+//   ApiService apiService =
+//       ApiService(networkClient: NetworkClient(REVERSE_GEOCODING_URL));
 
-  /// query parameters for get request to get address from api
-  Map<String, Object> params = {
-    'latlng': '$latitude,$longitude',
-    'key': GOOGLE_API_KEY,
-  };
+//   // / query parameters for get request to get address from api
+//   Map<String, Object> params = {
+//     'latlng': '$latitude,$longitude',
+//     'key': GOOGLE_API_KEY,
+//   };
 
-  try {
-    /// returned response from the api
-    Response addressResponse = await apiService.getAddress(params);
+//   try {
+//     // / returned response from the api
+//     Response addressResponse = await apiService.getAddress(params);
 
-    /// case response is ok: [Geocoding] class is returned for the presentation layer.
-    if (addressResponse.statusCode == 200) {
-      final Geocoding geocoding = Geocoding.fromJson(
-        addressResponse.data,
-      );
+//     // / case response is ok: [Geocoding] class is returned for the presentation layer.
+//     if (addressResponse.statusCode == 200) {
+//       final Geocoding geocoding = Geocoding.fromJson(
+//         addressResponse.data,
+//       );
 
-      return Right(geocoding);
-    }
+//       return Right(geocoding);
+//     }
 
-    /// otherwise [Failure] is returned
-    else {
-      return Left(
-        RemoteFailure(
-            message: addressResponse.statusCode,
-            errorType: DioErrorType.response),
-      );
-    }
-  } on RemoteException catch (e) {
-    String errorMessage = e.dioError.message;
-    int? errorCode;
-    for (final error in RemoteErrorCode.remoteErrors) {
-      if (e.dioError.message.contains(error['rawMessage'].toString())) {
-        errorMessage = error['message'].toString();
-        errorCode = error['errorCode'] as int;
-      }
-    }
-    return Left(
-      RemoteFailure(
-        message: errorMessage,
-        errorType: DioErrorType.response,
-        errorCode: errorCode,
-      ),
-    );
-  }
-}
+//     // / otherwise [Failure] is returned
+//     else {
+//       return Left(
+//         RemoteFailure(
+//             message: addressResponse.statusCode,
+//             errorType: DioErrorType.response),
+//       );
+//     }
+//   } on RemoteException catch (e) {
+//     String errorMessage = e.dioError.message;
+//     int? errorCode;
+//     for (final error in RemoteErrorCode.remoteErrors) {
+//       if (e.dioError.message.contains(error['rawMessage'].toString())) {
+//         errorMessage = error['message'].toString();
+//         errorCode = error['errorCode'] as int;
+//       }
+//     }
+//     return Left(
+//       RemoteFailure(
+//         message: errorMessage,
+//         errorType: DioErrorType.response,
+//         errorCode: errorCode,
+//       ),
+//     );
+//   }
+// }
