@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sirat_e_mustaqeem/src/core/notification/notification_service.dart';
 
 import '../../../core/util/bloc/location/location_bloc.dart';
 import '../../../core/util/bloc/notification/notification_bloc.dart';

@@ -89,7 +89,7 @@ class MyApp extends StatelessWidget {
             if (snapshot.connectionState == ConnectionState.done)
               return ScreenUtilInit(
                 designSize: Size(414, 896),
-                builder: () {
+                builder: (context, child) {
                   return BlocBuilder<ThemeBloc, ThemeState>(
                     builder: (context, state) {
                       return MaterialApp(
