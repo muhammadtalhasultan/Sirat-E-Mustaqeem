@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -117,6 +116,7 @@ class TranslationMode extends StatelessWidget {
                       ),
                     ),
                   ),
+                  onChanged: (value) {},
                 );
               },
             ),
@@ -258,6 +258,7 @@ class QuranFontFamily extends StatelessWidget {
                       ),
                     ),
                   ),
+                  onChanged: (value) {},
                 );
               },
             ),
@@ -368,6 +369,7 @@ class TranslationFontFamily extends StatelessWidget {
                       ),
                     ),
                   ),
+                  onChanged: (value) {},
                 );
               },
             ),
