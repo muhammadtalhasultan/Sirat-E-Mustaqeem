@@ -45,8 +45,8 @@ class NotificationService {
     /// ios local notification setting
     /// [onDidRecieveLocalNotification] handler for clicking notification while in
     /// app
-    final IOSInitializationSettings initializationSettingsIOS =
-        IOSInitializationSettings(
+    final DarwinInitializationSettings initializationSettingsIOS =
+        DarwinInitializationSettings(
       requestAlertPermission: false,
       requestBadgePermission: false,
       requestSoundPermission: false,
@@ -62,7 +62,7 @@ class NotificationService {
     /// app ios<10+
     await flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
-      onSelectNotification: _onSelectNotification,
+      // onDidReceiveBackgroundNotificationResponse: _onSelectNotification,
     );
 
     await checkNotification();
@@ -116,18 +116,19 @@ class NotificationService {
         AndroidNotificationDetails(
       '1',
       'Prayer Timing',
-      'Notification to tell user that it is time for Muslim prayer.',
+      // 'Notification to tell user that it is time for Muslim prayer.',
       importance: Importance.max,
       //icon:
       sound: RawResourceAndroidNotificationSound('slow_spring_board'),
       // when:
       ticker: 'Prayer Timing',
       visibility: NotificationVisibility.public,
-      category: 'reminder',
+      category: AndroidNotificationCategory.reminder,
     );
 
     /// ios customisation notification
-    IOSNotificationDetails iosPlatformChannelSpecifics = IOSNotificationDetails(
+
+    DarwinNotificationDetails iosPlatformChannelSpecifics = DarwinNotificationDetails(
       sound: 'slow_spring_board.aiff',
     );
 
