@@ -33,7 +33,7 @@ class DuaCard extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context)
                 .textTheme
-                .headline6!
+                .titleLarge!
                 .copyWith(fontFamily: 'Uthman'),
           ),
           Divider(
@@ -45,7 +45,7 @@ class DuaCard extends StatelessWidget {
                 dua.surah,
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText2!
+                    .bodyMedium!
                     .copyWith(fontFamily: 'Jameel'),
               ),
               SizedBox(
@@ -53,7 +53,7 @@ class DuaCard extends StatelessWidget {
               ),
               Text(
                 'Aya: ${dua.ayaNumber}',
-                style: Theme.of(context).textTheme.bodyText1,
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
               Spacer(),
               GestureDetector(

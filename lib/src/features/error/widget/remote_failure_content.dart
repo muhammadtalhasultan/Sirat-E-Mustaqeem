@@ -31,7 +31,7 @@ class RemoteFailureContent extends StatelessWidget {
           ),
           Text(
             failure.message,
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
             textAlign: TextAlign.center,
           ),
         ],
@@ -53,7 +53,7 @@ class RemoteFailureContent extends StatelessWidget {
         ),
         Text(
           failure.message,
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
           textAlign: TextAlign.center,
         ),
       ],

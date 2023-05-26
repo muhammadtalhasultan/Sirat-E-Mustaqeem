@@ -30,7 +30,7 @@ class LocalFailureContent extends StatelessWidget {
           ),
           Text(
             failure.message,
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
             textAlign: TextAlign.center,
           ),
           SizedBox(
@@ -73,7 +73,7 @@ class LocalFailureContent extends StatelessWidget {
           ),
           Text(
             failure.message,
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
             textAlign: TextAlign.center,
           ),
           if (failure.extraInfo != null)
@@ -107,7 +107,7 @@ class LocalFailureContent extends StatelessWidget {
         ),
         Text(
           failure.message,
-          style: Theme.of(context).textTheme.headline6,
+          style: Theme.of(context).textTheme.titleLarge,
           textAlign: TextAlign.center,
         ),
       ],

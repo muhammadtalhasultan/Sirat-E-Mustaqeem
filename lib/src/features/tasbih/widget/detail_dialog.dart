@@ -43,7 +43,7 @@ class DetailDialog extends StatelessWidget {
                     Text(
                       'Add New Tasbih',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline6!.copyWith(
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                           ),
@@ -70,16 +70,16 @@ class DetailDialog extends StatelessWidget {
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
-                        fillColor: Theme.of(context).backgroundColor,
+                        fillColor: Theme.of(context).colorScheme.background,
                         contentPadding: kInputFieldPadding,
                         hintText: 'Input tasbih name here',
                         hintStyle:
-                            Theme.of(context).textTheme.bodyText1!.copyWith(
+                            Theme.of(context).textTheme.bodyLarge!.copyWith(
                                   color: Theme.of(context).colorScheme.surface,
                                 ),
                       ),
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText2!.color),
+                          color: Theme.of(context).textTheme.bodyMedium!.color),
                     ),
                     if (state is InputNameError || state is InputError)
                       Column(
@@ -93,7 +93,7 @@ class DetailDialog extends StatelessWidget {
                                 child: Text(
                                   'Tashbih name cannot be empty',
                                   style: TextStyle(
-                                    color: Theme.of(context).errorColor,
+                                    color: Theme.of(context).colorScheme.error,
                                   ),
                                 ),
                               ),
@@ -143,16 +143,16 @@ class DetailDialog extends StatelessWidget {
                           borderSide: BorderSide.none,
                         ),
                         filled: true,
-                        fillColor: Theme.of(context).backgroundColor,
+                        fillColor: Theme.of(context).colorScheme.background,
                         contentPadding: kInputFieldPadding,
                         hintText: 'Input tasbih counts here',
                         hintStyle:
-                            Theme.of(context).textTheme.bodyText1!.copyWith(
+                            Theme.of(context).textTheme.bodyLarge!.copyWith(
                                   color: Theme.of(context).colorScheme.surface,
                                 ),
                       ),
                       style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText2!.color),
+                          color: Theme.of(context).textTheme.bodyMedium!.color),
                     ),
                     if (state is InputCountError || state is InputError)
                       Column(
@@ -166,7 +166,7 @@ class DetailDialog extends StatelessWidget {
                                 child: Text(
                                   'Tashbih counter cannot be empty',
                                   style: TextStyle(
-                                    color: Theme.of(context).errorColor,
+                                    color: Theme.of(context).colorScheme.error,
                                   ),
                                 ),
                               ),
@@ -190,7 +190,7 @@ class DetailDialog extends StatelessWidget {
                               ),
                             ),
                             backgroundColor: MaterialStateProperty.all(
-                              Theme.of(context).errorColor,
+                              Theme.of(context).colorScheme.error,
                             ),
                             minimumSize: MaterialStateProperty.all(
                               Size(

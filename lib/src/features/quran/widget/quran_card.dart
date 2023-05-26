@@ -71,10 +71,11 @@ class QuranCard extends StatelessWidget {
                             ? '${quran.arabicText}'
                             : '${quran.withoutAerab}',
                         textAlign: TextAlign.end,
-                        style: Theme.of(context).textTheme.headline3!.copyWith(
-                              fontFamily: 'Uthman',
-                              fontSize: state.quranFontSize,
-                            ),
+                        style:
+                            Theme.of(context).textTheme.displaySmall!.copyWith(
+                                  fontFamily: 'Uthman',
+                                  fontSize: state.quranFontSize,
+                                ),
                       ),
                       SizedBox(
                         height: 8.h,
@@ -84,7 +85,7 @@ class QuranCard extends StatelessWidget {
                           '${quran.urduTranslation}',
                           textAlign: TextAlign.end,
                           style:
-                              Theme.of(context).textTheme.headline6!.copyWith(
+                              Theme.of(context).textTheme.titleLarge!.copyWith(
                                     fontFamily: 'Jameel',
                                     fontSize: state.translationFontSize,
                                   ),

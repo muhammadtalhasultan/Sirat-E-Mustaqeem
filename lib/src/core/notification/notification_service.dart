@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
 import 'package:rxdart/subjects.dart';
@@ -128,7 +130,8 @@ class NotificationService {
 
     /// ios customisation notification
 
-    DarwinNotificationDetails iosPlatformChannelSpecifics = DarwinNotificationDetails(
+    DarwinNotificationDetails iosPlatformChannelSpecifics =
+        DarwinNotificationDetails(
       sound: 'slow_spring_board.aiff',
     );
 
@@ -150,6 +153,6 @@ class NotificationService {
   Future<void> checkNotification() async {
     final available =
         await flutterLocalNotificationsPlugin.pendingNotificationRequests();
-    print(available.length);
+    log(available.length.toString());
   }
 }

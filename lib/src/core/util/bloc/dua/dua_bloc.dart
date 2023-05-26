@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -9,25 +7,18 @@ part 'dua_event.dart';
 part 'dua_state.dart';
 
 class DuaBloc extends Bloc<DuaEvent, DuaState> {
-  DuaBloc()
-      : super(
-          DuaState(
-            Duas(),
-          ),
-        );
+  DuaBloc() : super(DuaState(Duas())) {
+    on<DuaEvent>((event, emit) async {
+      if (event is FetchDua) {
+        state.duas.initializeData(event.datas);
+        emit(DuaState(state.duas));
+      }
+      if (event is UpdateDua) {
+        final newDuas = Duas();
+        newDuas.initializeData(event.datas);
 
-  @override
-  Stream<DuaState> mapEventToState(
-    DuaEvent event,
-  ) async* {
-    if (event is FetchDua) {
-      state.duas.initializeData(event.datas);
-      yield DuaState(state.duas);
-    }
-    if (event is UpdateDua) {
-      final newDuas = Duas();
-      newDuas.initializeData(event.datas);
-      yield DuaState(newDuas);
-    }
+        emit(DuaState(newDuas));
+      }
+    });
   }
 }

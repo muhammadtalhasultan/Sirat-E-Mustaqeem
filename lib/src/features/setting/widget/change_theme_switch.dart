@@ -38,12 +38,12 @@ class ChangeThemeSwitch extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       'assets/images/setting_icon/svg/sun.svg',
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       width: 20.w,
                     ),
                     SvgPicture.asset(
                       'assets/images/setting_icon/svg/moon.svg',
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       width: 20.w,
                     ),
                   ],

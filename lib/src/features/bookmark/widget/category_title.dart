@@ -31,7 +31,7 @@ class CategoryTitle extends StatelessWidget {
           ),
           Text(
             title,
-            style: Theme.of(context).textTheme.headline6!.copyWith(
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
           ),

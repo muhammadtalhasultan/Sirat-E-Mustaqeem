@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -9,15 +7,13 @@ part 'surah_event.dart';
 part 'surah_state.dart';
 
 class SurahBloc extends Bloc<SurahEvent, SurahState> {
-  SurahBloc() : super(SurahState(Surahs()));
+  SurahBloc() : super(SurahState(Surahs())) {
+    on<SurahEvent>((event, emit) async {
+      if (event is FetchSurah) {
+        state.surahs.initializeData(event.datas);
 
-  @override
-  Stream<SurahState> mapEventToState(
-    SurahEvent event,
-  ) async* {
-    if (event is FetchSurah) {
-      state.surahs.initializeData(event.datas);
-      yield SurahState(state.surahs);
-    }
+        emit(SurahState(state.surahs));
+      }
+    });
   }
 }

@@ -1,6 +1,5 @@
-import 'dart:async';
-
 import 'package:equatable/equatable.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../../../error/failures.dart';
@@ -10,40 +9,39 @@ part 'location_event.dart';
 part 'location_state.dart';
 
 class LocationBloc extends HydratedBloc<LocationEvent, LocationState> {
-  /// max latitude is 90 and max longitude is 180
+  Placemark? _address;
+
+  Placemark? get address => _address;
+
   LocationBloc()
-      : super(
-          LocationInitial(
-            91,
-            181,
-            LocalFailure(
-              error: 0,
-              message: 'initializing',
-            ),
+      : super(LocationInitial(
+          91,
+          181,
+          LocalFailure(
+            error: 0,
+            message: 'initializing',
           ),
-        );
-
-  @override
-  Stream<LocationState> mapEventToState(
-    LocationEvent event,
-  ) async* {
-    if (event is InitLocation) {
-      if (state.latitude > 90 && state.longitude > 180) {
-        yield LocationLoading(state.latitude, state.longitude);
-
+        )) {
+    on<LocationEvent>((event, emit) async {
+      if (event is InitLocation) {
+        emit(LocationLoading(state.latitude, state.longitude));
         final result = await getCurrentPosition();
 
-        yield* result.fold((l) async* {
-          yield LocationFailed(state.latitude, state.longitude, l);
-        }, (r) async* {
+        result.fold(
+            (l) => emit(LocationFailed(state.latitude, state.longitude, l)),
+            (r) async {
+          // TODO: Null issues here
           // final address = await getAddress(r.latitude, r.longitude);
-          // address.fold(
-          //     (l) => null, (r) => print(r.results[0].formattedAddress));
 
-          yield LocationSuccess(r.latitude, r.longitude);
+          // address.fold(
+          //   (l) => null,
+          //   (r) => log('RLOGGOING ${r.results[0].formattedAddress}'),
+          // );
+
+          emit(LocationSuccess(r.latitude, r.longitude));
         });
       }
-    }
+    });
   }
 
   @override
@@ -87,3 +85,19 @@ class LocationBloc extends HydratedBloc<LocationEvent, LocationState> {
     }
   }
 }
+
+// Future<Placemark?> getAddressFromLatLng(double lat, double lng) async {
+//   try {
+
+//     List<Placemark> placemarks = await placemarkFromCoordinates(lat, lng);
+
+//     if (placemarks.isNotEmpty) {
+//       final Placemark pos = placemarks[0];
+//       // log(' LOGGING: \n ${pos.thoroughfare}, ${pos.locality}, ${pos.administrativeArea} ${pos.postalCode}');
+//       return pos;
+//     }
+//   } catch (e) {
+//     log(e.toString());
+//   }
+//   return null;
+// }

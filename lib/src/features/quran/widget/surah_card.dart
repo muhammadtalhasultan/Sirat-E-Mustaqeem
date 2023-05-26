@@ -53,7 +53,7 @@ class SurahCard extends StatelessWidget {
               child: FittedBox(
                 child: Text(
                   '${index + 1}',
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -83,24 +83,26 @@ class SurahCard extends StatelessWidget {
                         children: [
                           Text(
                             surahs.surahs[index].nameEn,
-                            style:
-                                Theme.of(context).textTheme.bodyText2!.copyWith(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                           SizedBox(
                             height: 2.h,
                           ),
                           Text(
                             '${surahs.surahs[index].place} - ${surahs.surahs[index].ayats} ayat',
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyLarge,
                           )
                         ],
                       ),
                     ),
                     Text(
                       surahs.surahs[index].nameAr,
-                      style: Theme.of(context).textTheme.headline6!.copyWith(
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             fontFamily: 'Uthman',
                           ),
                     ),

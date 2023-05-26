@@ -37,7 +37,7 @@ class NotificationDisabledDialog extends StatelessWidget {
             Text(
               'You have denied the notification permission previously. '
               'Please go to app setting to enabled it.',
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.center,
             ),
             TextButton(

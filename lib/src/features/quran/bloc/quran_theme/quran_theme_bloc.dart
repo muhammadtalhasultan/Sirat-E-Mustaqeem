@@ -18,112 +18,113 @@ class QuranThemeBloc extends HydratedBloc<QuranThemeEvent, QuranThemeState> {
             translationFontSize: 16,
             translationFontFamily: 'Jameel',
           ),
-        );
+        ) {
+    on<QuranThemeEvent>((event, emit) async {
+      if (event is ShowTranslation) {
+        emit(QuranThemeState(
+          showTranslation: event.show,
+          translationMode: state.translationMode,
+          withArabs: state.withArabs,
+          quranFontSize: state.quranFontSize,
+          quranFontFamily: state.quranFontFamily,
+          translationFontSize: state.translationFontSize,
+          translationFontFamily: state.translationFontFamily,
+        ));
+      }
+      if (event is SwitchTranslationMode) {
+        emit(QuranThemeState(
+          showTranslation: state.showTranslation,
+          translationMode: event.mode,
+          withArabs: state.withArabs,
+          quranFontSize: state.quranFontSize,
+          quranFontFamily: state.quranFontFamily,
+          translationFontSize: state.translationFontSize,
+          translationFontFamily: state.translationFontFamily,
+        ));
+      }
+      if (event is ShowWithArab) {
+        emit(QuranThemeState(
+          showTranslation: state.showTranslation,
+          translationMode: state.translationMode,
+          withArabs: event.show,
+          quranFontSize: state.quranFontSize,
+          quranFontFamily: state.quranFontFamily,
+          translationFontSize: state.translationFontSize,
+          translationFontFamily: state.translationFontFamily,
+        ));
+      }
+      if (event is AddQuranFontSize) {
+        emit(QuranThemeState(
+          showTranslation: state.showTranslation,
+          translationMode: state.translationMode,
+          withArabs: state.withArabs,
+          quranFontSize: state.quranFontSize + 1,
+          quranFontFamily: state.quranFontFamily,
+          translationFontSize: state.translationFontSize,
+          translationFontFamily: state.translationFontFamily,
+        ));
+      }
+      if (event is ReduceQuranFontSize) {
+        emit(QuranThemeState(
+          showTranslation: state.showTranslation,
+          translationMode: state.translationMode,
+          withArabs: state.withArabs,
+          quranFontSize: state.quranFontSize - 1,
+          quranFontFamily: state.quranFontFamily,
+          translationFontSize: state.translationFontSize,
+          translationFontFamily: state.translationFontFamily,
+        ));
+      }
+      if (event is SetQuranFontFamily) {
+        emit(QuranThemeState(
+          showTranslation: state.showTranslation,
+          translationMode: state.translationMode,
+          withArabs: state.withArabs,
+          quranFontSize: state.quranFontSize,
+          quranFontFamily: event.family,
+          translationFontSize: state.translationFontSize,
+          translationFontFamily: state.translationFontFamily,
+        ));
+      }
+      if (event is AddTranslationFontSize) {
+        emit(QuranThemeState(
+          showTranslation: state.showTranslation,
+          translationMode: state.translationMode,
+          withArabs: state.withArabs,
+          quranFontSize: state.quranFontSize,
+          quranFontFamily: state.quranFontFamily,
+          translationFontSize: state.translationFontSize + 1,
+          translationFontFamily: state.translationFontFamily,
+        ));
+      }
+      if (event is ReduceTranslationFontSize) {
+        emit(QuranThemeState(
+          showTranslation: state.showTranslation,
+          translationMode: state.translationMode,
+          withArabs: state.withArabs,
+          quranFontSize: state.quranFontSize,
+          quranFontFamily: state.quranFontFamily,
+          translationFontSize: state.translationFontSize - 1,
+          translationFontFamily: state.translationFontFamily,
+        ));
+      }
+      if (event is SetTranslationFontFamily) {
+        emit(QuranThemeState(
+          showTranslation: state.showTranslation,
+          translationMode: state.translationMode,
+          withArabs: state.withArabs,
+          quranFontSize: state.quranFontSize,
+          quranFontFamily: state.quranFontFamily,
+          translationFontSize: state.translationFontSize,
+          translationFontFamily: event.family,
+        ));
+      }
+    });
+  }
 
-  @override
   Stream<QuranThemeState> mapEventToState(
     QuranThemeEvent event,
-  ) async* {
-    if (event is ShowTranslation) {
-      yield QuranThemeState(
-        showTranslation: event.show,
-        translationMode: state.translationMode,
-        withArabs: state.withArabs,
-        quranFontSize: state.quranFontSize,
-        quranFontFamily: state.quranFontFamily,
-        translationFontSize: state.translationFontSize,
-        translationFontFamily: state.translationFontFamily,
-      );
-    }
-    if (event is SwitchTranslationMode) {
-      yield QuranThemeState(
-        showTranslation: state.showTranslation,
-        translationMode: event.mode,
-        withArabs: state.withArabs,
-        quranFontSize: state.quranFontSize,
-        quranFontFamily: state.quranFontFamily,
-        translationFontSize: state.translationFontSize,
-        translationFontFamily: state.translationFontFamily,
-      );
-    }
-    if (event is ShowWithArab) {
-      yield QuranThemeState(
-        showTranslation: state.showTranslation,
-        translationMode: state.translationMode,
-        withArabs: event.show,
-        quranFontSize: state.quranFontSize,
-        quranFontFamily: state.quranFontFamily,
-        translationFontSize: state.translationFontSize,
-        translationFontFamily: state.translationFontFamily,
-      );
-    }
-    if (event is AddQuranFontSize) {
-      yield QuranThemeState(
-        showTranslation: state.showTranslation,
-        translationMode: state.translationMode,
-        withArabs: state.withArabs,
-        quranFontSize: state.quranFontSize + 1,
-        quranFontFamily: state.quranFontFamily,
-        translationFontSize: state.translationFontSize,
-        translationFontFamily: state.translationFontFamily,
-      );
-    }
-    if (event is ReduceQuranFontSize) {
-      yield QuranThemeState(
-        showTranslation: state.showTranslation,
-        translationMode: state.translationMode,
-        withArabs: state.withArabs,
-        quranFontSize: state.quranFontSize - 1,
-        quranFontFamily: state.quranFontFamily,
-        translationFontSize: state.translationFontSize,
-        translationFontFamily: state.translationFontFamily,
-      );
-    }
-    if (event is SetQuranFontFamily) {
-      yield QuranThemeState(
-        showTranslation: state.showTranslation,
-        translationMode: state.translationMode,
-        withArabs: state.withArabs,
-        quranFontSize: state.quranFontSize,
-        quranFontFamily: event.family,
-        translationFontSize: state.translationFontSize,
-        translationFontFamily: state.translationFontFamily,
-      );
-    }
-    if (event is AddTranslationFontSize) {
-      yield QuranThemeState(
-        showTranslation: state.showTranslation,
-        translationMode: state.translationMode,
-        withArabs: state.withArabs,
-        quranFontSize: state.quranFontSize,
-        quranFontFamily: state.quranFontFamily,
-        translationFontSize: state.translationFontSize + 1,
-        translationFontFamily: state.translationFontFamily,
-      );
-    }
-    if (event is ReduceTranslationFontSize) {
-      yield QuranThemeState(
-        showTranslation: state.showTranslation,
-        translationMode: state.translationMode,
-        withArabs: state.withArabs,
-        quranFontSize: state.quranFontSize,
-        quranFontFamily: state.quranFontFamily,
-        translationFontSize: state.translationFontSize - 1,
-        translationFontFamily: state.translationFontFamily,
-      );
-    }
-    if (event is SetTranslationFontFamily) {
-      yield QuranThemeState(
-        showTranslation: state.showTranslation,
-        translationMode: state.translationMode,
-        withArabs: state.withArabs,
-        quranFontSize: state.quranFontSize,
-        quranFontFamily: state.quranFontFamily,
-        translationFontSize: state.translationFontSize,
-        translationFontFamily: event.family,
-      );
-    }
-  }
+  ) async* {}
 
   @override
   QuranThemeState? fromJson(Map<String, dynamic> json) {

@@ -11,40 +11,38 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
   AppTheme.Dark: ThemeData.dark().copyWith(
     primaryColor: kDarkPrimary,
     scaffoldBackgroundColor: kDarkBg,
-    backgroundColor: kDarkPlaceholder,
-    errorColor: kDarkError,
     textTheme: GoogleFonts.openSansTextTheme(
       TextTheme().copyWith(
-        headline1: TextStyle(
+        displayLarge: TextStyle(
           fontSize: 64.sp,
           color: kDarkTextColor,
         ),
-        headline2: TextStyle(
+        displayMedium: TextStyle(
           fontSize: 32.sp,
           color: kDarkTextColor,
         ),
-        headline3: TextStyle(
+        displaySmall: TextStyle(
           fontSize: 24.sp,
           color: kDarkTextColor,
           fontWeight: FontWeight.bold,
         ),
-        headline4: TextStyle(
+        headlineMedium: TextStyle(
           fontSize: 24.sp,
           color: kDarkTextColor,
         ),
-        headline5: TextStyle(
+        headlineSmall: TextStyle(
           fontSize: 20.sp,
           color: kDarkTextColor,
         ),
-        headline6: TextStyle(
+        titleLarge: TextStyle(
           fontSize: 16.sp,
           color: kDarkTextColor,
         ),
-        bodyText1: TextStyle(
+        bodyLarge: TextStyle(
           fontSize: 12.sp,
           color: kDarkTextColor,
         ),
-        bodyText2: TextStyle(
+        bodyMedium: TextStyle(
           fontSize: 14.sp,
           color: kDarkTextColor,
         ),
@@ -107,53 +105,51 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
         color: kDarkTextColor,
       ),
     ),
-    // progressIndicatorTheme: ProgressIndicatorThemeData(
-    //   refreshBackgroundColor: kDarkPlaceholder,
-    // ),
-    colorScheme: ColorScheme.dark().copyWith(
-      background: kDarkPlaceholder,
-      surface: kDarkPlaceholderText,
-      primary: kDarkPrimary,
-      secondary: kDarkAccent,
-    ),
+    colorScheme: ColorScheme.dark()
+        .copyWith(
+          background: kDarkPlaceholder,
+          surface: kDarkPlaceholderText,
+          primary: kDarkPrimary,
+          secondary: kDarkAccent,
+        )
+        .copyWith(background: kDarkPlaceholder)
+        .copyWith(error: kDarkError),
   ),
   AppTheme.Light: ThemeData.light().copyWith(
     primaryColor: kLightPrimary,
     scaffoldBackgroundColor: kLightBg,
-    backgroundColor: kLightPlaceholder,
-    errorColor: kLightError,
     textTheme: GoogleFonts.openSansTextTheme(
       TextTheme().copyWith(
-        headline1: TextStyle(
+        displayLarge: TextStyle(
           fontSize: 64.sp,
           color: kLightTextColor,
         ),
-        headline2: TextStyle(
+        displayMedium: TextStyle(
           fontSize: 32.sp,
           color: kLightTextColor,
         ),
-        headline3: TextStyle(
+        displaySmall: TextStyle(
           fontSize: 24.sp,
           color: kLightTextColor,
           fontWeight: FontWeight.bold,
         ),
-        headline4: TextStyle(
+        headlineMedium: TextStyle(
           fontSize: 24.sp,
           color: kLightTextColor,
         ),
-        headline5: TextStyle(
+        headlineSmall: TextStyle(
           fontSize: 20.sp,
           color: kLightTextColor,
         ),
-        headline6: TextStyle(
+        titleLarge: TextStyle(
           fontSize: 16.sp,
           color: kLightTextColor,
         ),
-        bodyText1: TextStyle(
+        bodyLarge: TextStyle(
           fontSize: 12.sp,
           color: kLightTextColor,
         ),
-        bodyText2: TextStyle(
+        bodyMedium: TextStyle(
           fontSize: 14.sp,
           color: kLightTextColor,
         ),
@@ -212,14 +208,14 @@ final Map<AppTheme, ThemeData> kAppThemeData = {
         size: 24.sp,
       ),
     ),
-    // progressIndicatorTheme: ProgressIndicatorThemeData(
-    //   refreshBackgroundColor: kLightPlaceholder,
-    // ),
-    colorScheme: ColorScheme.light().copyWith(
-      background: kLightPlaceholder,
-      surface: kLightPlaceholderText,
-      primary: kLightPrimary,
-      secondary: kLightAccent,
-    ),
+    colorScheme: ColorScheme.light()
+        .copyWith(
+          background: kLightPlaceholder,
+          surface: kLightPlaceholderText,
+          primary: kLightPrimary,
+          secondary: kLightAccent,
+        )
+        .copyWith(background: kLightPlaceholder)
+        .copyWith(error: kLightError),
   )
 };

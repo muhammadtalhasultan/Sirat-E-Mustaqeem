@@ -62,8 +62,9 @@ class _QiblaScaffoldState extends State<QiblaScaffold> {
                                   Text('Qiblah direction is '),
                                   Text(
                                     '${state.direction.toStringAsFixed(0)}°',
-                                    style:
-                                        Theme.of(context).textTheme.headline5,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineSmall,
                                   ),
                                   Text(
                                     getDirectionText(

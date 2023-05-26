@@ -62,7 +62,7 @@ class DuaCategoryCard extends StatelessWidget {
                   child: Text(
                     surah.key,
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontFamily: 'Jameel',
                           fontWeight: FontWeight.bold,
                         ),

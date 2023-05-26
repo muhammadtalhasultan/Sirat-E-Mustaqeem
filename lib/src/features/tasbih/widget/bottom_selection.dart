@@ -52,7 +52,7 @@ class _BottomSelectionState extends State<BottomSelection> {
           Text(
             'Actions:',
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline6!.copyWith(
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   color: Theme.of(context).primaryColor,
                   fontWeight: FontWeight.bold,
                 ),
@@ -91,7 +91,7 @@ class _BottomSelectionState extends State<BottomSelection> {
                 SvgPicture.asset(
                   'assets/images/tasbih_icon/svg/edit.svg',
                   width: 24.w,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
                 SizedBox(
                   width: 8.w,
@@ -113,7 +113,7 @@ class _BottomSelectionState extends State<BottomSelection> {
                 SvgPicture.asset(
                   'assets/images/tasbih_icon/svg/copy.svg',
                   width: 24.w,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
                 SizedBox(
                   width: 8.w,
@@ -135,7 +135,7 @@ class _BottomSelectionState extends State<BottomSelection> {
                 SvgPicture.asset(
                   'assets/images/tasbih_icon/svg/delete.svg',
                   width: 24.w,
-                  color: Theme.of(context).textTheme.bodyText1!.color,
+                  color: Theme.of(context).textTheme.bodyLarge!.color,
                 ),
                 SizedBox(
                   width: 8.w,

@@ -19,8 +19,8 @@ class SiratNavigationBar extends StatelessWidget {
           onTap: (index) => BlocProvider.of<TabBloc>(context).add(
             SetTab(index),
           ),
-          selectedFontSize: Theme.of(context).textTheme.bodyText2!.fontSize!,
-          unselectedFontSize: Theme.of(context).textTheme.bodyText2!.fontSize!,
+          selectedFontSize: Theme.of(context).textTheme.bodyMedium!.fontSize!,
+          unselectedFontSize: Theme.of(context).textTheme.bodyMedium!.fontSize!,
           elevation: 0,
           items: [
             BottomNavigationBarItem(

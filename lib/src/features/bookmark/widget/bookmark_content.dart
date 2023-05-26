@@ -53,7 +53,7 @@ class _BookmarkContentState extends State<BookmarkContent> {
                     Text(
                       'You have not favorited or bookmarked any Qurans, Tasbihs or Duas.',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.titleLarge,
                     )
                   ],
                 ),

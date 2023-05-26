@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,6 +18,7 @@ class SplashScaffold extends StatelessWidget {
     return BlocListener<DatabaseBloc, DatabaseState>(
       listener: (context, state) async {
         await Future.delayed(Duration(seconds: 2));
+        log('Message : SplashScaffold $state');
         if (state is DatabaseLoaded) {
           Navigator.of(context).pushReplacementNamed(RouteGenerator.tabScreen);
         } else if (state is DatabaseFailed) {

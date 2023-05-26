@@ -22,7 +22,7 @@ class QuranScaffold extends StatelessWidget {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         elevation: 0,
         iconTheme: IconThemeData(
-          color: Theme.of(context).textTheme.bodyText2!.color,
+          color: Theme.of(context).textTheme.bodyMedium!.color,
         ),
         actions: [
           GestureDetector(
@@ -38,7 +38,7 @@ class QuranScaffold extends StatelessWidget {
               child: SvgPicture.asset(
                 'assets/images/navigation_icon/svg/bookmark_nfill.svg',
                 width: 24.w,
-                color: Theme.of(context).textTheme.bodyText2!.color,
+                color: Theme.of(context).textTheme.bodyMedium!.color,
               ),
             ),
           ),
@@ -55,7 +55,7 @@ class QuranScaffold extends StatelessWidget {
               child: SvgPicture.asset(
                 'assets/images/navigation_icon/svg/search.svg',
                 width: 24.w,
-                color: Theme.of(context).textTheme.bodyText2!.color,
+                color: Theme.of(context).textTheme.bodyMedium!.color,
               ),
             ),
           )
@@ -72,7 +72,7 @@ class QuranScaffold extends StatelessWidget {
               padding: EdgeInsets.only(left: 32.w),
               child: Text(
                 'Al-Qur\'an',
-                style: Theme.of(context).textTheme.headline2!.copyWith(
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
               ),

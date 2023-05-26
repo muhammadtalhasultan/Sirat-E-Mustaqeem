@@ -14,7 +14,7 @@ class HadessCard extends StatelessWidget {
         children: [
           Text(
             'Hadees of the Day',
-            style: Theme.of(context).textTheme.headline6!.copyWith(
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
           ),
@@ -37,7 +37,7 @@ class HadessCard extends StatelessWidget {
               Text(
                 '- Prophet Muhammad',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontStyle: FontStyle.italic,
                       fontWeight: FontWeight.bold,
                     ),
@@ -48,7 +48,7 @@ class HadessCard extends StatelessWidget {
               Text(
                 'Bukhari, Mazalim (Injustices), 3: Muslim, Birr (Piety), 58',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                       fontStyle: FontStyle.italic,
                     ),
               ),

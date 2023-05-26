@@ -94,7 +94,7 @@ class _TasbihCardState extends State<TasbihCard> {
                 widget.tasbih.name,
                 style: Theme.of(context)
                     .textTheme
-                    .headline6!
+                    .titleLarge!
                     .copyWith(fontFamily: 'Uthman'),
               ),
             ),

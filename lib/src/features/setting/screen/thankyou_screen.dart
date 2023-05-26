@@ -29,7 +29,7 @@ class ThankyouScreen extends StatelessWidget {
                       Text(
                         'These generous Sirate Mustaqeem contributors '
                         'helped to make this app a reality!',
-                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
                       ),

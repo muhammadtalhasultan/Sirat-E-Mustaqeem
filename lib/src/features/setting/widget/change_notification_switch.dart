@@ -38,12 +38,12 @@ class ChangeNotificationSwitch extends StatelessWidget {
                   children: [
                     SvgPicture.asset(
                       'assets/images/setting_icon/svg/notification_outlined_disabled.svg',
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       width: 20.w,
                     ),
                     SvgPicture.asset(
                       'assets/images/setting_icon/svg/notification_outlined_enabled.svg',
-                      color: Theme.of(context).textTheme.bodyText1!.color,
+                      color: Theme.of(context).textTheme.bodyLarge!.color,
                       width: 20.w,
                     ),
                   ],

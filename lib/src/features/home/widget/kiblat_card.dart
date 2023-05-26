@@ -44,7 +44,7 @@ class KiblatCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       'Sirate Mustaqeem',
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ),
                   GestureDetector(
@@ -52,7 +52,7 @@ class KiblatCard extends StatelessWidget {
                     child: SvgPicture.asset(
                       'assets/images/home_icon/svg/noti.svg',
                       width: 24.w,
-                      color: Theme.of(context).textTheme.bodyText2!.color,
+                      color: Theme.of(context).textTheme.bodyMedium!.color,
                     ),
                   )
                 ],

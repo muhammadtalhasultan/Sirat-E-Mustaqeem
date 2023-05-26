@@ -24,7 +24,7 @@ class UserPreferenceCard extends StatelessWidget {
         children: [
           Text(
             'User Preferences',
-            style: Theme.of(context).textTheme.headline6!.copyWith(
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
           ),
@@ -38,7 +38,7 @@ class UserPreferenceCard extends StatelessWidget {
                 'Theme',
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText2!
+                    .bodyMedium!
                     .copyWith(color: Theme.of(context).primaryColor),
               ),
               BlocBuilder<ThemeBloc, ThemeState>(
@@ -62,7 +62,7 @@ class UserPreferenceCard extends StatelessWidget {
                 'Time Format',
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText2!
+                    .bodyMedium!
                     .copyWith(color: Theme.of(context).primaryColor),
               ),
               BlocBuilder<TimeFormatBloc, TimeFormatState>(
@@ -86,7 +86,7 @@ class UserPreferenceCard extends StatelessWidget {
                 'Notification',
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText2!
+                    .bodyMedium!
                     .copyWith(color: Theme.of(context).primaryColor),
               ),
               BlocBuilder<NotificationBloc, NotificationState>(

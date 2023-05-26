@@ -49,7 +49,7 @@ class RandomImageCard extends StatelessWidget {
               ),
               child: Text(
                 'Image of the Day',
-                style: Theme.of(context).textTheme.headline6!.copyWith(
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       fontWeight: FontWeight.bold,
                       color: kDarkTextColor,
                     ),

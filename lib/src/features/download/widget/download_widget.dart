@@ -39,7 +39,7 @@ class DownloadWidget extends StatelessWidget {
                   alignment: Alignment.centerLeft,
                   decoration: ShapeDecoration(
                     shape: const StadiumBorder(),
-                    color: Theme.of(context).backgroundColor,
+                    color: Theme.of(context).colorScheme.background,
                   ),
                   child: Container(
                     width: state.percent / 100 * 0.7.sw,
@@ -55,7 +55,7 @@ class DownloadWidget extends StatelessWidget {
                 ),
                 Text(
                   '${state.percent.toStringAsFixed(2)}%',
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Theme.of(context).primaryColor,
                       ),

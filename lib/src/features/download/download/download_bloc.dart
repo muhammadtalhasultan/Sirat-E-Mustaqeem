@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
@@ -12,22 +10,16 @@ part 'download_event.dart';
 part 'download_state.dart';
 
 class DownloadBloc extends Bloc<DownloadEvent, DownloadState> {
-  DownloadBloc() : super(DownloadInitial());
+  DownloadBloc() : super(DownloadInitial()) {
+    on<DownloadDatabase>((event, emit) async {
+      emit(DownloadLoading());
 
-  @override
-  Stream<DownloadState> mapEventToState(
-    DownloadEvent event,
-  ) async* {
-    if (event is DownloadDatabase) {
-      yield DownloadLoading();
+      final result = await DatabaseService().downloadDatabase(event.context);
 
-      var result = await DatabaseService().downloadDatabase(event.context);
-
-      yield* result.fold((l) async* {
-        yield DownloadFailed(l);
-      }, (r) async* {
-        yield DownloadDone(r);
-      });
-    }
+      result.fold(
+        (l) => emit(DownloadFailed(l)),
+        (r) => emit(DownloadDone(r)),
+      );
+    });
   }
 }

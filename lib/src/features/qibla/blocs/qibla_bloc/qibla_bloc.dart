@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -11,24 +9,22 @@ part 'qibla_event.dart';
 part 'qibla_state.dart';
 
 class QiblaBloc extends Bloc<QiblaEvent, QiblaState> {
-  QiblaBloc() : super(QiblaInitial());
+  // QiblaBloc() : super(QiblaInitial());
+  QiblaBloc() : super(QiblaInitial()) {
+    on<QiblaEvent>((event, emit) async {
+      if (event is RequestQiblahDirection) {
+        emit(QiblaLoading());
 
-  @override
-  Stream<QiblaState> mapEventToState(
-    QiblaEvent event,
-  ) async* {
-    if (event is RequestQiblahDirection) {
-      yield QiblaLoading();
-
-      if (event.locationState is LocationFailed) {
-        yield QiblaFailed(event.locationState.failure!);
-      } else {
-        final angle = calculateDirection(
-          event.locationState.latitude,
-          event.locationState.longitude,
-        );
-        yield QiblaLoaded(angle);
+        if (event.locationState is LocationFailed) {
+          emit(QiblaFailed(event.locationState.failure!));
+        } else {
+          final angle = calculateDirection(
+            event.locationState.latitude,
+            event.locationState.longitude,
+          );
+          emit(QiblaLoaded(angle));
+        }
       }
-    }
+    });
   }
 }

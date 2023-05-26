@@ -63,7 +63,7 @@ class ShowTranslationOption extends StatelessWidget {
             'Show translation',
             style: Theme.of(context)
                 .textTheme
-                .headline6!
+                .titleLarge!
                 .copyWith(color: Theme.of(context).primaryColor),
           ),
           BlocBuilder<QuranThemeBloc, QuranThemeState>(
@@ -97,7 +97,7 @@ class TranslationMode extends StatelessWidget {
             'Translation mode',
             style: Theme.of(context)
                 .textTheme
-                .headline6!
+                .titleLarge!
                 .copyWith(color: Theme.of(context).primaryColor),
           ),
           DropdownButtonHideUnderline(
@@ -141,7 +141,7 @@ class WithArabs extends StatelessWidget {
             'With Arabs',
             style: Theme.of(context)
                 .textTheme
-                .headline6!
+                .titleLarge!
                 .copyWith(color: Theme.of(context).primaryColor),
           ),
           BlocBuilder<QuranThemeBloc, QuranThemeState>(
@@ -176,7 +176,7 @@ class QuranFontSize extends StatelessWidget {
               'Quran font size',
               style: Theme.of(context)
                   .textTheme
-                  .headline6!
+                  .titleLarge!
                   .copyWith(color: Theme.of(context).primaryColor),
             ),
           ),
@@ -200,7 +200,7 @@ class QuranFontSize extends StatelessWidget {
             builder: (context, state) {
               return Text(
                 '${state.quranFontSize}',
-                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
               );
@@ -239,7 +239,7 @@ class QuranFontFamily extends StatelessWidget {
             'Quran font family',
             style: Theme.of(context)
                 .textTheme
-                .headline6!
+                .titleLarge!
                 .copyWith(color: Theme.of(context).primaryColor),
           ),
           DropdownButtonHideUnderline(
@@ -284,7 +284,7 @@ class TranslationFontSize extends StatelessWidget {
               'Translation font size',
               style: Theme.of(context)
                   .textTheme
-                  .headline6!
+                  .titleLarge!
                   .copyWith(color: Theme.of(context).primaryColor),
             ),
           ),
@@ -310,7 +310,7 @@ class TranslationFontSize extends StatelessWidget {
             builder: (context, state) {
               return Text(
                 '${state.translationFontSize}',
-                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
               );
@@ -350,7 +350,7 @@ class TranslationFontFamily extends StatelessWidget {
             'Translation font family',
             style: Theme.of(context)
                 .textTheme
-                .headline6!
+                .titleLarge!
                 .copyWith(color: Theme.of(context).primaryColor),
           ),
           DropdownButtonHideUnderline(

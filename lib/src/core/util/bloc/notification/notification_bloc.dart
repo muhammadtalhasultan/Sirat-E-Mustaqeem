@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'dart:io';
 
 import 'package:equatable/equatable.dart';
@@ -13,39 +12,34 @@ part 'notification_state.dart';
 class NotificationBloc
     extends HydratedBloc<NotificationEvent, NotificationState> {
   NotificationBloc()
-      : super(
-          NotificationState(
-            Platform.isIOS ? PermissionStatus.denied : PermissionStatus.granted,
-          ),
-        );
-
-  @override
-  Stream<NotificationState> mapEventToState(
-    NotificationEvent event,
-  ) async* {
-    if (event is UpdateNotification) {
-      if (Platform.isIOS) {
-        final permission = await Permission.notification.status;
-        if (permission.isGranted && state.status.isRestricted) {
-          yield NotificationState(PermissionStatus.restricted);
-        } else {
-          yield NotificationState(permission);
+      : super(NotificationState(
+          Platform.isIOS ? PermissionStatus.denied : PermissionStatus.granted,
+        )) {
+    on<NotificationEvent>((event, emit) async {
+      if (event is UpdateNotification) {
+        if (Platform.isIOS) {
+          final permission = await Permission.notification.status;
+          if (permission.isGranted && state.status.isRestricted) {
+            emit(const NotificationState(PermissionStatus.restricted));
+          } else {
+            emit(NotificationState(permission));
+          }
         }
       }
-    }
-    if (event is ToggleNotification) {
-      if (state.status == PermissionStatus.denied) {
-        final permission = await Permission.notification.request();
-        yield NotificationState(permission);
-      } else if (state.status == PermissionStatus.permanentlyDenied) {
-        yield NotificationState(PermissionStatus.permanentlyDenied);
-      } else if (state.status == PermissionStatus.restricted) {
-        yield NotificationState(PermissionStatus.granted);
-      } else if (state.status == PermissionStatus.granted) {
-        await NotificationService().cancelAllNotifications();
-        yield NotificationState(PermissionStatus.restricted);
+      if (event is ToggleNotification) {
+        if (state.status == PermissionStatus.denied) {
+          final permission = await Permission.notification.request();
+          emit(NotificationState(permission));
+        } else if (state.status == PermissionStatus.permanentlyDenied) {
+          emit(const NotificationState(PermissionStatus.permanentlyDenied));
+        } else if (state.status == PermissionStatus.restricted) {
+          emit(const NotificationState(PermissionStatus.granted));
+        } else if (state.status == PermissionStatus.granted) {
+          await NotificationService().cancelAllNotifications();
+          emit(const NotificationState(PermissionStatus.restricted));
+        }
       }
-    }
+    });
   }
 
   @override

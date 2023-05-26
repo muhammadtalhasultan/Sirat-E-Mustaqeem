@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -11,8 +9,8 @@ part 'name_state.dart';
 class NameBloc extends Bloc<NameEvent, NameState> {
   NameBloc(AllahName name) : super(NameState(name));
 
-  @override
-  Stream<NameState> mapEventToState(
-    NameEvent event,
-  ) async* {}
+  // @override
+  // Stream<NameState> mapEventToState(
+  //   NameEvent event,
+  // ) async* {}
 }

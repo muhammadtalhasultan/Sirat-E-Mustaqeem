@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,6 +14,7 @@ class PrayerTimingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LocationBloc, LocationState>(
       builder: (context, state) {
+        log('CURRENT STATE PrayerTimingScreen: $state');
         if (state is LocationLoading) {
           return Scaffold(
             body: LoadingWidget(),

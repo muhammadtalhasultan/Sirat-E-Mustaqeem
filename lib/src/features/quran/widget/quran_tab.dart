@@ -61,7 +61,7 @@ class QuranTab extends StatelessWidget {
                   ),
                   child: Text(
                     'Surah',
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),
@@ -105,7 +105,7 @@ class QuranTab extends StatelessWidget {
                   ),
                   child: Text(
                     'Juz',
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                   ),

@@ -55,7 +55,7 @@ class JuzCard extends StatelessWidget {
               child: FittedBox(
                 child: Text(
                   '${index + 1}',
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -82,7 +82,7 @@ class JuzCard extends StatelessWidget {
                   children: [
                     Text(
                       juzs.juzs[index].englishName,
-                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                     ),
@@ -91,7 +91,7 @@ class JuzCard extends StatelessWidget {
                     ),
                     Text(
                       juzs.juzs[index].arabicName,
-                      style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                      style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                             fontFamily: 'Uthman',
                           ),
                     )

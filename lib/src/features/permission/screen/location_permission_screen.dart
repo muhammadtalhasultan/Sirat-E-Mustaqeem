@@ -32,7 +32,7 @@ class LocationPermissionScreen extends StatelessWidget {
               ),
               Text(
                 'Allow your location',
-                style: Theme.of(context).textTheme.headline5!.copyWith(
+                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
               ),

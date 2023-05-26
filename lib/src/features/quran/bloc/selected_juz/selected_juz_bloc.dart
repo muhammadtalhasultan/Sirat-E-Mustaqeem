@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
@@ -17,14 +15,11 @@ class SelectedJuzBloc extends Bloc<SelectedJuzEvent, SelectedJuzState> {
             juzs.juzs[index],
             index,
           ),
-        );
-
-  @override
-  Stream<SelectedJuzState> mapEventToState(
-    SelectedJuzEvent event,
-  ) async* {
-    if (event is SelectJuz) {
-      yield SelectedJuzState(juzs.juzs[event.index], event.index);
-    }
+        ) {
+    on<SelectedJuzEvent>((event, emit) async {
+      if (event is SelectJuz) {
+        emit(SelectedJuzState(juzs.juzs[event.index], event.index));
+      }
+    });
   }
 }

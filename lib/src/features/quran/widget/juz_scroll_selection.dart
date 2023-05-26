@@ -81,7 +81,8 @@ class _JuzScrollSelectionState extends State<JuzScrollSelection> {
                                       state.juzs.juzs[index].id
                                   ? Theme.of(context).scaffoldBackgroundColor
                                   : Theme.of(context)
-                                      .backgroundColor
+                                      .colorScheme
+                                      .background
                                       .withOpacity(
                                         0.4,
                                       ),
@@ -89,7 +90,7 @@ class _JuzScrollSelectionState extends State<JuzScrollSelection> {
                             child: Text(
                               '${state.juzs.juzs[index].englishName}',
                               textAlign: TextAlign.center,
-                              style: Theme.of(context).textTheme.bodyText2,
+                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
                           );
                         },

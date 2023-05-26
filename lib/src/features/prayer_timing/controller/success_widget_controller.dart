@@ -78,7 +78,7 @@ class SuccessWidgetController {
               child: Text(
                 timingsList[index].entries.first.key,
                 textAlign: TextAlign.left,
-                style: Theme.of(context).textTheme.headline6!.copyWith(
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
                       color: Colors.white,
                     ),
               ),
@@ -92,7 +92,7 @@ class SuccessWidgetController {
                         : convertTimeTo12HourFormat(
                             timingsList[index].entries.first.value),
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           color: Colors.white,
                         ),
                   );

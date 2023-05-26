@@ -38,9 +38,10 @@ class SuccessWidget extends StatelessWidget {
                 child: Text(
                   getTodayDate(),
                   style: GoogleFonts.caveat(
-                    textStyle: Theme.of(context).textTheme.headline3!.copyWith(
-                          color: Colors.white,
-                        ),
+                    textStyle:
+                        Theme.of(context).textTheme.displaySmall!.copyWith(
+                              color: Colors.white,
+                            ),
                   ),
                 ),
               ),
@@ -52,9 +53,10 @@ class SuccessWidget extends StatelessWidget {
                 child: Text(
                   controller.generateIslamicDate(timing),
                   style: GoogleFonts.caveat(
-                    textStyle: Theme.of(context).textTheme.headline3!.copyWith(
-                          color: Colors.white,
-                        ),
+                    textStyle:
+                        Theme.of(context).textTheme.displaySmall!.copyWith(
+                              color: Colors.white,
+                            ),
                   ),
                 ),
               ),
@@ -65,7 +67,10 @@ class SuccessWidget extends StatelessWidget {
                 width: 1.sw,
                 padding: kCardPadding,
                 decoration: BoxDecoration(
-                    color: Theme.of(context).backgroundColor.withOpacity(0.2),
+                    color: Theme.of(context)
+                        .colorScheme
+                        .background
+                        .withOpacity(0.2),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(32.r),
                       topRight: Radius.circular(32.r),

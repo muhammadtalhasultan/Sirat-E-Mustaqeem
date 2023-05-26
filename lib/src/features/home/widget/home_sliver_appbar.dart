@@ -26,7 +26,7 @@ class HomeSliverAppbar extends StatelessWidget {
             child: state.displayAppbar
                 ? Text(
                     'Sirate Mustaqeem',
-                    style: Theme.of(context).textTheme.headline5,
+                    style: Theme.of(context).textTheme.headlineSmall,
                   )
                 : Text(''),
           ),
@@ -39,7 +39,7 @@ class HomeSliverAppbar extends StatelessWidget {
                   child: SvgPicture.asset(
                     'assets/images/home_icon/svg/noti.svg',
                     width: 24.w,
-                    color: Theme.of(context).textTheme.bodyText2!.color,
+                    color: Theme.of(context).textTheme.bodyMedium!.color,
                   ),
                 ),
               ),

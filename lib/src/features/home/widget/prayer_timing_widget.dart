@@ -30,7 +30,7 @@ class PrayerTimingWidget extends StatelessWidget {
           ),
           Text(
             'Next Prayer Timing:',
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           Prayers(),
           BlocBuilder<TimingBloc, TimingState>(

@@ -54,7 +54,7 @@ class AppBarExpanded extends StatelessWidget {
               children: [
                 Text(
                   'Assalamu alaikum',
-                  style: Theme.of(context).textTheme.headline6!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                 ),

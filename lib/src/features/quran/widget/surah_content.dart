@@ -30,11 +30,13 @@ class SurahContent extends StatelessWidget {
                         padding: EdgeInsets.only(left: 32.w),
                         child: Text(
                           currentSurahState.surah.nameEn,
-                          style:
-                              Theme.of(context).textTheme.headline3!.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: kDarkTextColor,
-                                  ),
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall!
+                              .copyWith(
+                                fontWeight: FontWeight.bold,
+                                color: kDarkTextColor,
+                              ),
                         ),
                       ),
                       Padding(
@@ -43,7 +45,7 @@ class SurahContent extends StatelessWidget {
                           '${currentSurahState.surah.place} - ${currentSurahState.surah.ayats} ayat',
                           style: Theme.of(context)
                               .textTheme
-                              .headline6!
+                              .titleLarge!
                               .copyWith(color: kDarkTextColor),
                         ),
                       ),
@@ -54,10 +56,11 @@ class SurahContent extends StatelessWidget {
                     padding: EdgeInsets.only(right: 16.w),
                     child: Text(
                       currentSurahState.surah.nameAr,
-                      style: Theme.of(context).textTheme.headline2!.copyWith(
-                            color: kDarkTextColor,
-                            fontFamily: 'Uthman',
-                          ),
+                      style:
+                          Theme.of(context).textTheme.displayMedium!.copyWith(
+                                color: kDarkTextColor,
+                                fontFamily: 'Uthman',
+                              ),
                     ),
                   )
                 ],

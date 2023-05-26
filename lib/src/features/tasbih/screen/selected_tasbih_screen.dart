@@ -31,7 +31,7 @@ class SelectedTasbihScreen extends StatelessWidget {
                       state.tasbih.name,
                       style: Theme.of(context)
                           .textTheme
-                          .headline6!
+                          .titleLarge!
                           .copyWith(fontFamily: 'Uthman'),
                       textAlign: TextAlign.center,
                     ),
@@ -58,7 +58,7 @@ class SelectedTasbihScreen extends StatelessWidget {
                                   foregroundColor:
                                       Theme.of(context).primaryColor,
                                   backgroundColor:
-                                      Theme.of(context).backgroundColor,
+                                      Theme.of(context).colorScheme.background,
                                   strokeWidth: 8.sp),
                             ),
                           ),
@@ -72,7 +72,7 @@ class SelectedTasbihScreen extends StatelessWidget {
                                   state.count.toString(),
                                   style: Theme.of(context)
                                       .textTheme
-                                      .headline1!
+                                      .displayLarge!
                                       .copyWith(
                                         color: Theme.of(context).primaryColor,
                                       ),

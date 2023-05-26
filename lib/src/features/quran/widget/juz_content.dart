@@ -26,7 +26,7 @@ class JuzContent extends StatelessWidget {
                     padding: EdgeInsets.only(left: 32.w),
                     child: Text(
                       currentJuzState.juz.englishName,
-                      style: Theme.of(context).textTheme.headline3!.copyWith(
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
                             fontWeight: FontWeight.bold,
                             color: kDarkTextColor,
                           ),
@@ -36,7 +36,7 @@ class JuzContent extends StatelessWidget {
                     padding: EdgeInsets.only(left: 32.w),
                     child: Text(
                       currentJuzState.juz.arabicName,
-                      style: Theme.of(context).textTheme.headline6!.copyWith(
+                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
                             color: kDarkTextColor,
                             fontFamily: 'Uthman',
                           ),

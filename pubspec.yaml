@@ -19,6 +19,7 @@ dependencies:
   flutter_native_timezone: ^2.0.0
   flutter_screenutil: ^5.0.0+2
   flutter_svg: ^1.1.6
+  geocoding: ^2.1.0
   geolocator: ^9.0.2
   google_fonts: ^3.0.1
   hydrated_bloc: ^9.0.0

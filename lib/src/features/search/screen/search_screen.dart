@@ -20,7 +20,7 @@ class SearchScreen extends StatelessWidget {
           Text(
             'The team is working on this feature and it will be '
             'available soon. Stay tuned!',
-            style: Theme.of(context).textTheme.headline6,
+            style: Theme.of(context).textTheme.titleLarge,
             textAlign: TextAlign.center,
           ),
         ],

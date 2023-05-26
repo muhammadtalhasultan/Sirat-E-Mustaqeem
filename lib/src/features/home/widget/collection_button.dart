@@ -35,7 +35,7 @@ class CollectionButton extends StatelessWidget {
             width: 64.w,
             child: Text(
               collection.title,
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
               textAlign: TextAlign.center,
             ),
           )

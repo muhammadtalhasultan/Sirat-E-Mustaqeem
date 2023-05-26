@@ -25,7 +25,7 @@ class NameScreen extends StatelessWidget {
                   ),
                   Text(
                     state.name.english,
-                    style: Theme.of(context).textTheme.headline6!.copyWith(
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                     textAlign: TextAlign.center,
@@ -35,7 +35,7 @@ class NameScreen extends StatelessWidget {
                   ),
                   Text(
                     state.name.arabic,
-                    style: Theme.of(context).textTheme.headline1!.copyWith(
+                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
                           color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Uthman',
@@ -47,7 +47,7 @@ class NameScreen extends StatelessWidget {
                   ),
                   Text(
                     state.name.englishMeaning,
-                    style: Theme.of(context).textTheme.headline6!.copyWith(),
+                    style: Theme.of(context).textTheme.titleLarge!.copyWith(),
                     textAlign: TextAlign.center,
                   ),
                   Spacer(
@@ -55,7 +55,7 @@ class NameScreen extends StatelessWidget {
                   ),
                   Text(
                     state.name.urduMeaning,
-                    style: Theme.of(context).textTheme.headline5!.copyWith(
+                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                           color: Theme.of(context).primaryColor,
                           fontFamily: 'Jameel',
                         ),
@@ -66,7 +66,7 @@ class NameScreen extends StatelessWidget {
                   ),
                   Text(
                     state.name.englishExplanation,
-                    style: Theme.of(context).textTheme.bodyText2!.copyWith(),
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(),
                     textAlign: TextAlign.center,
                   ),
                   Spacer(
