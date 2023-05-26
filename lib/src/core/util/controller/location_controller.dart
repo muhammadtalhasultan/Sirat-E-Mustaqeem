@@ -8,6 +8,7 @@ import 'package:geolocator/geolocator.dart';
 import '../../error/error_code.dart';
 import '../../error/exceptions.dart';
 import '../../error/failures.dart';
+import '../../keys.dart';
 import '../../network/api_service.dart';
 import '../../network/network_client.dart';
 import '../model/geocoding.dart';
@@ -98,13 +99,13 @@ Future<Either<Failure, Geocoding>> getAddress(
 ) async {
   // / initiate apiservice class to perform get request to get address
   // https://maps.google.com/maps/api/geocode
-  ApiService apiService =
-      ApiService(networkClient: NetworkClient('https://maps.google.com/maps/api/geocode'));
+  ApiService apiService = ApiService(
+      networkClient: NetworkClient('https://maps.google.com/maps/api/geocode'));
 
   // / query parameters for get request to get address from api
   Map<String, Object> params = {
     'latlng': '$latitude,$longitude',
-    'key': 'AIzaSyC486rxgDbHQCCtVoTfpy_fxYcho1dcLy4',
+    'key': kGoogleCloudApiKey,
   };
 
   try {
