@@ -7,9 +7,10 @@ class NetworkClient {
 
   NetworkClient(String baseUrl) {
     BaseOptions baseOptions = BaseOptions(
-        receiveTimeout:
-            0, // db file size 15,665,152 byte minimum 5kbps 3133seconds
-        connectTimeout: 30000,
+        receiveTimeout: Duration(
+            seconds:
+                30), // db file size 15,665,152 byte minimum 5kbps 3133seconds
+        connectTimeout: Duration(seconds: 30),
         baseUrl: baseUrl,
         maxRedirects: 2);
     _dio = Dio(baseOptions);

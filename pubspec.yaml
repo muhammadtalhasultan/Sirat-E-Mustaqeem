@@ -10,7 +10,7 @@ dependencies:
   cached_network_image: ^3.1.0
   cupertino_icons: ^1.0.2
   dartz: ^0.10.0
-  dio: ^4.0.0
+  dio: ^5.1.2
   equatable: ^2.0.3
   flutter:
     sdk: flutter
@@ -18,10 +18,10 @@ dependencies:
   flutter_local_notifications: ^12.0.4
   flutter_native_timezone: ^2.0.0
   flutter_screenutil: ^5.0.0+2
-  flutter_svg: ^1.1.6
+  flutter_svg: ^2.0.5
   geocoding: ^2.1.0
   geolocator: ^9.0.2
-  google_fonts: ^3.0.1
+  google_fonts: ^4.0.4
   hydrated_bloc: ^9.0.0
   intl: ^0.18.0
   lottie: ^2.1.0
