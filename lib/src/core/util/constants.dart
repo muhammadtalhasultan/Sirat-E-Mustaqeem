@@ -4,8 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 const String PRAYER_TIMING_URL = 'http://api.aladhan.com/v1/timings/';
 
 const String DATABASE_FILE = 'siratemustaqeem-db.db';
-const String DATABASE_URL =
-    'https://raw.githubusercontent.com/muhammadtalhasultan/Sirat-e-Mustaqeem-Master/';
+const String DATABASE_URL = 'https://talhasultan.dev/assets/';
 
 const String PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.devtechnologies.siratemustaqeem';
 const WEBSITE_URL = 'https://talhasultan.dev/';

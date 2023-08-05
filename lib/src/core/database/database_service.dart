@@ -75,7 +75,7 @@ class DatabaseService {
 
     try {
       final response = await NetworkClient(DATABASE_URL).download(
-        'main/siratemustaqeem-db.db',
+        'siratemustaqeem-db.db',
         pathName,
         (received, total) {
           if (total != -1) {
